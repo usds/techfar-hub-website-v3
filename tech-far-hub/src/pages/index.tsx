@@ -1,16 +1,14 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import '@trussworks/react-uswds/lib/uswds.css'
-import '@trussworks/react-uswds/lib/index.css'
+import Layout from '../components/layout'
 
-import { GovBanner } from '@trussworks/react-uswds'
 
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <main>
-      <GovBanner />
-    </main>
+    <Layout>
+      <h1>Hello world</h1>
+    </Layout>
   )
 }
 
