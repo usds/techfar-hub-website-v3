@@ -1,10 +1,9 @@
-name: Gatsby Publish
+name: Gatsby Publish Main
 
 on:
   push:
     branches:
       - main
-      - mattbowen-usds/v3-48-gatsby
 
 jobs:
   build:
