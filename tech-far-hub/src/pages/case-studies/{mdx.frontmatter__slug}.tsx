@@ -1,5 +1,6 @@
 import * as React from "react"
-import type { HeadFC, PageProps, graphql } from "gatsby"
+import type { HeadFC, PageProps } from "gatsby"
+import { graphql } from "gatsby"
 import { Grid } from '@trussworks/react-uswds'
 import Layout from '../../components/layout'
 
