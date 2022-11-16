@@ -1,4 +1,5 @@
 import * as React from "react"
+import { withPrefix } from "gatsby"
 
 import { GridContainer, Grid, FooterNav, SocialLink, SocialLinks } from '@trussworks/react-uswds'
 
@@ -20,7 +21,7 @@ const Footer = () => {
                         <Grid row gap={2}>
                             <Grid tablet={{ col: 2 }}>
                                 <Grid row>
-                                    <img src="/images/usds-logo-footer.svg" alt="United States Digital Service" />
+                                    <img src={withPrefix("/images/usds-logo-footer.svg")} alt="United States Digital Service" />
                                 </Grid>
                                 <Grid row>
                                     U.S. Digital Service
