@@ -1,10 +1,14 @@
 import * as React from "react"
 
-import { NavDropDownButton, Menu, ExtendedNav, Search } from '@trussworks/react-uswds'
+import { NavDropDownButton, Menu, ExtendedNav, Search, NavMenuButton } from '@trussworks/react-uswds'
 
-const Navigation = () => {
-    const [expanded, setExpanded] = React.useState(false);
-    const onClick = (): void => setExpanded((prvExpanded) => !prvExpanded)
+type onClickHandler = () => void;
+
+interface iNavigation {
+    isNavExpanded: boolean,
+    onNavExpanded: onClickHandler
+}
+const Navigation = ({isNavExpanded, onNavExpanded}: iNavigation) => {
     const [isOpen, setIsOpen] = React.useState([false, false, false])
     /**
      * This toggle function will handle all navigation toggle links
@@ -100,15 +104,14 @@ const Navigation = () => {
             <span>History of TFH</span>
         </a>,
     ]
-
     return (
         <>
             <ExtendedNav
                 primaryItems={mainNavItems}
                 secondaryItems={[]}
-                mobileExpanded={expanded}
-                onToggleMobileNav={onClick}>
-                <Search onSubmit={() => false } />
+                mobileExpanded={isNavExpanded}
+                onToggleMobileNav={onNavExpanded}>
+                <Search onSubmit={() => false} />
             </ExtendedNav>
 
         </>

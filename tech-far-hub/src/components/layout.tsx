@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import '@trussworks/react-uswds/lib/uswds.css'
 import '@trussworks/react-uswds/lib/index.css'
 
-import { GovBanner, GridContainer, Grid, Header, Title } from '@trussworks/react-uswds'
+import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from '@trussworks/react-uswds'
 import Navigation from "./navigation"
 import Footer from "./footer"
 
@@ -13,6 +13,8 @@ interface ILayoutProps {
 
 
 const Layout = ({ children }: ILayoutProps) => {
+    const [navExpanded, setNavExpanded] = React.useState(false);
+    const onNavExpand = (): void => setNavExpanded((prvExpanded) => !prvExpanded)
 
 
 
@@ -26,9 +28,9 @@ const Layout = ({ children }: ILayoutProps) => {
                         <em style={{ display: 'block', fontSize: '50%', fontWeight: 'normal', }}>an initiative of US Digital Service</em>
 
                     </Title>
-                    {/* <NavMenuButton onClick={onClick} label="Menu" /> */}
+                    <NavMenuButton onClick={onNavExpand} label="Menu" />
                 </div>
-                <Navigation />
+                <Navigation isNavExpanded={navExpanded} onNavExpanded={onNavExpand} />
             </Header>
 
             <main id="main-content">
