@@ -62,7 +62,12 @@ const Footer = () => {
 
                             </Grid>
                             <Grid tablet={{ col: 3 }}>
-                                 <SocialLinks links={socialLinks} />
+                                <Grid row className="usa-footer__social-heading">
+                                    <strong>Follow USDS</strong>
+                                </Grid>
+                                <Grid row>
+                                    <SocialLinks links={socialLinks} />
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>

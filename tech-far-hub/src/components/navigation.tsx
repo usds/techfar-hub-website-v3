@@ -8,7 +8,7 @@ interface iNavigation {
     isNavExpanded: boolean,
     onNavExpanded: onClickHandler
 }
-const Navigation = ({isNavExpanded, onNavExpanded}: iNavigation) => {
+const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
     const [isOpen, setIsOpen] = React.useState([false, false, false])
     /**
      * This toggle function will handle all navigation toggle links
