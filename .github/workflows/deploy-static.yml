@@ -17,5 +17,5 @@ jobs:
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-          deploy-branch: main
+          deploy-branch: gh-pages
           working-dir: tech-far-hub
