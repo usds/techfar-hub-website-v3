@@ -5,6 +5,7 @@ import '@trussworks/react-uswds/lib/index.css'
 
 import { GovBanner, GridContainer, Grid, Header, Title } from '@trussworks/react-uswds'
 import Navigation from "./navigation"
+import Footer from "./footer"
 
 interface ILayoutProps {
     children: ReactNode,
@@ -18,7 +19,6 @@ const Layout = ({ children }: ILayoutProps) => {
     return (
         <>
             <GovBanner />
-            {/* <div className={`usa-overlay ${expanded ? 'is-visible' : ''}`}></div> */}
             <Header extended={true}>
                 <div className="usa-navbar">
                     <Title>TechFAR Hub
@@ -38,6 +38,7 @@ const Layout = ({ children }: ILayoutProps) => {
                     </Grid>
                 </GridContainer>
             </main>
+            <Footer />
         </>
     )
 }
