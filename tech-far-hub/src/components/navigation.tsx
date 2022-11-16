@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { NavDropDownButton, Menu, ExtendedNav, Search, NavMenuButton } from '@trussworks/react-uswds'
+import { NavDropDownButton, Menu, ExtendedNav, Search } from '@trussworks/react-uswds'
 
 type onClickHandler = () => void;
 
