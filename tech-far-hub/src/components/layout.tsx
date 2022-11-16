@@ -37,7 +37,9 @@ const Layout = ({ children }: ILayoutProps) => {
             <main id="main-content">
                 <GridContainer>
                     <Grid row>
-                        {children}
+                        <Grid col="fill">
+                            {children}
+                        </Grid>
                     </Grid>
                 </GridContainer>
             </main>
