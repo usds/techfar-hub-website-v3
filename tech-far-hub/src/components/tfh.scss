@@ -1,0 +1,19 @@
+.usa-footer {
+    background-color: #1c1c1c;
+
+    a {
+        color: #fff;
+    }
+
+    .usa-social-link {
+        background: none;
+    }
+
+    .usa-social-link img {
+        filter: invert(100%);
+    }
+
+    .usa-footer__social-heading {
+        color: #fff;
+    }
+}
