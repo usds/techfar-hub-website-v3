@@ -58,3 +58,12 @@ jobs:
           destination-github-username: 'usds'
           destination-repository-name: 'techfar-hub-staging-v3'
           target-branch: main
+      - name: Add preview commit comment
+        uses: peter-evans/commit-comment@v2
+        env:
+          SITE_URL: https://usds.github.io/techfar-hub-staging-v3/branches/${{ env.branch }}
+        with:
+          body: |
+            - [Preview your changes on staging][1]
+
+            [1]: ${{ env.SITE_URL  }}
