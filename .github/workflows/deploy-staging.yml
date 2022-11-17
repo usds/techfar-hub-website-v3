@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3.1.0
       - name: Extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//:/g')"
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//:/g')" >> $GITHUB_ENV
         id: extract_branch
       - name: Setup node 18
         uses: actions/setup-node@v3
@@ -23,8 +23,8 @@ jobs:
         uses: enriikke/gatsby-gh-pages-action@v2
         env:
           DEPLOY_TYPE: 'staging'
-          DEPLOY_PREFIX: techfar-hub-staging-v3/branches/${{ steps.extract_branch.outputs.branch }}
-          SITE_URL: https://usds.github.io/techfar-hub-staging-v3/branches/${{ steps.extract_branch.outputs.branch }}
+          DEPLOY_PREFIX: techfar-hub-staging-v3/branches/${{ env.branch }}
+          SITE_URL: https://usds.github.io/techfar-hub-staging-v3/branches/${{ env.branch }}
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
@@ -36,8 +36,8 @@ jobs:
         run: |
           shopt -s extglob dotglob
           rm -rf .git
-          mkdir ${{ steps.extract_branch.outputs.branch }}
-          mv !(${{ steps.extract_branch.outputs.branch }}) ${{ steps.extract_branch.outputs.branch }}
+          mkdir ${{ env.branch }}
+          mv !(${{ env.branch }}) ${{ env.branch }}
       - name: Clone the staging repo
         uses: actions/checkout@v3.1.0
         with:
@@ -46,8 +46,8 @@ jobs:
           path: techfar-hub-staging-v3
       - name: Move the built files, commit them
         run: |
-         rm -rf techfar-hub-staging-v3/branches/${{ steps.extract_branch.outputs.branch }}
-         mv ${{ steps.extract_branch.outputs.branch }}/tech-far-hub/public techfar-hub-staging-v3/branches/${{ steps.extract_branch.outputs.branch }}
+         rm -rf techfar-hub-staging-v3/branches/${{ env.branch }}
+         mv ${{ env.branch }}/tech-far-hub/public techfar-hub-staging-v3/branches/${{ env.branch }}
          cd techfar-hub-staging-v3
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
