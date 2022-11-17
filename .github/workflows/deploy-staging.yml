@@ -11,22 +11,26 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3.1.0
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//:/g')"
+        id: extract_branch
       - name: Setup node 18
         uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Build pages
         uses: enriikke/gatsby-gh-pages-action@v2
+        env:
+          DEPLOY_TYPE: 'staging'
+          DEPLOY_PREFIX: techfar-hub-staging-v3/branches/${{ steps.extract_branch.outputs.branch }}
+          SITE_URL: https://usds.github.io/techfar-hub-staging-v3/branches/${{ steps.extract_branch.outputs.branch }}
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
           working-dir: tech-far-hub
           gatsby-args: --prefix-paths
           skip-publish: true
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//:/g')"
-        id: extract_branch
       - name: Move result files
         shell: bash
         run: |
