@@ -63,6 +63,8 @@ jobs:
         uses: peter-evans/commit-comment@v2
         with:
           body: |
+            Build with prefix: $ {{ env.DEPLOY_PREFIX }}
+
             - [Preview your changes on staging][1]
 
             [1]: ${{ env.SITE_URL  }}

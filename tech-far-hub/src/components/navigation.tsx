@@ -29,7 +29,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
 
 
     const getStartedSubItems = [
-        <Link to={withPrefix('/get-started')}>Get Started</Link>
+        <Link to='/get-started'>Get Started</Link>
     ]
 
     const handbookItems = [
