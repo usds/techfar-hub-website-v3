@@ -1,4 +1,5 @@
 import * as React from "react"
+import { withPrefix, Link } from "gatsby"
 
 import { NavDropDownButton, Menu, ExtendedNav, Search } from '@trussworks/react-uswds'
 
@@ -28,7 +29,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
 
 
     const getStartedSubItems = [
-        <a href="#start">First item</a>
+        <Link to={withPrefix('/get-started')}>Get Started</Link>
     ]
 
     const handbookItems = [

@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { graphql } from "gatsby"
+import { graphql, Link, withPrefix } from "gatsby"
 import { CardGroup, Card, CardHeader, CardBody, CardFooter, Button } from '@trussworks/react-uswds'
 import Layout from '../../components/layout'
 import { MDXProvider } from "@mdx-js/react"
@@ -9,7 +9,7 @@ const GetStartedPage: React.FC<PageProps> = ({ data, children }) => {
   return (
     <Layout>
       <h2>{data.getStarted.nodes[0].frontmatter.heading}</h2>
-      <hr />
+      <hr className="text-accent-warm " />
       {children}
       <p className='usa-updated'>Updated: {data.getStarted.nodes[0].frontmatter.updated}</p>
       <CardGroup>
@@ -26,7 +26,7 @@ const GetStartedPage: React.FC<PageProps> = ({ data, children }) => {
                 <p>{node.frontmatter.description}</p>
               </CardBody>
               <CardFooter>
-                <Button type="button" secondary>Go</Button>
+                <Link className="float-right font-sans-lg " to={withPrefix(`/${node.frontmatter.slug}`)}>Go &gt;</Link>
               </CardFooter>
             </Card>
           ))
