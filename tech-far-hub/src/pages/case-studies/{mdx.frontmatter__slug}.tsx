@@ -9,7 +9,7 @@ import Layout from '../../components/layout'
 const CaseStudyPage: React.FC<PageProps> = ({ data, children }) => {
   return (
     <Layout>
-      <h2>{data.mdx.frontmatter.title}</h2>
+      <h2>{data.mdx.frontmatter.heading}</h2>
       {children}
     </Layout>
   )
@@ -23,7 +23,7 @@ export const query = graphql`
   query ($id: String) {
     mdx(id: {eq: $id}) {
       frontmatter {
-        title
+        heading
       }
     }
   }

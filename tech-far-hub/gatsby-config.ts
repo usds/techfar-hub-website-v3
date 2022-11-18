@@ -32,18 +32,11 @@ const config: GatsbyConfig = {
     }, {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "case-studies",
-        "path": `${__dirname}/content/case-studies`
+        "name": "content",
+        "path": `./content/`
       },
  
-    }, {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "get-started",
-        "path": `${__dirname}/content/get-started`
-      },
- 
-    }
+    } 
   ]
 };
 
