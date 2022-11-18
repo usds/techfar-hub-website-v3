@@ -1,0 +1,68 @@
+name: Gatsby Publish Preview Builds
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3.1.0
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//:/g')" >> $GITHUB_ENV
+        id: extract_branch
+      - name: Set additional env vars for all steps
+        shell: bash
+        run: |
+          echo "DEPLOY_PREFIX=techfar-hub-staging-v3/branches/${{ env.branch }}" >> $GITHUB_ENV
+          echo "SITE_URL=https://usds.github.io/techfar-hub-staging-v3/branches/${{ env.branch }}" >> $GITHUB_ENV
+      - name: Setup node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Build pages
+        uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          working-dir: tech-far-hub
+          gatsby-args: --prefix-paths
+          skip-publish: true
+      - name: Move result files
+        shell: bash
+        run: |
+          shopt -s extglob dotglob
+          rm -rf .git
+          mkdir ${{ env.branch }}
+          mv !(${{ env.branch }}) ${{ env.branch }}
+      - name: Clone the staging repo
+        uses: actions/checkout@v3.1.0
+        with:
+          repository: usds/techfar-hub-staging-v3
+          ref: 'main'
+          path: techfar-hub-staging-v3
+      - name: Move the built files, commit them
+        run: |
+         rm -rf techfar-hub-staging-v3/branches/${{ env.branch }}
+         mv ${{ env.branch }}/tech-far-hub/public techfar-hub-staging-v3/branches/${{ env.branch }}
+         cd techfar-hub-staging-v3
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.STAGING_KEY  }}
+        with:
+          source-directory: 'techfar-hub-staging-v3'
+          destination-github-username: 'usds'
+          destination-repository-name: 'techfar-hub-staging-v3'
+          target-branch: main
+      - name: Add preview commit comment
+        uses: peter-evans/commit-comment@v2
+        with:
+          body: |
+            - [Preview your changes on staging][1]
+
+            [1]: ${{ env.SITE_URL  }}
