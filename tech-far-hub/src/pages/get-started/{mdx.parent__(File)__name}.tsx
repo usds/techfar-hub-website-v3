@@ -26,7 +26,7 @@ const GetStartedPage: React.FC<PageProps> = ({ data, children }) => {
                 <p>{node.frontmatter.description}</p>
               </CardBody>
               <CardFooter>
-                <Link className="float-right font-sans-lg " to={withPrefix(`/${node.frontmatter.slug}`)}>Go &gt;</Link>
+                <Link className="float-right font-sans-lg " to={withPrefix(`/get-started/${node.frontmatter.slug}`)}>Go &gt;</Link>
               </CardFooter>
             </Card>
           ))
