@@ -16,7 +16,7 @@ const GetStartedPage: React.FC<PageProps<Queries.GetStartedPageQuery>> = ({
       <p className="usa-updated">Updated: {data.getStarted?.frontmatter?.updated}</p>
       <CardGroup>
         {data.lifecycle.nodes.map((node) => (
-          <Card headerFirst gridLayout={{ tablet: { col: 3 } }}>
+          <Card headerFirst gridLayout={{ tablet: { col: 3 } }} key={node.frontmatter?.slug}>
             <CardHeader className="bg-base-lightest">
               <h3 className="usa-card__heading">
                 {node.frontmatter?.lifecycle_stage} {node.frontmatter?.heading}
