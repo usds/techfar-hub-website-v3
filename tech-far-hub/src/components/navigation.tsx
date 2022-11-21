@@ -1,5 +1,7 @@
 import * as React from "react";
-import { withPrefix, Link } from "gatsby";
+import { Link } from "gatsby";
+import { USWDS_BREAKPOINTS } from "../settings";
+import { useWindowSize } from "react-use";
 
 import { NavDropDownButton, Menu, ExtendedNav, Search } from "@trussworks/react-uswds";
 
@@ -10,6 +12,7 @@ interface iNavigation {
   onNavExpanded: onClickHandler;
 }
 const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
+  const { width } = useWindowSize();
   const [isOpen, setIsOpen] = React.useState([false, false, false]);
   /**
    * This toggle function will handle all navigation toggle links
@@ -19,17 +22,29 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
   const onToggle = (index: number): void => {
     // The setIsOpen is used to toggle the currently selected nav link
     setIsOpen((prevIsOpen) => {
-      const newIsOpen = [...isOpen];
-      newIsOpen[index] = !prevIsOpen[index];
-
-      // TODO Implement auto-closing at desktop size, ala j40
+      let newIsOpen: Array<boolean>;
+      if (width >= USWDS_BREAKPOINTS.DESKTOP) {
+        // On desktop, only allow one menu item to be open at a time
+        newIsOpen = new Array(isOpen.length).fill(false);
+        newIsOpen[index] = !prevIsOpen[index];
+      } else {
+        // On mobile, allow several to open at a time
+        newIsOpen = [...isOpen];
+        newIsOpen[index] = !prevIsOpen[index];
+      }
       return newIsOpen;
     });
   };
 
   const getStartedSubItems = [<Link to="/get-started">Get Started</Link>];
-
-  const handbookItems = [<a href="#start">First item</a>];
+  const secondaryLinks = [
+    <a href="#privacy" key="privacy">
+      Privacy Policy
+    </a>,
+    <a href="#latest-updates" key="updates">
+      Latest Updates
+    </a>,
+  ];
 
   const subMenuItems = [
     <a href="#linkOne" key="one">
@@ -58,24 +73,24 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
         onToggle={(): void => {
           onToggle(1);
         }}
-        menuId="presolicitation"
+        menuId="preSolicitationDropdown"
         isOpen={isOpen[1]}
         label="Pre-Solicitation"
         isCurrent={false}
       />
-      <Menu key="learningCenter" items={subMenuItems} isOpen={isOpen[1]} />
+      <Menu key="preSolicitation" items={subMenuItems} isOpen={isOpen[1]} />
     </>,
 
-    <a href="#two" key="Solicitation" className="usa-nav__link">
+    <a href="#two" key="solicitations" className="usa-nav__link">
       <span>Solicitation</span>
     </a>,
     <a href="#three" key="evaluation" className="usa-nav__link">
       <span>Evaluation</span>
     </a>,
-    <a href="#three" key="contractadmin" className="usa-nav__link">
+    <a href="#three" key="contactAdministration" className="usa-nav__link">
       <span>Contract Administration</span>
     </a>,
-    <a href="#three" key="resources" className="usa-nav__link">
+    <a href="#three" key="history" className="usa-nav__link">
       <span>Resources</span>
     </a>,
   ];
@@ -83,7 +98,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
     <>
       <ExtendedNav
         primaryItems={mainNavItems}
-        secondaryItems={[]}
+        secondaryItems={secondaryLinks}
         mobileExpanded={isNavExpanded}
         onToggleMobileNav={onNavExpanded}
       >
