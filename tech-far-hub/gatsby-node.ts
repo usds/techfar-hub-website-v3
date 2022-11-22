@@ -1,4 +1,5 @@
 import type { GatsbyNode } from "gatsby";
+import { withPrefix } from "gatsby";
 import path from "path";
 
 interface ITemplatedNode {
@@ -12,10 +13,19 @@ interface ITemplatedNode {
   };
   frontmatter: {
     slug?: string;
+    heading?: string;
   };
   internal: {
     contentFilePath: string;
   };
+}
+
+interface IEnhancedTemplatedNode extends ITemplatedNode {
+  pagePath: string;
+  parentDirs: string;
+  pageName: string;
+  pageIdentifier: string;
+  heading?: string;
 }
 
 interface ITemplateNodeResultSet {
@@ -33,7 +43,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const { createPage } = actions;
 
   const result: IGraphQLTemplateNodeResult = await graphql(`
-    {
+    query CreatePages {
       allMdx {
         edges {
           node {
@@ -50,6 +60,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
             }
             frontmatter {
               slug
+              heading
             }
             internal {
               contentFilePath
@@ -65,21 +76,60 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     return;
   }
 
-  result.data.allMdx.edges.forEach(({ node }: { node: ITemplatedNode }) => {
+  const nodes: IEnhancedTemplatedNode[] = result.data.allMdx.edges.map(({ node }: { node: ITemplatedNode }) => {
     const parentDirs: string = node.parent.relativeDirectory;
-    const contentType: string = node.parent.relativeDirectory.split(path.sep)[0];
     const pageName: string = node.parent.name;
-    const pageIdentier: string = node.frontmatter.slug || pageName;
+    const pageIdentifier: string = node.frontmatter.slug || pageName;
+
+    const pagePath =
+      pageName == "index" ? withPrefix(`${parentDirs}/`) : withPrefix(`${parentDirs}/${pageIdentifier}/`);
+    const heading = node.frontmatter?.heading;
+    return {
+      ...node,
+      pagePath,
+      parentDirs,
+      pageName,
+      pageIdentifier,
+      heading,
+    };
+  });
+  const getHeadingForPath = (path: string) => {
+    for (let node of nodes) {
+      if (path === "/") return "Home";
+      if (node.pagePath == path) return node.heading;
+    }
+    return undefined;
+  };
+
+  nodes.forEach((node: IEnhancedTemplatedNode) => {
+    const contentType: string = node.parent.relativeDirectory.split(path.sep)[0];
 
     // TODO: Make page-specific templates more general
-    const templateName = pageName === "index" ? "template-index.tsx" : "template-default.tsx";
-    const pagePath = pageName == "index" ? `${parentDirs}/` : `${parentDirs}/${pageIdentier}/`;
+    const templateName = node.pageName === "index" ? "template-index.tsx" : "template-default.tsx";
+    const pagePath = node.pageName == "index" ? `${node.parentDirs}/` : `${node.parentDirs}/${node.pageIdentifier}/`;
     const template = path.resolve("src", "pages", contentType, templateName);
+    const pathParts = node.pagePath.replace(/\/$/, "").split("/");
+    const breadCrumbPaths = pathParts.reduce(
+      (accumulator: string[], currentValue: string) => [
+        ...accumulator,
+        [accumulator[accumulator.length - 1], currentValue, ""].join("/").replace("//", "/"),
+      ],
+      []
+    );
+    const breadCrumbHeadings = breadCrumbPaths.map(getHeadingForPath);
+    const breadCrumbs = breadCrumbPaths.map((path, i) =>
+      Object.fromEntries([
+        ["path", path],
+        ["label", breadCrumbHeadings[i]],
+      ])
+    );
     createPage({
       path: pagePath,
       component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         id: node.id,
+        breadCrumbs,
+        pathParts,
       },
     });
   });
