@@ -3,12 +3,11 @@ import type { HeadFC } from "gatsby";
 import { graphql, Link, PageProps } from "gatsby";
 import { CardGroup, Card, CardHeader, CardBody, CardFooter, Button } from "@trussworks/react-uswds";
 import Layout from "../../components/layout";
+import { IPageContext } from "../../types";
 
-const GetStartedPage: React.FC<PageProps<Queries.GetStartedPageQuery>> = ({
-  data,
-  children,
-  pageContext,
-}: PageProps<Queries.GetStartedPageQuery>) => {
+type GetStartedProps = PageProps<Queries.GetStartedPageQuery, IPageContext>;
+
+const GetStartedPage: React.FC<GetStartedProps> = ({ data, children, pageContext }: GetStartedProps) => {
   return (
     <Layout breadCrumbs={pageContext.breadCrumbs}>
       <h2>{data.getStarted?.frontmatter?.heading}</h2>

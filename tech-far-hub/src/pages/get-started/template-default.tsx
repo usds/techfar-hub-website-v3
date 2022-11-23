@@ -4,11 +4,9 @@ import { graphql } from "gatsby";
 import Layout from "../../components/layout";
 import { IPageContext } from "../../types";
 
-const LifecyclePage: React.FC<PageProps<Queries.GetStartedInnerPageQuery>> = ({
-  data,
-  children,
-  pageContext,
-}: PageProps<Queries.GetStartedInnerPageQuery>) => {
+type LifecyclePageProps = PageProps<Queries.GetStartedInnerPageQuery, IPageContext>;
+
+const LifecyclePage: React.FC<LifecyclePageProps> = ({ data, children, pageContext }: LifecyclePageProps) => {
   return (
     <Layout breadCrumbs={pageContext.breadCrumbs}>
       <h2>{data.mdx?.frontmatter?.heading}</h2>

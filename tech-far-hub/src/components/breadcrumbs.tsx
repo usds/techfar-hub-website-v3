@@ -3,8 +3,8 @@ import { BreadcrumbBar, BreadcrumbLink, Breadcrumb } from "@trussworks/react-usw
 import { IBreadcrumb } from "../types";
 import { withPrefix } from "gatsby";
 
-export const Breadcrumbs = ({ breadCrumbs }: { breadCrumbs: [IBreadcrumb] }) => {
-  const rows = [];
+export const Breadcrumbs = ({ breadCrumbs }: { breadCrumbs: IBreadcrumb[] }) => {
+  const rows: JSX.Element[] = [];
   breadCrumbs.forEach((crumbData, index) => {
     if (index < breadCrumbs.length - 1) {
       rows.push(
