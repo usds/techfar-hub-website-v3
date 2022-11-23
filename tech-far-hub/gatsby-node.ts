@@ -82,7 +82,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const pageIdentifier: string = node.frontmatter.slug || pageName;
 
     const pagePath =
-      pageName == "index" ? withPrefix(`${parentDirs}/`) : withPrefix(`${parentDirs}/${pageIdentifier}/`);
+      pageName == "index" ? `${parentDirs}/` : `${parentDirs}/${pageIdentifier}/`;
     const heading = node.frontmatter?.heading;
     return {
       ...node,
@@ -106,7 +106,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
     // TODO: Make page-specific templates more general
     const templateName = node.pageName === "index" ? "template-index.tsx" : "template-default.tsx";
-    const pagePath = node.pageName == "index" ? `${node.parentDirs}/` : `${node.parentDirs}/${node.pageIdentifier}/`;
+    const pagePath = node.pagePath;
     const template = path.resolve("src", "pages", contentType, templateName);
     const pathParts = node.pagePath.replace(/\/$/, "").split("/");
     const breadCrumbPaths = pathParts.reduce(
