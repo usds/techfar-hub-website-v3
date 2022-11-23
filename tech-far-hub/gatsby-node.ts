@@ -1,5 +1,4 @@
 import type { GatsbyNode } from "gatsby";
-import { withPrefix } from "gatsby";
 import path from "path";
 
 interface ITemplatedNode {
@@ -81,8 +80,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const pageName: string = node.parent.name;
     const pageIdentifier: string = node.frontmatter.slug || pageName;
 
-    const pagePath =
-      pageName == "index" ? `${parentDirs}/` : `${parentDirs}/${pageIdentifier}/`;
+    const pagePath = pageName == "index" ? `/${parentDirs}/` : `/${parentDirs}/${pageIdentifier}/`;
     const heading = node.frontmatter?.heading;
     return {
       ...node,
@@ -96,7 +94,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const getHeadingForPath = (path: string) => {
     for (let node of nodes) {
       if (path === "/") return "Home";
-      if (node.pagePath == path) return node.heading;
+      if (node.pagePath === path) return node.heading;
     }
     return undefined;
   };
@@ -123,6 +121,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         ["label", breadCrumbHeadings[i]],
       ])
     );
+    console.log({
+      id: node.id,
+      breadCrumbs,
+      pathParts,
+    });
     createPage({
       path: pagePath,
       component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
