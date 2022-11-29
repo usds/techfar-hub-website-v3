@@ -5,6 +5,7 @@ seo_title: Competition Requirement
 tags: [tag1, tag2, tag3]
 updated: "2022-11-17"
 description: How does Agile Software Development fit into technology procurements?
+lifecycle_stage: 2
 ---
 
 ### Generally speaking, what is Agile software development, and how does it fit into the acquisition development lifecycle?
