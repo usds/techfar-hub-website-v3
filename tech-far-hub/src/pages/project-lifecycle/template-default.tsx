@@ -26,7 +26,7 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
   const currentSlug = data.currentPage?.frontmatter?.slug;
   const tocLinks = data.currentPage?.tableOfContents?.items.map((item: ITOCItem) => {
     return (
-      <a href={item.url} key={item.url}>
+      <a href={item.url} key={item.url} className="font-ui-2xs">
         {item.title}
       </a>
     );
