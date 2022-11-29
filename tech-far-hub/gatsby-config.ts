@@ -1,4 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
+// import rehypeSlug from "rehype-slug";
+// import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -24,6 +26,11 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+          },
+        ],
       },
     },
     "gatsby-plugin-sharp",
