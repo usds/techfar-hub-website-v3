@@ -7,7 +7,7 @@ updated: "2022-11-17"
 description: How does Agile Software Development fit into technology procurements?
 ---
 
-### Generally speaking, what is Agile software development, and how does it fit into the acquisition development lifecycle?
+<Drawer heading="General considerations for agile software acquisition" summary="Generally speaking, what is Agile software development, and how does it fit into the acquisition development lifecycle?">
 
 Agile software development is a method of software development that utilizes an iterative development process, designs services based on real user needs, and constantly improves software from user feedback. Agile software development principles apply to both pre-award and post-award contexts.
 
@@ -28,18 +28,16 @@ A key feature of Agile software development is the emphasis on the team approach
 To increase the probability of a successful Agile software development, a focus on the entire acquisition lifecycle is critical specifically to past performance, past experience, and market research. Early vendor engagement, including conducting industry days and releasing Requests for Information (RFIs) and draft Requests for Proposal (RFPs) or draft Requests for Quotation (RFQ), is important for both the vendors and the Government. Early vendor engagement informs the vendor community about the Government’s desire to utilize Agile processes and provides an avenue for the vendors to ask questions to ensure they understand the process and what the Government seeking to procure. The Government benefits by identifying vendors who are capable of supporting the specific software and have Agile software development experience.
 
 As detailed in this document, Agile software development expects and anticipates changing technical requirements within the agency’s high-level vision or need, which remains constant. Therefore, it is imperative throughout the Agile process to give end users an opportunity to use the system or features to determine what should drive future technical features. This will allow the Government to benefit from the Agile process and shape a product that is responsive to the needs of the users.
+</Drawer>
 
----
-
-### Should Agile software development be used to address all IT needs?
+<Drawer heading="General considerations for agile software acquisition" summary="Should Agile software development be used to address all IT needs?">
 
 No. Agile software development is intended for activities that require significant software design and development. Many IT needs can be met with commercially available off-the-shelf items and commoditized services, such as subscription services for software licenses, with little or no development work. In those cases when development is not needed, the Government is best served by purchasing commercially available off-the-shelf items.
 
 Like most tools, Agile is not a one-size-fits-all strategy. Digital services, especially those intended for use by the public (e.g., irs.gov, healthcare.gov or recreation.gov), generally require significant software design and development and will benefit from Agile approaches. Agile is beneficial for software development projects, or ones that involve the configuration and modification of commercially available off-the-shelf items. But if IT needs can be met with commercially available off-the-shelf items without configuration, design, or development, there may be no need to apply Agile processes.
+</Drawer>
 
----
-
-### Are agencies authorized to shape their IT software acquisitions around Agile principles? The FAR does not expressly speak to Agile concepts such as refining technical solutions after contract award based on testing and customer feedback or buying a product with a process rather than an identified solution.
+<Drawer heading="General considerations for agile software acquisition" summary="Are agencies authorized to shape their IT software acquisitions around Agile principles? The FAR does not expressly speak to Agile concepts such as refining technical solutions after contract award based on testing and customer feedback or buying a product with a process rather than an identified solution.">
 
 The principles of Agile software development are consistent with modular contracting, which is discussed in FAR Part 39, Acquisition of Information Technology. In addition, as a general matter, an agency may pursue acquisition practices that are not expressly endorsed in the FAR, including Agile software development, as long as they are not expressly prohibited by law.
 
@@ -56,9 +54,9 @@ Acquisition policies and procedures for acquiring digital services (which are In
 
 A number of agencies have used (or are in the process of adopting) Agile software development methodologies to improve investment manageability and reduce the time to value. As explained in this document, FAR authorities can be used to support IT projects that involve contractors performing in accordance with Agile principles. In some cases, these practices will require agencies to think beyond traditional approaches to more efficient ones, but ones that still reflect a commitment to the core values of public procurement, including competition, impartiality, accountability for results, and providing the best value to the taxpayer. Agile is not a method of procurement, but a methodology on how the contractor performs the work. The FAR specifically encourages agencies to pursue business process innovations and makes clear that they should not be constrained by the lack of specific endorsement for a particular practice. In particular, FAR 1.102-4(e) states that if a policy or procedure is not specifically addressed in the FAR nor prohibited by law, Executive Order or other regulation, agencies should not assume it is prohibited.[*9*] “Rather, absence of direction should be interpreted as permitting the Team to innovate and use sound business judgment that is otherwise consistent with law and within the limits of their authority.”
 
----
+</Drawer>
 
-### Because Agile software development is a new process, doesn’t it entail more risk?
+ <Drawer heading="General considerations for agile software acquisition" summary="Because Agile software development is a new process, doesn’t it entail more risk?">
 
 Even though Agile software development is a new practice to the Government, it dates back to the 1970s and has been used in private industry for many years (as well as some Government agencies) where it repeatedly demonstrated a shortened time to value, enabled better adaption to changing need, and lowered the risk of project failure. These results make a compelling case to adopt Agile in federal IT projects and ensure acquisitions support these efforts. Moreover, careful selection of contract type will mitigate risk as discussed in Section E.
 
@@ -80,10 +78,9 @@ Multiple studies of the traditional “waterfall” process, where requirements 
 Acquisition personnel – and other stakeholders – should expect that Agile is a cross-functional and highly interactive process – both between agency team members and with the contractor. Therefore, IPT members – the Program/Project Managers (P/PM), IT Specialists, the Contracting Officer and/or Contract Specialist, and the Contracting Officer’s Representative (COR) – should be collocated, either virtually or in person.[*13*]
 
 Agile requires that the IPT learns better what the end user needs through testing[*14*] and a culture that supports this approach. Therefore, P/PMs, COs, CORs, and other stakeholders need to be aware that Agile software development will not produce the final expected result with the first iteration, but instead will provide usable, working software that can be iteratively improved[*15*]; it requires “touch and feel” and user feedback to get the technical features right and arrive at the final product.
+</Drawer>
 
----
-
-### Generally speaking, how does privacy and disclosure apply to Agile software development?
+<Drawer heading="General considerations for agile software acquisition" summary="Generally speaking, how does privacy and disclosure apply to Agile software development?">
 
 Agile software development must adhere to existing privacy and disclosure statutory and regulatory requirements.
 
@@ -92,6 +89,7 @@ FAR 1.602-1(b), provides that no contract shall be entered into unless the Contr
 Part 24 of the FAR implements the provisions of the Privacy Act. Contractors and their employees who contract for the design, development, operation, or maintenance of a system of records on individuals, on behalf of the agency to accomplish an agency function, are subject to the civil and criminal provisions of the Privacy Act. Pursuant to FAR 24.103(b)(1), the Contracting Officer will ensure that the contract work statement specifically identifies the system of records on individuals and the design, development, or operation work to be performed. Procurement actions involving the design, development or operation of a system of records as defined by the Privacy Act will contain the Privacy Act Notification and a clause entitled "PRIVACY ACT," both of which are at FAR 52.224-1 and FAR 52.224-2, respectively.
 
 Additionally, FAR 39.107 states that FAR 52.239-1, Privacy or Security Safeguards or other similar language, is to be included in all procurement actions for information technology which require security of information technology, and/or are for the design, development, or operation of a system of records using Commercial information technology services or support services. See also <a href="http://www.nist.gov/nstic/NSTIC-FIPPs.pdf" target="_blank" className="usa-external_link">Fair Information Practice Principles</a>.
+</Drawer>
 
 ---
 
