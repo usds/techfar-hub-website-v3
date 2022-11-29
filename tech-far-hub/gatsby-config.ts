@@ -1,6 +1,5 @@
 import type { GatsbyConfig } from "gatsby";
-// import rehypeSlug from "rehype-slug";
-// import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkGfm from "remark-gfm";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -26,11 +25,10 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-          },
-        ],
+        gatsbyRemarkPlugins: [`gatsby-remark-autolink-headers`],
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
       },
     },
     "gatsby-plugin-sharp",
@@ -48,6 +46,13 @@ const config: GatsbyConfig = {
       options: {
         name: "content",
         path: `./content/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `./assets/`,
       },
     },
   ],
