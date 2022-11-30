@@ -1,3 +1,22 @@
+.tfh-hp-highlight {
+  text-align: center;
+}
+
+.tfh-hp-right-nav {
+  ol {
+    list-style: none;
+    padding-left: 2rem;
+  }
+  p {
+    padding-left: 2rem;
+  }
+  hr {
+    height: 4px;
+    margin: 0 auto;
+    border: none;
+  }
+}
+
 .usa-footer {
   background-color: #1c1c1c;
 
@@ -15,5 +34,29 @@
 
   .usa-footer__social-heading {
     color: #fff;
+  }
+}
+
+.tfh-hp-initiatives {
+  margin-bottom: 2rem;
+}
+
+.tfh-initiative-preview {
+  background-color: #e6e6e6;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  .tfh-link-span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+  }
+
+  h4 {
+    margin-top: .5rem;
   }
 }
