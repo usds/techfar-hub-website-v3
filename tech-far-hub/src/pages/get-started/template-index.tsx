@@ -3,20 +3,20 @@ import type { HeadFC } from "gatsby";
 import { graphql, Link, PageProps } from "gatsby";
 import { CardGroup, Card, CardHeader, CardBody, CardFooter, Button } from "@trussworks/react-uswds";
 import Layout from "../../components/layout";
+import { IPageContext } from "../../types";
 
-const GetStartedPage: React.FC<PageProps<Queries.GetStartedPageQuery>> = ({
-  data,
-  children,
-}: PageProps<Queries.GetStartedPageQuery>) => {
+type GetStartedProps = PageProps<Queries.GetStartedPageQuery, IPageContext>;
+
+const GetStartedPage: React.FC<GetStartedProps> = ({ data, children, pageContext }: GetStartedProps) => {
   return (
-    <Layout>
+    <Layout breadCrumbs={pageContext.breadCrumbs}>
       <h2>{data.getStarted?.frontmatter?.heading}</h2>
       <hr className="text-accent-warm " />
       {children}
       <p className="usa-updated">Updated: {data.getStarted?.frontmatter?.updated}</p>
       <CardGroup>
         {data.lifecycle.nodes.map((node) => (
-          <Card headerFirst gridLayout={{ tablet: { col: 3 } }}>
+          <Card headerFirst gridLayout={{ tablet: { col: 3 } }} key={node.frontmatter?.slug}>
             <CardHeader className="bg-base-lightest">
               <h3 className="usa-card__heading">
                 {node.frontmatter?.lifecycle_stage} {node.frontmatter?.heading}
