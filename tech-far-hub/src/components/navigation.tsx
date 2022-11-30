@@ -58,34 +58,25 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
         onToggle={(): void => {
           onToggle(1);
         }}
-        menuId="learningCenterDropdown"
+        menuId="presolicitation"
         isOpen={isOpen[1]}
-        label="Learning Center"
+        label="Pre-Solicitation"
         isCurrent={false}
       />
       <Menu key="learningCenter" items={subMenuItems} isOpen={isOpen[1]} />
     </>,
 
-    <a href="#two" key="caseStudies" className="usa-nav__link">
-      <span>Case Studies</span>
+    <a href="#two" key="Solicitation" className="usa-nav__link">
+      <span>Solicitation</span>
     </a>,
-    <a href="#three" key="samples" className="usa-nav__link">
-      <span>Samples &amp; Templates</span>
+    <a href="#three" key="evaluation" className="usa-nav__link">
+      <span>Evaluation</span>
     </a>,
-    <>
-      <NavDropDownButton
-        onToggle={(): void => {
-          onToggle(2);
-        }}
-        menuId="handbookDropdown"
-        isOpen={isOpen[2]}
-        label="Handbook"
-        isCurrent={false}
-      />
-      <Menu key="handbook" items={handbookItems} isOpen={isOpen[2]} />
-    </>,
-    <a href="#three" key="history" className="usa-nav__link">
-      <span>History of TFH</span>
+    <a href="#three" key="contractadmin" className="usa-nav__link">
+      <span>Contract Administration</span>
+    </a>,
+    <a href="#three" key="resources" className="usa-nav__link">
+      <span>Resources</span>
     </a>,
   ];
   return (
