@@ -1,3 +1,31 @@
+/*
+  Hide compile warnings and notifications, make want to set to true in dev
+*/
+$theme-show-compile-warnings: false;
+$theme-show-notifications: false;
+
+/*
+  These are necessary for the image and font urls referenced in the source
+  files to resolve correctly.
+*/
+$theme-image-path: "../../node_modules/uswds/src/img";
+$theme-font-path: "../../node_modules/uswds/src/fonts";
+
+/*
+  The url for the hero image in the source file is not currently prefixed by
+  the $theme-image-path above.
+*/
+
+$theme-hero-image: "#{$theme-image-path}/hero.png";
+
+// Your custom changes to variables go here
+// Uncomment to see this working
+// $theme-color-primary-darker: 'black';
+
+@import "../../node_modules/uswds/dist/scss/uswds.scss";
+// @import "../../node_modules/@trussworks/react-uswds/lib"
+@import "~@trussworks/react-uswds/lib/index.css";
+
 .tfh-hp-highlight {
   text-align: center;
 }
@@ -95,6 +123,6 @@
   }
 
   h4 {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 }
