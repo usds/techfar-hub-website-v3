@@ -77,9 +77,9 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
       <Menu key="preSolicitation" items={subMenuItems} isOpen={isOpen[1]} />
     </>,
 
-    <a href="#two" key="solicitations" className="usa-nav__link">
+    <Link to="/solicitation" className="usa-nav__link">
       <span>Solicitation</span>
-    </a>,
+    </Link>,
     <a href="#three" key="evaluation" className="usa-nav__link">
       <span>Evaluation</span>
     </a>,
