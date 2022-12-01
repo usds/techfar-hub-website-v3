@@ -1,10 +1,15 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import Layout from "../components/layout";
+<<<<<<< HEAD
 import {  Grid } from "@trussworks/react-uswds";
 import { Initiative } from "../components/initiative";
 
 const IndexPage: React.FC<PageProps> = () => {
+=======
+
+const IndexPage: React.FC<PageProps> = ({ pageContext }) => {
+>>>>>>> 375280a (v3 53 Build breadcrumbs)
   return (
     <Layout>
       <Grid row gap={6} className="border-bottom padding-bottom-205 padding-top-205">

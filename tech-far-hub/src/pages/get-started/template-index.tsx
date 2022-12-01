@@ -7,9 +7,10 @@ import Layout from "../../components/layout";
 const GetStartedPage: React.FC<PageProps<Queries.GetStartedPageQuery>> = ({
   data,
   children,
+  pageContext,
 }: PageProps<Queries.GetStartedPageQuery>) => {
   return (
-    <Layout>
+    <Layout breadCrumbs={pageContext.breadCrumbs}>
       <h2>{data.getStarted?.frontmatter?.heading}</h2>
       <hr className="text-accent-warm " />
       {children}

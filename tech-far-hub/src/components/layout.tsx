@@ -6,12 +6,15 @@ import "./tfh.scss";
 import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from "@trussworks/react-uswds";
 import Navigation from "./navigation";
 import Footer from "./footer";
+import { Breadcrumbs } from "./breadcrumbs";
+import { IBreadcrumb } from "../types";
 
 interface ILayoutProps {
   children: ReactNode;
+  breadCrumbs?: [IBreadcrumb];
 }
 
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
   const [navExpanded, setNavExpanded] = React.useState(false);
   const onNavExpand = (): void => setNavExpanded((prvExpanded) => !prvExpanded);
 
@@ -34,6 +37,13 @@ const Layout = ({ children }: ILayoutProps) => {
 
       <main id="main-content">
         <GridContainer>
+          <Grid row>
+            {breadCrumbs && (
+              <Grid col="fill">
+                <Breadcrumbs breadCrumbs={breadCrumbs}></Breadcrumbs>{" "}
+              </Grid>
+            )}
+          </Grid>
           <Grid row>
             <Grid col="fill">{children}</Grid>
           </Grid>
