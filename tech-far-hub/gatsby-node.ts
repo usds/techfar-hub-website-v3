@@ -38,6 +38,17 @@ interface IGraphQLTemplateNodeResult {
   data?: ITemplateNodeResultSet;
 }
 
+interface IBreadcrumb {
+  label: string;
+  path: string;
+}
+
+interface IPageContext {
+  id: string;
+  breadCrumbs: IBreadcrumb[];
+  pathParts: string[];
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
@@ -91,12 +102,12 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       heading,
     };
   });
-  const getHeadingForPath = (path: string) => {
+  const getHeadingForPath = (path: string): string => {
     for (let node of nodes) {
       if (path === "/") return "Home";
-      if (node.pagePath === path) return node.heading;
+      if (node.pagePath === path) return node.heading || path;
     }
-    return undefined;
+    return path;
   };
 
   nodes.forEach((node: IEnhancedTemplatedNode) => {
@@ -115,25 +126,19 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       []
     );
     const breadCrumbHeadings = breadCrumbPaths.map(getHeadingForPath);
-    const breadCrumbs = breadCrumbPaths.map((path, i) =>
-      Object.fromEntries([
-        ["path", path],
-        ["label", breadCrumbHeadings[i]],
-      ])
-    );
-    console.log({
+    const breadCrumbs: IBreadcrumb[] = breadCrumbPaths.map((path, i) => ({
+      path: path,
+      label: breadCrumbHeadings[i],
+    }));
+    const context: IPageContext = {
       id: node.id,
       breadCrumbs,
       pathParts,
-    });
+    };
     createPage({
       path: pagePath,
       component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: {
-        id: node.id,
-        breadCrumbs,
-        pathParts,
-      },
+      context,
     });
   });
 };

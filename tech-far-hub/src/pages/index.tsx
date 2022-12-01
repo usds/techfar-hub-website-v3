@@ -8,7 +8,7 @@ import { Initiative } from "../components/initiative";
 const IndexPage: React.FC<PageProps> = () => {
 =======
 
-const IndexPage: React.FC<PageProps> = ({ pageContext }) => {
+const IndexPage: React.FC<PageProps> = () => {
 >>>>>>> 375280a (v3 53 Build breadcrumbs)
   return (
     <Layout>

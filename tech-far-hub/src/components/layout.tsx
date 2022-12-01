@@ -11,7 +11,7 @@ import { IBreadcrumb } from "../types";
 
 interface ILayoutProps {
   children: ReactNode;
-  breadCrumbs?: [IBreadcrumb];
+  breadCrumbs?: IBreadcrumb[];
 }
 
 const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
