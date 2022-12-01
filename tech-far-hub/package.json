@@ -29,7 +29,8 @@
     "gatsby-transformer-sharp": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.56.1"
+    "sass": "^1.56.1",
+    "uswds": "^2.13.3"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

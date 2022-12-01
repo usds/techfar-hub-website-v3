@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ReactNode } from "react";
-import "@trussworks/react-uswds/lib/uswds.css";
-import "@trussworks/react-uswds/lib/index.css";
+//import "@trussworks/react-uswds/lib/index.css";
 import "./tfh.scss";
 
 import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from "@trussworks/react-uswds";
