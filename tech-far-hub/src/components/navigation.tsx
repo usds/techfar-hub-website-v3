@@ -47,8 +47,10 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
   ];
 
   const subMenuItems = [
-    <Link to="/pre-solicitation">Agile overview</Link>,
-    <Link to="/pre-solicitation/planning-for-agile">Planning for Agile</Link>,
+    <Link to="/pre-solicitation/agile-overview/">Agile overview</Link>,
+    <Link to="/pre-solicitation/planning-for-agile/">Planning for Agile</Link>,
+    <Link to="/pre-solicitation/market-research/">Market Research</Link>,
+    <Link to="/pre-solicitation/requirements-development/">Requirements Development</Link>,
   ];
 
   const mainNavItems = [

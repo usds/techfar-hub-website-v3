@@ -3,8 +3,10 @@ import type { HeadFC, PageProps } from "gatsby";
 import { graphql, Link } from "gatsby";
 import * as React from "react";
 import Layout from "../components/layout";
+import { Alert } from "../components/alert";
 import { IPageContext } from "../types";
 import { DeepPick } from "ts-deep-pick";
+import { MDXProvider } from "@mdx-js/react";
 
 type TableOfContents = { currentPage: { tableOfContents: Record<string, ITOCItem[]> } };
 type LifecycleCurrentPage = DeepPick<Queries.LifecycleInnerPageQuery, "currentPage.!tableOfContents"> & TableOfContents;
@@ -26,14 +28,14 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
   const currentSlug = data.currentPage?.frontmatter?.slug;
   const tocLinks = data.currentPage?.tableOfContents?.items.map((item: ITOCItem) => {
     return (
-      <a href={item.url} key={item.url} className="font-ui-2xs">
+      <a href={item.url} key={item.url} className="font-ui-3xs">
         {item.title}
       </a>
     );
   });
   const siblingLinks = data.siblings?.nodes.map(({ frontmatter }) => {
     if (frontmatter && frontmatter.slug && frontmatter.heading) {
-      if (frontmatter.slug === currentSlug) {
+      if (frontmatter.slug === currentSlug && frontmatter.slug !== "index") {
         return (
           <>
             <a href="#" className="usa-current" key="current">
@@ -42,17 +44,12 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
             <SideNav items={tocLinks}></SideNav>
           </>
         );
-      } else {
-        let slug: string;
-        if (frontmatter.slug === "index") {
-          slug = "";
-        } else {
-          slug = `${frontmatter.slug}/`;
-        }
-        return <Link to={`${pageContext.parentPath}/${slug}`}>{frontmatter.heading}</Link>;
+      } else if (frontmatter.slug !== "index") {
+        return <Link to={`${pageContext.parentPath}/${frontmatter.slug}`}>{frontmatter.heading}</Link>;
       }
     }
   });
+  const components = { Alert };
   return (
     <Layout breadCrumbs={pageContext.breadCrumbs}>
       <h2>{data.currentPage?.frontmatter?.heading}</h2>
@@ -63,7 +60,9 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
             <SideNav items={siblingLinks}></SideNav>
           </div>
         </Grid>
-        <Grid tablet={{ col: 10 }}>{children}</Grid>
+        <Grid tablet={{ col: 10 }}>
+          <MDXProvider components={components}>{children}</MDXProvider>
+        </Grid>
       </Grid>
     </Layout>
   );
@@ -84,7 +83,7 @@ export const query = graphql`
     }
     siblings: allMdx(
       filter: { internal: { contentFilePath: { regex: $parentPathRegex } } }
-      sort: { frontmatter: { heading: ASC } }
+      sort: { frontmatter: { nav_weight: ASC } }
     ) {
       nodes {
         frontmatter {
