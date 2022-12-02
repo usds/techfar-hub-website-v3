@@ -1,15 +1,27 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps, Link } from "gatsby";
 import Layout from "../components/layout";
-<<<<<<< HEAD
-import {  Grid } from "@trussworks/react-uswds";
+import { Grid } from "@trussworks/react-uswds";
 import { Initiative } from "../components/initiative";
 
-const IndexPage: React.FC<PageProps> = () => {
-=======
-
-const IndexPage: React.FC<PageProps> = () => {
->>>>>>> 375280a (v3 53 Build breadcrumbs)
+const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({ data }) => {
+  const initiatives = data.allMdx.nodes.map((node) => {
+    if (
+      node.frontmatter &&
+      node.frontmatter.description &&
+      node.frontmatter.heading &&
+      node.frontmatter.slug &&
+      node.parent &&
+      "relativeDirectory" in node.parent
+    ) {
+      const pagePath = `/${node.parent.relativeDirectory}/${node.frontmatter.slug}`;
+      return (
+        <Initiative heading={node.frontmatter.heading} destination={pagePath}>
+          {node.frontmatter.description}
+        </Initiative>
+      );
+    }
+  });
   return (
     <Layout>
       <Grid row gap={6} className="border-bottom padding-bottom-205 padding-top-205">
@@ -40,16 +52,16 @@ const IndexPage: React.FC<PageProps> = () => {
           <p>See how the TechFAR Hub takes an agile approach to digital acquisition.</p>
           <ol>
             <li>
-              <a href="#">Pre-Solicitation</a>
+              <Link to="/pre-solicitation">Pre-Solicitation</Link>
             </li>
             <li>
-              <a href="#">Solicitation</a>
+              <Link to="/solicitation">Solicitation</Link>
             </li>
             <li>
-              <a href="#">Evaluation</a>
+              <Link to="/evalutation">Evaluation</Link>
             </li>
             <li>
-              <a href="#">Contract Administration </a>
+              <Link to="/contract-administration">Contract Administration</Link>
             </li>
           </ol>
           <hr className="text-green bg-green " />
@@ -60,9 +72,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Grid row>
         <Grid col="fill" className="tfh-hp-initiatives">
           <h2>Initiatives</h2>
-          <Initiative heading="8(a) Digital Service Initiative" destination="8a">The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital services using this low-risk gateway.</Initiative>
-          <Initiative heading="Acquisiton Innovation Advocates (AIA) Council" destination="aia">The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital services using this low-risk gateway.</Initiative>
-          <Initiative heading="Digital IT Acquisition Professional Training (DITAP)" destination="ditap">The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital services using this low-risk gateway.</Initiative>
+          {initiatives}
         </Grid>
       </Grid>
     </Layout>
@@ -72,3 +82,28 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage;
 
 export const Head: HeadFC = () => <title>TechFAR Hub</title>;
+
+export const query = graphql`
+  query HomePageInitiatives {
+    allMdx(filter: { frontmatter: { page_type: { eq: "initiative" } } }, sort: { frontmatter: { nav_weight: ASC } }) {
+      nodes {
+        id
+        frontmatter {
+          slug
+          description
+          heading
+        }
+        internal {
+          contentDigest
+        }
+        parent {
+          ... on File {
+            id
+            name
+            relativeDirectory
+          }
+        }
+      }
+    }
+  }
+`;

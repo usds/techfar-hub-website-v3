@@ -48,6 +48,7 @@ interface IPageContext {
   id: string;
   breadCrumbs: IBreadcrumb[];
   pathParts: string[];
+  parentPath: string;
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
@@ -121,6 +122,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const pagePath = node.pagePath;
     const template = path.resolve("src", "pages", `template-${templateName}.tsx`);
     const pathParts = node.pagePath.replace(/\/$/, "").split("/");
+    console.log(pathParts);
     const breadCrumbPaths = pathParts.reduce(
       (accumulator: string[], currentValue: string) => [
         ...accumulator,

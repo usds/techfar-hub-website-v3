@@ -60,7 +60,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
         menuId="getStartedDropdown"
         isOpen={isOpen[0]}
         label="Get Started"
-        isCurrent={true}
+        isCurrent={false}
       />
       <Menu key="getStarted" items={getStartedSubItems} isOpen={isOpen[0]} />
     </>,
