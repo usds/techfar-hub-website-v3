@@ -43,7 +43,13 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
           </>
         );
       } else {
-        return <Link to={`/pre-solicitation/${frontmatter.slug}/`}>{frontmatter.heading}</Link>;
+        let slug: string;
+        if (frontmatter.slug === "index") {
+          slug = "";
+        } else {
+          slug = `${frontmatter.slug}/`;
+        }
+        return <Link to={`${pageContext.parentPath}/${slug}`}>{frontmatter.heading}</Link>;
       }
     }
   });
@@ -68,7 +74,7 @@ export default LifecycleInnerPage;
 export const Head: HeadFC = () => <title>TechFAR Hub</title>;
 
 export const query = graphql`
-  query LifecycleInnerPage($id: String) {
+  query LifecycleInnerPage($id: String, $parentPathRegex: String) {
     currentPage: mdx(id: { eq: $id }) {
       frontmatter {
         heading
@@ -77,7 +83,7 @@ export const query = graphql`
       tableOfContents(maxDepth: 3)
     }
     siblings: allMdx(
-      filter: { internal: { contentFilePath: { regex: "/.*pre-solicitation.*/" } } }
+      filter: { internal: { contentFilePath: { regex: $parentPathRegex } } }
       sort: { frontmatter: { heading: ASC } }
     ) {
       nodes {
