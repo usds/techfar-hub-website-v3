@@ -52,7 +52,7 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
   const components = { Alert };
   return (
     <Layout breadCrumbs={pageContext.breadCrumbs}>
-      <h2>{data.currentPage?.frontmatter?.heading}</h2>
+      <h1>{data.currentPage?.frontmatter?.heading}</h1>
       <hr className="text-accent-warm " />
       <Grid row gap={2}>
         <Grid tablet={{ col: 2 }}>
@@ -79,7 +79,7 @@ export const query = graphql`
         heading
         slug
       }
-      tableOfContents(maxDepth: 3)
+      tableOfContents(maxDepth: 2)
     }
     siblings: allMdx(
       filter: { internal: { contentFilePath: { regex: $parentPathRegex } } }
