@@ -1,0 +1,181 @@
+---
+template: default
+heading: Digital IT Acquisition Professional Training (DITAP)
+slug: ditap
+page_type: initiative
+nav_weight: 30
+description: This training and development program teaches federal government acquisition professionals to design innovative and flexible procurements for IT/Digital Services, and how to become change ambassadors.
+---
+
+Traditional federal government training and procurement practices often inhibit agencies ability to effectively acquire and implement modern IT/Digital Services, because they lag behind the rapidly changing technology and markets. Timely, relevant, and continuous training for acquisition professionals is the key to keeping pace.
+
+Accordingly, the United States Digital Service (USDS) and the Office of Federal Procurement Policy (OFPP) collaborated to develop a specialized and immersive training and development program called the Digital IT Acquisition Program (DITAP).
+
+## What is DITAP?
+
+This training and development program teaches federal government acquisition professionals to design innovative and flexible procurements for IT/Digital Services, and how to become change ambassadors. Once completed all students earn 60 to 80 Continuous Learning Points (CLP’s), and Federal Acquisition Certification in Contracting (FAC-C) holders earn a Federal Acquisition Institute (FAI) FAC-C Core Plus Specialization in Digital Services (FAC-C-DS) certificate.
+
+- Each DITAP class is called a cohort
+- Each cohort has a minimum of 25 and a maximum of 30 students
+- Each cohort runs for approximately 6-months
+- Agency-only cohorts consist of students from one agency
+- Open-agency cohorts consist of students from various agencies
+- Due to COVID-19 all cohorts are being held remotely, and there are no travel requirements
+- Agencies are required to cover all travel costs for in-person cohorts
+
+## DITAP Learning Objectives, Competencies and Performance Outcomes
+
+After completing the program, acquisition professionals will be able to:
+
+- Execute digital service procurements and act as qualified business advisors
+- Work directly within an agency digital services team or acquisition innovation lab to serve as a business advisor to the team, its customers, and stakeholders
+- Lead agency training workshops and consult on ways to expand digital service procurement expertise throughout the federal government
+
+| Competency                                              | Performance Outcome                                                                                                                                                       |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Digital Services in the 21st Century Government         | Describe digital services in the 21st century, including what they are, who provides them, how they are delivered, and why they are important                             |
+| Digital Service Market Intel & Stakeholder Analysis     | Determine the problem to be solved while effectively supporting and communicating with the customer and industry                                                          |
+| How do you buy                                          | Effectively use techniques for acquiring digital service solutions in your solicitation or acquisition strategy                                                           |
+| Awarding & Administering Digital Service Contracts      | Conduct and award digital service contracts, using and applying metrics and incentives appropriately, and applying proper course correction when necessary                |
+| Leading Change as a Digital IT Acquisition Professional | Apply techniques to create a culture of innovation within your sphere that enables you and others to effectively lead and influence customers to the best solutions       |
+| Application of Skills                                   | Apply techniques learned in the course through various activities; including shadowing a real world digital service expert or development team of the participants choice |
+
+## FAC-C-DS Policy Memo and updated guidance
+
+The following 2018 "Establishment of Federal Acquisition Certification in Core-Plus Specialization in Digital Services" memo provides information on the creation of DITAP and further details about the DITAP program:
+
+<a href="/assets/files/FAC_C_Digital_Services_5-18-18.pdf">
+  Memo: Establishment of Federal Acquisition Certification in Core-Plus Specialization in Digital Services (FAC-C-DS) <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+</a>
+
+The following 2021 memo provides updated guidance regarding item #5 in the policy above, specifically about Fiscal Year 2022, and other common questions:
+
+<a href="/assets/files/FAC_C_Digital_Services_Update_8-2021.pdf">
+  Memo: FAC_C_Digital_Services_Update_8-2021 <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+</a>
+
+The following 2022 memo provides updated guidance regarding item #5 in the policy above, specifically about Fiscal Year 2022, how COVID-19 made it difficult for agencies to send participants to the DITAP training course, what happens if agencies don’t meet the FY-22 date, other common questions, and Level II/III FAC-COR and FAC-P/PM certificate holders being encouraged to take DITAP training:
+
+<a href="/assets/files/FAC_C_Digital_Services_Memo_Update_10-2022.pdf">
+  Memo: FAC_C_Digital_Services_Memo_Update_10-2022 <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+</a>
+
+## Who can enroll in the DITAP program?
+
+Per the 2018 “Establishment of Federal Acquisition Certification in Core-Plus Specialization in Digital Services” memo, **Level II/III FAC-C** acquisition professionals assigned to acquisitions consisting primarily of digital services over FAR 13.500(c) thresholds are **required** to enroll in DITAP.
+
+Per the 2022 memo, **Level II/III Federal Acquisition Certification for Contracting Officer’s Representatives (FAC-COR) and Federal Acquisition Certification for Program and Project Managers (FAC-P/PM)** acquisition professionals assigned to acquisitions consisting primarily of digital services over FAR 13.500(c) thresholds should be **encouraged** to attend DITAP training to create a cohesive team that fully understands how to buy digital services:
+
+- Level II/III FAC-COR and Level II/III FAC-P/PM holders should be encouraged to register for DITAP starting October 2022
+- FAC-C holders who are required to take DITAP are given first priority during registration
+- FAC-COR/PM holders are placed on a waitlist and allowed to complete registration if all the seats aren’t filled
+- Currently, FAC-COR/PM holders earn the CLP's and receive a “certificate of completion” but not a FAC-C-DS certificate. We are currently considering options regarding earning a FAC-C-DS certificate for non FAC-C holders.
+
+## How to enroll
+
+There are a number of ways students and agencies can enroll:
+
+1. For large acquisition shops with the need to train at least 25 students at the same time
+
+   - Agencies should contact the DITAP provider directly and negotiate a contract for an agency-only cohort
+
+2. For smaller acquisition shops with the need to send one or a few students
+
+   - Agencies should have their student visit the DITAP provider’s website and apply to attend a scheduled open-agency cohort
+   - In the event that there are no open-agency cohort dates advertised, agencies should complete the ‘Contact Us’ form on the DITAP providers website
+   - If enough interest is shown they may open an open-agency cohort
+
+3. Periodically, the Federal Acquisition Institute (FAI) sponsors a no-cost open-agency cohort
+   - This option is best for agencies with limited training budgets
+   - FAI posts this information on [FAI.gov](https://www.fai.gov/), and in the FAI newsletter Acquisition Today
+   - These cohorts typically fill up within 30-minutes of the posting, so interested students should sign up to receive the newsletter via email by visiting the FAI site
+   - FAI does not cover any travel costs
+
+## DITAP Providers
+
+There are two types of DITAP providers--Authorized and Contingent.
+
+- Authorized have met all the required criteria, demonstrated the ability to build and run their own DITAP program, and have successfully run multiple cohorts.
+- Contingent have shown interest in becoming an Authorized provider, and have built their own DITAP program, but have not actually run a cohort. USDS works closely with these providers to ensure they meet specific criteria and demonstrate they have a full understanding of what is required to run the DITAP program before being placed in contingent status. USDS attends and closely monitors the first cohort and provides feedback. Once they complete their first cohort, they are moved to authorized or given feedback about any necessary changes before they can be moved to authorized.
+
+DITAP providers create and schedule cohorts based on the interest they receive. If more interest is received, they can open more cohorts to meet agencies' training needs. There is no financial assistance for this training, and it is up to each agency to negotiate with the DITAP providers.
+
+Agencies can negotiate with Authorized and Contingent providers, and can send students to open enrollment cohorts offered by the providers. Level II/III FAC-C students who graduate from either type of provider receive a FAC-C-DS certification.
+
+To find more detailed information about cost, schedule, or basic details visit the providers website using the links below and fill out their 'Contact Us' form. Please be aware--the links may not work on all federal government computers, so you may have to copy and paste into your browser.
+
+Authorized providers:
+
+- ICF - https://www.icf.com/work/digital/ditap - Approved May 18, 2018
+- CivicActions - https://civicactions.com/ditap - Approved July 22, 2020
+- Management Concepts - https://www.managementconcepts.com/Training/Training-Topics/Acquisition-Contracting/Digital-IT-Acquisition-Professional-DITAP-Program - Approved April 27, 2022
+- EAGLES, LLC - https://www.execacq.com/ditap - Approved July 21, 2022
+
+Contingent providers:
+
+- Skylight Inc. - https://skylight.digital/work/services/training/ditap/
+- Graduate School USA - https://register.graduateschool.edu/modules/shop/index.html?action=program&ProgramID=108
+
+## FAQ's for Graduates of DITAP
+
+**CLP's**
+
+- Once you have successfully completed the course, you will receive a certificate from the DITAP provider.
+- It is the graduates responsibility to upload the certificate to FAI Cornerstone OnDemand (CSOD). Students should follow guidance on the FAI website.
+- Once the certificate is uploaded, graduates need to work with their supervisor/acquisition career manager to get everything approved.
+
+**Graduates Information**
+
+- DITAP providers send USDS a list with all graduates' names.
+- This information is used to track the number of graduates and to add your name to LISTSERV (see below).
+
+**LISTSERV**
+
+- Your email will be added to the DITAP Alumni LISTSERV which is used to communicate with all alumni.
+- You will receive an email once your name has been added.
+- If you do not want to be part of the LISTSERV, you can unsubscribe yourself
+  - To unsubscribe from the DITAP list, create a new email message, addressed to DITAP-unsubscribe-request@listserv.gsa.gov.
+  - The message content does not matter and the sender's email address will be removed from the list.
+  - To join again, any current or former DITAP student with a .gov or .mil email address can join the list by creating a new email message addressed to DITAP-subscribe-request@listserv.gsa.gov (Subject and Message Body are ignored and the sender's email address will be added to the list.)
+
+**Maintaining a FAC-C-DS**
+
+After completing DITAP it is important for graduates to keep their skills fresh, keep up with new technologies, methods, and companies that are introduced to the ecosystem.
+
+To maintain certification, 20 of the required 80 FAC-C CLP’s should be earned by participating in additional IT/Digital Service training/activities. Acquisition professionals should coordinate with their acquisition career manager and/or supervisor to confirm the CLP’s are approved for each activity. Once the CLP’s are achieved, a document listing all the activities should be uploaded into CSOD. Do not forget to include any preparation work in the CLP count, as shown in the example below.
+
+| Activity                    | Time Spent Developing Content for Presentation | Total Earned CLP's |
+| --------------------------- | :--------------------------------------------: | ------------------ |
+| 1-Hour Conference Presenter |                    4 hours                     | 5 hours            |
+
+Per the [FAI Guidance on Meeting the Requirement for Continuous Learning Points](https://www.fai.gov/training/continuous-learning-opportunities), there are many activities available to earn CLP’s.
+
+| Sample Activity                                       | Digital Service Example                                                                                                                                                                                                              |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| On-Line Training                                      | [GovLoop Academy](https://academy.govloop.com/), [AGL Academy](https://www.agilegovleaders.org/academy/), [DigitalGov University](https://digital.gov/digitalgov-university/), [EdX Agile Training](https://www.edx.org/learn/agile) |
+| Formal Training                                       | [ACT-IAC Academy](https://www.actiac.org/learning/act-iac-academy-1), [Procurement Innovative Lab (PIL) Primer](https://www.fai.gov/media-library/item/procurement-innovation-lab-pil-primer)                                        |
+| Conference, training, or seminar presentation         | [ACT-IAC Upcoming Events](https://www.actiac.org/upcoming-events), [Scrum.org Events](https://www.scrum.org/events), [DigitalGov Events](https://digital.gov/events/); or check the DITAP providers websites.                        |
+| Publications (Case studies, blogs, training material) | [TechFARHub Case Studies](https://techfarhub.cio.gov/learning-center/case-studies/), [DHS Procurement Innovation Lab Resources Library](https://www.dhs.gov/publication/pil)                                                         |
+| On-the-job Experiential Learning                      | Work on, award, or administer a digital service acquisition, Conduct a brown bag training on a digital service topic, Organize a workshop, Be part of a modernization task force                                                     |
+| Mentoring                                             | Become a DITAP mentor, Participate in the DITAP shadowing assignment                                                                                                                                                                 |
+
+## Interested in becoming a DITAP provider?
+
+Review the information below on how to build and facilitate a version of the DITAP training program:
+
+<a href="/assets/files/FAC C Required Course Elements v.1 71818.pdf">
+  FAC-C DS Required Course Elements<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+</a>
+
+<a href="/assets/files/FAC C DS Program Informational Presentation.pdf">
+  FAC-C DS Informational Presentation 7/18/18<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+</a>
+
+To access the content, facilitation resources, training guides, and all other course material access <a href="https://ditap.learning-transformation.com/" target="_blank" class="usa-external_link">https://ditap.learning-transformation.com</a> and register for a read only account to the information.
+
+## Still need more information about the DITAP program or becoming a DITAP provider?
+
+If you want to speak to one of the USDS DITAP coordinators, send an email to techfarhub@omb.eop.gov:
+
+- Make sure you include DITAP in the subject line of your email
+- The TechFARHub email is a mailing list--when USDS receives an email, it does not show the sender's email. Please **make sure your email is included** somewhere in the email you send
