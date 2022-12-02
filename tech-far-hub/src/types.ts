@@ -9,4 +9,7 @@ export interface IPageContext {
   id: string;
   breadCrumbs: IBreadcrumb[];
   pathParts: string[];
+  parentPath: string;
+  parentPathRegex: string;
+  isIndex: boolean;
 }

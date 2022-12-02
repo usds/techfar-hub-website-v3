@@ -48,6 +48,9 @@ interface IPageContext {
   id: string;
   breadCrumbs: IBreadcrumb[];
   pathParts: string[];
+  parentPath: string;
+  parentPathRegex: string;
+  isIndex: boolean;
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
@@ -133,10 +136,21 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       path: path,
       label: breadCrumbHeadings[i],
     }));
+    const isIndex = node.pageName === "index";
+    let parentPath: string;
+    if (node.pageName === "index") {
+      parentPath = pathParts.join("/");
+    } else {
+      parentPath = pathParts.slice(0, -1).join("/");
+    }
+    const parentPathRegex = `/${parentPath.replace("/", "\\/")}\\/.*/`;
     const context: IPageContext = {
       id: node.id,
       breadCrumbs,
       pathParts,
+      parentPath,
+      parentPathRegex,
+      isIndex,
     };
     createPage({
       path: pagePath,
