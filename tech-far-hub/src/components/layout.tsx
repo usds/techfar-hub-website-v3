@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ReactNode } from "react";
+import { Link } from "gatsby";
 //import "@trussworks/react-uswds/lib/index.css";
 import "./tfh.scss";
 
@@ -24,7 +25,7 @@ const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
       <Header extended={true}>
         <div className="usa-navbar">
           <Title>
-            TechFAR Hub
+            <Link to="/">TechFAR Hub</Link>
             {/* TODO: Replace with a real component and not inline styles */}
             <em style={{ display: "block", fontSize: "50%", fontWeight: "normal" }}>
               an initiative of US Digital Service
