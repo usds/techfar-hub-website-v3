@@ -58,7 +58,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const result: IGraphQLTemplateNodeResult = await graphql(`
     query CreatePages {
-      allMdx {
+      allMdx(filter: { internal: { contentFilePath: { glob: "!*components" } } }) {
         edges {
           node {
             id
@@ -118,7 +118,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   nodes.forEach((node: IEnhancedTemplatedNode) => {
     const contentType: string = node.parent.relativeDirectory.split(path.sep)[0];
 
-    // TODO: Make page-specific templates more general
     const defaultTemplateName = node.pageName === "index" ? "index" : "default";
     const templateName = node.frontmatter?.template ? node.frontmatter?.template : defaultTemplateName;
     const pagePath = node.pagePath;
