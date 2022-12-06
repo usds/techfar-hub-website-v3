@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import { Alert } from "../components/alert";
 import { IPageContext } from "../types";
 import { DeepPick } from "ts-deep-pick";
-import { MDXProvider } from "@mdx-js/react";
+import MDXContent from "../components/mdxcontent";
 
 type TableOfContents = { currentPage: { tableOfContents: Record<string, ITOCItem[]> } };
 type LifecycleCurrentPage = DeepPick<Queries.LifecycleInnerPageQuery, "currentPage.!tableOfContents"> & TableOfContents;
@@ -61,7 +61,7 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
           </div>
         </Grid>
         <Grid tablet={{ col: 10 }}>
-          <MDXProvider components={components}>{children}</MDXProvider>
+          <MDXContent>{children}</MDXContent>
         </Grid>
       </Grid>
     </Layout>
