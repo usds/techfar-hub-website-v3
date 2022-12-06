@@ -2,11 +2,12 @@ import { Grid, SideNav } from "@trussworks/react-uswds";
 import type { HeadFC, PageProps } from "gatsby";
 import { graphql, Link } from "gatsby";
 import * as React from "react";
-import Layout from "../components/layout";
-import { Alert } from "../components/alert";
-import { IPageContext } from "../types";
 import { DeepPick } from "ts-deep-pick";
+import { Alert } from "../components/alert";
+import Layout from "../components/layout";
 import MDXContent from "../components/mdxcontent";
+import { IPageContext } from "../types";
+import Resources from "../components/resources";
 
 type TableOfContents = { currentPage: { tableOfContents: Record<string, ITOCItem[]> } };
 type LifecycleCurrentPage = DeepPick<Queries.LifecycleInnerPageQuery, "currentPage.!tableOfContents"> & TableOfContents;
@@ -54,7 +55,7 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
     <Layout breadCrumbs={pageContext.breadCrumbs}>
       <h1>{data.currentPage?.frontmatter?.heading}</h1>
       <hr className="text-accent-warm " />
-      <Grid row gap={2}>
+      <Grid row gap={2} className="margin-bottom-4">
         <Grid tablet={{ col: 2 }}>
           <div className="position-sticky top-0">
             <SideNav items={siblingLinks}></SideNav>
@@ -62,6 +63,13 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
         </Grid>
         <Grid tablet={{ col: 10 }}>
           <MDXContent>{children}</MDXContent>
+        </Grid>
+      </Grid>
+      <Grid row className="tfh-resources-bar">
+        <Grid col="fill">
+          <hr />
+          <h3 className="font-ui-xl">Resources</h3>
+          <Resources></Resources>
         </Grid>
       </Grid>
     </Layout>
