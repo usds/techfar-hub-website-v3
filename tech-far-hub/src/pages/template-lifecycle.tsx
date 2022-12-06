@@ -16,6 +16,11 @@ type LifecycleInnerPageQuery = Omit<Queries.LifecycleInnerPageQuery, "currentPag
 
 type LifecycleInnerPageProps = PageProps<LifecycleInnerPageQuery, IPageContext>;
 
+interface IMinimalFrontmatter {
+  heading: string | null;
+  slug: string | null;
+}
+
 interface ITOCItem {
   url: string;
   title: string;
@@ -34,9 +39,12 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
       </a>
     );
   });
+  let atCurrent = false;
+  let nextLink: IMinimalFrontmatter | null = null;
   const siblingLinks = data.siblings?.nodes.map(({ frontmatter }) => {
     if (frontmatter && frontmatter.slug && frontmatter.heading) {
       if (frontmatter.slug === currentSlug && frontmatter.slug !== "index") {
+        atCurrent = true;
         return (
           <>
             <a href="#" className="usa-current" key="current">
@@ -46,10 +54,15 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
           </>
         );
       } else if (frontmatter.slug !== "index") {
+        if (atCurrent) {
+          nextLink = frontmatter;
+          atCurrent = false;
+        }
         return <Link to={`${pageContext.parentPath}/${frontmatter.slug}`}>{frontmatter.heading}</Link>;
       }
     }
   });
+
   const components = { Alert };
   return (
     <Layout breadCrumbs={pageContext.breadCrumbs}>
@@ -63,6 +76,13 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
         </Grid>
         <Grid tablet={{ col: 10 }}>
           <MDXContent>{children}</MDXContent>
+          {nextLink && (
+            <span className="tfh-next-link">
+              <Link to={`${pageContext.parentPath}/${nextLink.slug}`}>
+                <strong>Next: {nextLink.heading}</strong>
+              </Link>
+            </span>
+          )}
         </Grid>
       </Grid>
       <Grid row className="tfh-resources-bar">

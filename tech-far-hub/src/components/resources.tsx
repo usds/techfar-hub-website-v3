@@ -1,7 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { CardGroup, Card, CardHeader, CardBody, CardFooter } from "@trussworks/react-uswds";
-import MDXContent from "./mdxcontent";
 
 const Resources = () => {
   const data: Queries.ResourcePromosQuery = useStaticQuery(graphql`
@@ -42,12 +41,12 @@ const Resources = () => {
             return (
               <Card headerFirst gridLayout={{ tablet: { col: 3 } }}>
                 <CardHeader>
-                  <h4>{node.frontmatter?.heading}</h4>
+                  <h4>{node.frontmatter.heading}</h4>
                 </CardHeader>
                 <CardBody dangerouslySetInnerHTML={{ __html: node.html }}></CardBody>
                 <CardFooter>
-                  <Link to={node.frontmatter?.href} className="usa-button">
-                    Go
+                  <Link to={node.frontmatter.href} className="usa-button">
+                    View {node.frontmatter.heading}
                   </Link>
                 </CardFooter>
               </Card>

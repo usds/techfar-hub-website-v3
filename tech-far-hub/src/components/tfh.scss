@@ -17,3 +17,31 @@
     color: #fff;
   }
 }
+
+// TODO: Fix this to use the tokens defined by uswds
+.tfh-next-link {
+  text-align: center;
+  display: block;
+  margin: 2rem auto;
+  a {
+    color: #1b1b1b;
+    font-size: 110%;
+  }
+}
+
+.tfh-externalResources {
+  h3 {
+    background-color: #efefef;
+    color: #777;
+    font-weight: normal;
+    padding: 2rem;
+    width: 80%;
+  }
+  h3::after {
+    content: "";
+    border-bottom: solid #aaa 1px;
+    display: block;
+    width: 80%;
+    margin-top: 1rem;
+  }
+}
