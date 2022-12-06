@@ -6,16 +6,14 @@ import MDXContent from "./mdxcontent";
 const Resources = () => {
   const data: Queries.ResourcePromosQuery = useStaticQuery(graphql`
     query ResourcePromos {
-      allMdx(
-        filter: {
-          internal: { contentFilePath: { regex: "/.*/components/.*/" } }
-          frontmatter: { visible: { eq: true } }
-        }
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/.*/components/.*/" }, frontmatter: { visible: { eq: true } } }
         sort: { frontmatter: { nav_weight: ASC } }
       ) {
         edges {
           node {
             id
+            html
             parent {
               id
               ... on File {
@@ -30,10 +28,6 @@ const Resources = () => {
               heading
               href
             }
-            internal {
-              contentFilePath
-            }
-            body
           }
         }
       }
@@ -41,21 +35,25 @@ const Resources = () => {
   `);
   return (
     <CardGroup>
-      {data.allMdx.edges.map(({ node }) => {
-        return (
-          <Card headerFirst gridLayout={{ tablet: { col: 3 } }}>
-            <CardHeader>
-              <h4>{node.frontmatter?.heading}</h4>
-            </CardHeader>
-            <CardBody>{node.body}</CardBody>
-            <CardFooter>
-              <Link to={node.frontmatter?.href} className="usa-button">
-                Go
-              </Link>
-            </CardFooter>
-          </Card>
-        );
-      })}
+      {data.allMarkdownRemark.edges
+        .filter(({ node }) => node.html && node.frontmatter && node.frontmatter.href)
+        .map(({ node }) => {
+          if (node.html && node.frontmatter && node.frontmatter.href) {
+            return (
+              <Card headerFirst gridLayout={{ tablet: { col: 3 } }}>
+                <CardHeader>
+                  <h4>{node.frontmatter?.heading}</h4>
+                </CardHeader>
+                <CardBody dangerouslySetInnerHTML={{ __html: node.html }}></CardBody>
+                <CardFooter>
+                  <Link to={node.frontmatter?.href} className="usa-button">
+                    Go
+                  </Link>
+                </CardFooter>
+              </Card>
+            );
+          }
+        })}
     </CardGroup>
   );
 };
