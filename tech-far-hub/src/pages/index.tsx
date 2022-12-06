@@ -1,7 +1,7 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { HeadFC, Link, PageProps } from "gatsby";
 import Layout from "../components/layout";
-import {  Grid } from "@trussworks/react-uswds";
+import { Grid } from "@trussworks/react-uswds";
 import { Initiative } from "../components/initiative";
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -9,10 +9,15 @@ const IndexPage: React.FC<PageProps> = () => {
     <Layout>
       <Grid row gap={6} className="border-bottom padding-bottom-205 padding-top-205">
         <Grid tablet={{ col: 8 }} className="tfh-hp-highlight border-right">
-          <h2 className="tfh-hp-highlight-h2 font-heading-xl">Case Study Highlight: Navigating User Research</h2>
+          <h2 className="tfh-hp-highlight-h2 font-heading-xl">
+            <Link to="/resouces/case-studies/va-user-research">
+              Case Study: VA.Gov Modernization Comparative Analysis
+            </Link>
+          </h2>
           <p className="tfh-hp-highlight-desc">
-            Review a contracting method from acquisition planning to post-award phase that uses the agile method{" "}
-            <em>and</em> stays true tho the FAR.
+            THe VA technology Acquisition Cent, in support of VA OIT/DSVA, utilized FAR 13.1 Simplified Acquisition
+            Procedures, which enabled the team to streamline a multi-step evaluation with onsite demonstrations, and
+            documented the evaluation using a comparative analysis.
           </p>
           <img src="https://placekitten.com/800/400" alt="A cat" />
         </Grid>
@@ -35,29 +40,58 @@ const IndexPage: React.FC<PageProps> = () => {
           <p>See how the TechFAR Hub takes an agile approach to digital acquisition.</p>
           <ol>
             <li>
-              <a href="#">Pre-Solicitation</a>
+              <Link to="/pre-solicitation/">Pre-Solicitation</Link>
             </li>
             <li>
-              <a href="#">Solicitation</a>
+              <Link to="/solicitation/">Solicitation</Link>
             </li>
             <li>
-              <a href="#">Evaluation</a>
+              <Link to="/evaluation/">Evaluation</Link>
             </li>
             <li>
-              <a href="#">Contract Administration </a>
+              <Link to="/contract-administration/">Contract Administration</Link>
             </li>
           </ol>
           <hr className="text-green bg-green " />
           <h3>03. Resources</h3>
           <p>View first-hand experiences of fellows acquisition professionals, get tools, access training, and more</p>
+          <ol>
+            <li>
+              <Link to="/resources/tools/agile-estimator">Agile Estimator</Link>
+            </li>
+            <li>
+              <Link to="/resources/tools/sources-sought">Sources Sought Tool</Link>
+            </li>
+          </ol>
         </Grid>
       </Grid>
       <Grid row>
         <Grid col="fill" className="tfh-hp-initiatives">
           <h2>Initiatives</h2>
-          <Initiative heading="8(a) Digital Service Initiative" destination="8a">The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital services using this low-risk gateway.</Initiative>
-          <Initiative heading="Acquisiton Innovation Advocates (AIA) Council" destination="aia">The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital services using this low-risk gateway.</Initiative>
-          <Initiative heading="Digital IT Acquisition Professional Training (DITAP)" destination="ditap">The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital services using this low-risk gateway.</Initiative>
+          <Initiative
+            heading="8(a) Digital Service Initiative"
+            destination="8a"
+            media="https://placekitten.com/600/400"
+          >
+            The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital
+            services using this low-risk gateway.
+          </Initiative>
+          <Initiative
+            heading="Acquisiton Innovation Advocates (AIA) Council"
+            destination="aia"
+            media="https://placekitten.com/600/400"
+          >
+            The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital
+            services using this low-risk gateway.
+          </Initiative>
+          <Initiative
+            heading="Digital IT Acquisition Professional Training (DITAP)"
+            destination="ditap"
+            media="https://placekitten.com/600/400"
+          >
+            The U.S. Digital Service and Small Business Administration have partnered to help agencies buy digital
+            services using this low-risk gateway.
+          </Initiative>
         </Grid>
       </Grid>
     </Layout>

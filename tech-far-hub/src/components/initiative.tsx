@@ -1,18 +1,34 @@
+import { Card, CardHeader, CardMedia, CardBody, CardFooter } from "@trussworks/react-uswds";
 import { Link } from "gatsby";
 import * as React from "react";
 
+// TODO: Add media alt text
 interface IInitiativeProps {
   children: React.ReactNode;
   heading: React.ReactNode | string;
+  media: string;
   destination: string;
 }
 
-export const Initiative = ({ children, heading, destination }: IInitiativeProps): JSX.Element => {
+export const Initiative = ({ children, heading, media, destination }: IInitiativeProps): JSX.Element => {
   return (
-    <div className="tfh-initiative-preview">
-      <h4>{heading}</h4>
-      <p>{children}</p>
-      <Link to={destination} key={destination}><span className="tfh-link-span"></span></Link>
-    </div>
+    <Card layout="flagDefault" headerFirst gridLayout={{ tablet: { col: 12 } }}>
+      <CardHeader>
+        <h3 className="usa-card__heading">{heading}</h3>
+      </CardHeader>
+      <CardMedia exdent>
+        <img src={media} alt="" />
+      </CardMedia>
+      <div className="tfh-initiativeCard-internal">
+        <CardBody>
+          <p>{children}</p>
+        </CardBody>
+        <CardFooter>
+          <Link to={destination} className="usa-button">
+            View
+          </Link>
+        </CardFooter>
+      </div>
+    </Card>
   );
 };
