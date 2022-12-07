@@ -139,6 +139,9 @@ li.usa-card {
 }
 
 @include at-media("tablet") {
+  .tfh-hp-initiatives .usa-card__container {
+    min-height: 823px;
+  }
   .tfh-initiativeCard-internal {
     display: flex;
     flex-direction: row;
