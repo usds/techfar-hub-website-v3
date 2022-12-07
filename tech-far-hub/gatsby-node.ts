@@ -58,7 +58,12 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const result: IGraphQLTemplateNodeResult = await graphql(`
     query CreatePages {
-      allMdx(filter: { internal: { contentFilePath: { glob: "!*components" } } }) {
+      allMdx(
+        filter: {
+          internal: { contentFilePath: { glob: "!*components" } }
+          frontmatter: { page_type: { ne: "homepage" } }
+        }
+      ) {
         edges {
           node {
             id

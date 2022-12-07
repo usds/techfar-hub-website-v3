@@ -1,8 +1,8 @@
 /*
   Hide compile warnings and notifications, make want to set to true in dev
 */
-$theme-show-compile-warnings: false;
-$theme-show-notifications: false;
+$theme-show-compile-warnings: true;
+$theme-show-notifications: true;
 
 /*
   These are necessary for the image and font urls referenced in the source
@@ -21,12 +21,23 @@ $theme-hero-image: "#{$theme-image-path}/hero.png";
 // Your custom changes to variables go here
 // Uncomment to see this working
 // $theme-color-primary-darker: 'black';
+$theme-font-role-heading: "sans";
+$theme-global-paragraph-styles: true;
+$theme-global-link-styles: true;
 
 @import "../../node_modules/uswds/dist/scss/uswds.scss";
 // @import "../../node_modules/@trussworks/react-uswds/lib"
 @import "~@trussworks/react-uswds/lib/index.css";
 
+.tfh-hp-top {
+  @include u-border-bottom("1px");
+  border-color: color("base-lighter");
+}
+
 .tfh-hp-highlight {
+  @include u-padding-y("205");
+  @include u-border-right("1px");
+  border-color: color("base-lighter");
   text-align: left;
   h2 {
     margin-top: 0;
@@ -37,7 +48,11 @@ $theme-hero-image: "#{$theme-image-path}/hero.png";
   }
 }
 
+.tfh-hp-highlight-desc {
+  margin-top: 0;
+}
 .tfh-hp-right-nav {
+  @include u-padding-y("205");
   ol {
     list-style: none;
     padding-left: 2rem;

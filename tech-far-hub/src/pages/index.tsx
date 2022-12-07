@@ -8,6 +8,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
   data,
 }: {
   data: Queries.HomePageInitiativesQuery;
+  children: undefined;
 }) => {
   const initiatives = data.allMdx.nodes.map((node) => {
     if (
@@ -30,15 +31,15 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
   });
   return (
     <Layout>
-      <Grid row gap={6} className="border-bottom padding-bottom-205 padding-top-205">
-        <Grid tablet={{ col: 8 }} className="tfh-hp-highlight border-right">
+      <Grid row gap={6} className="tfh-hp-top">
+        <Grid tablet={{ col: 8 }} className="tfh-hp-highlight">
           <h2 className="tfh-hp-highlight-h2 font-heading-xl">
             <Link to="/resouces/case-studies/va-user-research">
               Case Study: VA.Gov Modernization Comparative Analysis
             </Link>
           </h2>
           <p className="tfh-hp-highlight-desc">
-            THe VA technology Acquisition Cent, in support of VA OIT/DSVA, utilized FAR 13.1 Simplified Acquisition
+            The VA technology Acquisition Cent, in support of VA OIT/DSVA, utilized FAR 13.1 Simplified Acquisition
             Procedures, which enabled the team to streamline a multi-step evaluation with onsite demonstrations, and
             documented the evaluation using a comparative analysis.
           </p>
