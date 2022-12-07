@@ -29,6 +29,10 @@ $theme-global-link-styles: true;
 // @import "../../node_modules/@trussworks/react-uswds/lib"
 @import "~@trussworks/react-uswds/lib/index.css";
 
+.usa-prose>p, p {
+  max-width: unset;
+}
+
 .tfh-hp-top {
   @include u-border-bottom("1px");
   border-color: color("base-lighter");
