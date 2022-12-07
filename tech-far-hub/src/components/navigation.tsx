@@ -13,7 +13,7 @@ interface iNavigation {
 }
 const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
   const { width } = useWindowSize();
-  const [isOpen, setIsOpen] = React.useState([false, false, false]);
+  const [isOpen, setIsOpen] = React.useState(Array(6).fill(false));
   /**
    * This toggle function will handle all navigation toggle links
    *
@@ -46,15 +46,21 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
     </a>,
   ];
 
-  const subMenuItems = [
-    <a href="#linkOne" key="one">
-      Simple link one
-    </a>,
-    <a href="#linkTwo" key="two">
-      Simple link two
-    </a>,
+  const preSolicitationSubMenuItems = [
+    <Link to="/pre-solicitation/agile-overview/">Agile overview</Link>,
+    <Link to="/pre-solicitation/planning-for-agile/">Planning for Agile</Link>,
+    <Link to="/pre-solicitation/market-research/">Market Research</Link>,
+    <Link to="/pre-solicitation/requirements-development/">Requirements Development</Link>,
   ];
 
+  const solicitationSubMenuItems = [
+    <Link to="/solicitation/contract-design/">Contract Design</Link>,
+    <Link to="/solicitation/vehicles/">Vehicles</Link>,
+    <Link to="/solicitation/performance-based-contracting/">Performance Based Contracting</Link>,
+    <Link to="/solicitation/small-business-programs/">Small Business Program</Link>,
+    <Link to="/solicitation/terms-conditions/">Terms and Conditions</Link>,
+    <Link to="/solicitation/protests">Protests</Link>,
+  ];
   const mainNavItems = [
     <>
       <NavDropDownButton
@@ -64,7 +70,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
         menuId="getStartedDropdown"
         isOpen={isOpen[0]}
         label="Get Started"
-        isCurrent={true}
+        isCurrent={false}
       />
       <Menu key="getStarted" items={getStartedSubItems} isOpen={isOpen[0]} />
     </>,
@@ -78,12 +84,20 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
         label="Pre-Solicitation"
         isCurrent={false}
       />
-      <Menu key="preSolicitation" items={subMenuItems} isOpen={isOpen[1]} />
+      <Menu key="preSolicitation" items={preSolicitationSubMenuItems} isOpen={isOpen[1]} />
     </>,
-
-    <a href="#two" key="solicitations" className="usa-nav__link">
-      <span>Solicitation</span>
-    </a>,
+    <>
+      <NavDropDownButton
+        onToggle={(): void => {
+          onToggle(2);
+        }}
+        menuId="solicitationDropdown"
+        isOpen={isOpen[2]}
+        label="Solicitation"
+        isCurrent={false}
+      />
+      <Menu key="solicitation" items={solicitationSubMenuItems} isOpen={isOpen[2]} />
+    </>,
     <a href="#three" key="evaluation" className="usa-nav__link">
       <span>Evaluation</span>
     </a>,

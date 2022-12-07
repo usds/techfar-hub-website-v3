@@ -30,7 +30,7 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
           working-dir: tech-far-hub
-          gatsby-args: --prefix-paths
+          gatsby-args: --prefix-paths --verbose
           skip-publish: true
       - name: Move result files
         shell: bash

@@ -7,6 +7,8 @@
 
   .usa-social-link {
     background: none;
+    height: 2rem;
+    width: 2rem;
   }
 
   .usa-social-link img {
@@ -15,5 +17,41 @@
 
   .usa-footer__social-heading {
     color: #fff;
+  }
+  .usa-footer__nav {
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
+  .usa-footer__primary-content {
+    line-height: 1.3;
+    display: block;
+  }
+}
+
+// TODO: Fix this to use the tokens defined by uswds
+.tfh-next-link {
+  text-align: center;
+  display: block;
+  margin: 2rem auto;
+  a {
+    color: #1b1b1b;
+    font-size: 110%;
+  }
+}
+
+.tfh-externalResources {
+  h3 {
+    background-color: #efefef;
+    color: #777;
+    font-weight: normal;
+    padding: 2rem;
+    width: 80%;
+  }
+  h3::after {
+    content: "";
+    border-bottom: solid #aaa 1px;
+    display: block;
+    width: 80%;
+    margin-top: 1rem;
   }
 }

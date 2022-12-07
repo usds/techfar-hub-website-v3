@@ -13,6 +13,7 @@ interface ITemplatedNode {
   frontmatter: {
     slug?: string;
     heading?: string;
+    template?: string;
   };
   internal: {
     contentFilePath: string;
@@ -47,6 +48,9 @@ interface IPageContext {
   id: string;
   breadCrumbs: IBreadcrumb[];
   pathParts: string[];
+  parentPath: string;
+  parentPathRegex: string;
+  isIndex: boolean;
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
@@ -54,7 +58,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const result: IGraphQLTemplateNodeResult = await graphql(`
     query CreatePages {
-      allMdx {
+      allMdx(filter: { internal: { contentFilePath: { glob: "!*components" } } }) {
         edges {
           node {
             id
@@ -71,6 +75,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
             frontmatter {
               slug
               heading
+              template
             }
             internal {
               contentFilePath
@@ -113,10 +118,10 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   nodes.forEach((node: IEnhancedTemplatedNode) => {
     const contentType: string = node.parent.relativeDirectory.split(path.sep)[0];
 
-    // TODO: Make page-specific templates more general
-    const templateName = node.pageName === "index" ? "template-index.tsx" : "template-default.tsx";
+    const defaultTemplateName = node.pageName === "index" ? "index" : "default";
+    const templateName = node.frontmatter?.template ? node.frontmatter?.template : defaultTemplateName;
     const pagePath = node.pagePath;
-    const template = path.resolve("src", "pages", contentType, templateName);
+    const template = path.resolve("src", "pages", `template-${templateName}.tsx`);
     const pathParts = node.pagePath.replace(/\/$/, "").split("/");
     const breadCrumbPaths = pathParts.reduce(
       (accumulator: string[], currentValue: string) => [
@@ -130,10 +135,21 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       path: path,
       label: breadCrumbHeadings[i],
     }));
+    const isIndex = node.pageName === "index";
+    let parentPath: string;
+    if (node.pageName === "index") {
+      parentPath = pathParts.join("/");
+    } else {
+      parentPath = pathParts.slice(0, -1).join("/");
+    }
+    const parentPathRegex = `/${parentPath.replace("/", "\\/")}\\/.*/`;
     const context: IPageContext = {
       id: node.id,
       breadCrumbs,
       pathParts,
+      parentPath,
+      parentPathRegex,
+      isIndex,
     };
     createPage({
       path: pagePath,
