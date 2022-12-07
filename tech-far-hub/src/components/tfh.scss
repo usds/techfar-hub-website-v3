@@ -50,6 +50,7 @@ $theme-global-link-styles: true;
 
 .tfh-hp-highlight-desc {
   margin-top: 0;
+  max-width: unset;
 }
 .tfh-hp-right-nav {
   @include u-padding-y("205");
