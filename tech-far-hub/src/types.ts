@@ -1,5 +1,3 @@
-import { PageProps } from "gatsby";
-
 export interface IBreadcrumb {
   label: string;
   path: string;
@@ -12,4 +10,14 @@ export interface IPageContext {
   parentPath: string;
   parentPathRegex: string;
   isIndex: boolean;
+}
+
+export interface IMinimalFrontmatter {
+  heading: string | null;
+  slug: string | null;
+}
+
+export interface ITOCItem {
+  url: string;
+  title: string;
 }

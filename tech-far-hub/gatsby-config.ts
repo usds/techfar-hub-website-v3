@@ -47,7 +47,14 @@ const config: GatsbyConfig = {
         // GitHub Flavored Markdown mode (default: true)
         gfm: true,
         // Plugins configs
-        plugins: [],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 960,
+            },
+          },
+        ],
       },
     },
     "gatsby-plugin-sharp",

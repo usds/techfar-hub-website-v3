@@ -15,7 +15,7 @@ interface ILayoutProps {
   breadCrumbs?: IBreadcrumb[];
 }
 
-const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
+const SiteLayout = ({ children, breadCrumbs }: ILayoutProps) => {
   const [navExpanded, setNavExpanded] = React.useState(false);
   const onNavExpand = (): void => setNavExpanded((prvExpanded) => !prvExpanded);
 
@@ -55,4 +55,4 @@ const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
   );
 };
 
-export default Layout;
+export default SiteLayout;
