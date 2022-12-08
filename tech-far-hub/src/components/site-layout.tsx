@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ReactNode } from "react";
 import { Link } from "gatsby";
-//import "@trussworks/react-uswds/lib/index.css";
 import "./tfh.scss";
 
 import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from "@trussworks/react-uswds";
@@ -15,7 +14,7 @@ interface ILayoutProps {
   breadCrumbs?: IBreadcrumb[];
 }
 
-const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
+const SiteLayout = ({ children, breadCrumbs }: ILayoutProps) => {
   const [navExpanded, setNavExpanded] = React.useState(false);
   const onNavExpand = (): void => setNavExpanded((prvExpanded) => !prvExpanded);
 
@@ -55,4 +54,4 @@ const Layout = ({ children, breadCrumbs }: ILayoutProps) => {
   );
 };
 
-export default Layout;
+export default SiteLayout;

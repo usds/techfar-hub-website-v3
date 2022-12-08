@@ -1,7 +1,7 @@
 import * as React from "react";
 import { HeadFC, Link, PageProps, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import Layout from "../components/layout";
+import SiteLayout from "../components/site-layout";
 import { Grid } from "@trussworks/react-uswds";
 import { Initiative } from "../components/initiative";
 
@@ -31,7 +31,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
     }
   });
   return (
-    <Layout>
+    <SiteLayout>
       <Grid row gap={6} className="tfh-hp-top">
         <Grid tablet={{ col: 8 }} className="tfh-hp-highlight">
           <h2 className="tfh-hp-highlight-h2 font-heading-xl">
@@ -100,7 +100,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
           {initiatives}
         </Grid>
       </Grid>
-    </Layout>
+    </SiteLayout>
   );
 };
 
