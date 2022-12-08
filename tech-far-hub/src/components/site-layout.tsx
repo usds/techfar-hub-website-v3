@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ReactNode } from "react";
 import { Link } from "gatsby";
-//import "@trussworks/react-uswds/lib/index.css";
 import "./tfh.scss";
 
 import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from "@trussworks/react-uswds";
