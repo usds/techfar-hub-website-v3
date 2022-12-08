@@ -58,7 +58,12 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const result: IGraphQLTemplateNodeResult = await graphql(`
     query CreatePages {
-      allMdx(filter: { internal: { contentFilePath: { glob: "!*components" } } }) {
+      allMdx(
+        filter: {
+          internal: { contentFilePath: { glob: "!*components" } }
+          frontmatter: { page_type: { ne: "homepage" } }
+        }
+      ) {
         edges {
           node {
             id
@@ -157,4 +162,15 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       context,
     });
   });
+};
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type Mdx implements Node { frontmatter: Frontmatter }
+    type Frontmatter {
+      media_image: String
+    }
+  `;
+  createTypes(typeDefs);
 };
