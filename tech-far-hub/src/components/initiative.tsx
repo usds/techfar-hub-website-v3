@@ -1,12 +1,12 @@
 import { Card, CardHeader, CardMedia, CardBody, CardFooter } from "@trussworks/react-uswds";
-import { Link } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 import * as React from "react";
 
 // TODO: Add media alt text
 interface IInitiativeProps {
   children: React.ReactNode;
   heading: React.ReactNode | string;
-  media: string;
+  media: any;
   destination: string;
 }
 
@@ -17,7 +17,7 @@ export const Initiative = ({ children, heading, media, destination }: IInitiativ
         <h3 className="usa-card__heading">{heading}</h3>
       </CardHeader>
       <CardMedia exdent>
-        <img src={media} alt="" />
+        <img src={withPrefix(media)} alt="A stock image" />
       </CardMedia>
       <div className="tfh-initiativeCard-internal">
         <CardBody>

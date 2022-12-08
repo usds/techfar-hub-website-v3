@@ -163,3 +163,14 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     });
   });
 };
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type Mdx implements Node { frontmatter: Frontmatter }
+    type Frontmatter {
+      media_image: String
+    }
+  `;
+  createTypes(typeDefs);
+};

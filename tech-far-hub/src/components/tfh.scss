@@ -1,8 +1,8 @@
 /*
   Hide compile warnings and notifications, make want to set to true in dev
 */
-$theme-show-compile-warnings: true;
-$theme-show-notifications: true;
+$theme-show-compile-warnings: false;
+$theme-show-notifications: false;
 
 /*
   These are necessary for the image and font urls referenced in the source
@@ -29,7 +29,8 @@ $theme-global-link-styles: true;
 // @import "../../node_modules/@trussworks/react-uswds/lib"
 @import "~@trussworks/react-uswds/lib/index.css";
 
-.usa-prose>p, p {
+.usa-prose > p,
+p {
   max-width: unset;
 }
 

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { HeadFC, Link, PageProps, graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import { Grid } from "@trussworks/react-uswds";
 import { Initiative } from "../components/initiative";
@@ -16,14 +17,14 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
       node.frontmatter.description &&
       node.frontmatter.heading &&
       node.frontmatter.slug &&
-      node.frontmatter.media &&
+      node.frontmatter.media_image &&
       node.frontmatter.media_alt &&
       node.parent &&
       "relativeDirectory" in node.parent
     ) {
       const pagePath = `/${node.parent.relativeDirectory}/${node.frontmatter.slug}`;
       return (
-        <Initiative heading={node.frontmatter.heading} destination={pagePath} media={node.frontmatter.media}>
+        <Initiative heading={node.frontmatter.heading} destination={pagePath} media={node.frontmatter.media_image}>
           {node.frontmatter.description}
         </Initiative>
       );
@@ -43,7 +44,11 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
             Procedures, which enabled the team to streamline a multi-step evaluation with onsite demonstrations, and
             documented the evaluation using a comparative analysis.
           </p>
-          <img src="https://placekitten.com/800/400" alt="A cat" />
+          <StaticImage
+            src="../../static/assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg"
+            width={623}
+            alt="Two people collaborating over graphs"
+          />
         </Grid>
         <Grid tablet={{ col: 4 }} className="tfh-hp-right-nav">
           <hr className="text-accent-warm bg-accent-warm" />
@@ -112,8 +117,8 @@ export const query = graphql`
           slug
           description
           heading
-          media
           media_alt
+          media_image
         }
         internal {
           contentDigest
