@@ -29,13 +29,15 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   useNextLink = false,
 }: IPageLayoutNav) => {
   const currentSlug = frontmatter?.slug;
-  const tocLinks = tableOfContents.items.map((item: ITOCItem) => {
-    return (
-      <a href={item.url} key={item.url} className="font-ui-3xs">
-        {item.title}
-      </a>
-    );
-  });
+  const tocLinks = tableOfContents.items
+    ? tableOfContents.items.map((item: ITOCItem) => {
+        return (
+          <a href={item.url} key={item.url} className="font-ui-3xs">
+            {item.title}
+          </a>
+        );
+      })
+    : [];
   let atCurrent = false;
   let nextLink: IMinimalFrontmatter | null = null;
   const siblingLinks = siblings.nodes.map(({ frontmatter }) => {
@@ -47,7 +49,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
             <a href="#" className="usa-current" key="current">
               {frontmatter.heading}
             </a>
-            <SideNav items={tocLinks}></SideNav>
+            {tocLinks.length > 0 && <SideNav items={tocLinks}></SideNav>}
           </>
         );
       } else if (frontmatter.slug !== "index") {
