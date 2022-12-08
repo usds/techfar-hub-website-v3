@@ -8,10 +8,10 @@ import MDXContent from "../components/mdxcontent";
 import Resources from "../components/resources";
 import { Alert } from "../components/alert";
 import { IPageContext } from "../types";
-import { IMinimalFrontmatter } from "../types";
+import { TOCEnhancedQueryPageProps } from "../types";
 import PageLayoutNav from "../components/page-layout-nav";
 
-type DefaultPageProps = PageProps<Queries.PageContentQuery, IPageContext>;
+type DefaultPageProps = TOCEnhancedQueryPageProps<Queries.PageContentQuery>;
 
 const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageContext }: DefaultPageProps) => {
   if (data.currentPage.frontmatter && data.siblings && data.currentPage.tableOfContents) {
@@ -41,21 +41,14 @@ export const Head: HeadFC = () => <title>TechFAR Hub</title>;
 export const query = graphql`
   query PageContent($id: String, $parentPathRegex: String) {
     currentPage: mdx(id: { eq: $id }) {
-      frontmatter {
-        heading
-        slug
-      }
-      tableOfContents(maxDepth: 2)
+      ...currentPageWithLocalNav
     }
     siblings: allMdx(
       filter: { internal: { contentFilePath: { regex: $parentPathRegex } } }
       sort: { frontmatter: { nav_weight: ASC } }
     ) {
       nodes {
-        frontmatter {
-          slug
-          heading
-        }
+        ...minimalFrontmatter
       }
     }
   }

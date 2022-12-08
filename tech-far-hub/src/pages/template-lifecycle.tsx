@@ -5,15 +5,10 @@ import { DeepPick } from "ts-deep-pick";
 import PageLayoutNav from "../components/page-layout-nav";
 import MDXContent from "../components/mdxcontent";
 import { IPageContext } from "../types";
-import { ITOCItem } from "../types";
+import { ITOCItem, TOCEnhancedQueryPageProps } from "../types";
 import SiteLayout from "../components/site-layout";
 
-type TableOfContents = { currentPage: { tableOfContents: Record<string, ITOCItem[]> } };
-type LifecycleCurrentPage = DeepPick<Queries.LifecycleInnerPageQuery, "currentPage.!tableOfContents"> & TableOfContents;
-
-type LifecycleInnerPageQuery = Omit<Queries.LifecycleInnerPageQuery, "currentPage"> & LifecycleCurrentPage;
-
-type LifecycleInnerPageProps = PageProps<LifecycleInnerPageQuery, IPageContext>;
+type LifecycleInnerPageProps = TOCEnhancedQueryPageProps<Queries.LifecycleInnerPageQuery>;
 
 const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
   data,
@@ -47,21 +42,14 @@ export const Head: HeadFC = () => <title>TechFAR Hub</title>;
 export const query = graphql`
   query LifecycleInnerPage($id: String, $parentPathRegex: String) {
     currentPage: mdx(id: { eq: $id }) {
-      frontmatter {
-        heading
-        slug
-      }
-      tableOfContents(maxDepth: 2)
+      ...currentPageWithLocalNav
     }
     siblings: allMdx(
       filter: { internal: { contentFilePath: { regex: $parentPathRegex } } }
       sort: { frontmatter: { nav_weight: ASC } }
     ) {
       nodes {
-        frontmatter {
-          slug
-          heading
-        }
+        ...minimalFrontmatter
       }
     }
   }

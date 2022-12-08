@@ -1,11 +1,8 @@
 import { Grid, SideNav } from "@trussworks/react-uswds";
-import type { HeadFC, PageProps } from "gatsby";
 import { graphql, Link } from "gatsby";
 import * as React from "react";
-import { DeepPick } from "ts-deep-pick";
 import { Alert } from "../components/alert";
 import SiteLayout from "../components/site-layout";
-import MDXContent from "../components/mdxcontent";
 import { IPageContext } from "../types";
 import Resources from "../components/resources";
 import { IMinimalFrontmatter, ITOCItem } from "../types";
@@ -76,7 +73,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
         </Grid>
         <Grid tablet={{ col: 10 }}>
           {children}
-          {useNextLink && nextLink && (
+          {useNextLink && nextLink !== null && (
             <span className="tfh-next-link">
               <Link to={`${pageContext.parentPath}/${nextLink.slug}`}>
                 <strong>Next: {nextLink.heading}</strong>
@@ -95,5 +92,18 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
     </SiteLayout>
   );
 };
+
+export const query = graphql`
+  fragment minimalFrontmatter on Mdx {
+    frontmatter {
+      slug
+      heading
+    }
+  }
+  fragment currentPageWithLocalNav on Mdx {
+    ...minimalFrontmatter
+    tableOfContents(maxDepth: 2)
+  }
+`;
 
 export default PageLayoutNav;
