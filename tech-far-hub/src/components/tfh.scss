@@ -114,29 +114,31 @@ p {
   }
 }
 
-.tfh-externalResources {
-  h3 {
-    background-color: #efefef;
-    color: #777;
-    font-weight: normal;
-    padding: 2rem;
-    width: 80%;
-  }
-  h3::after {
-    content: "";
-    border-bottom: solid #aaa 1px;
-    display: block;
-    width: 80%;
-    margin-top: 1rem;
-  }
-}
-
 .tfh-hp-initiatives {
   margin-bottom: 2rem;
 }
 
 li.usa-card {
   list-style: none;
+}
+
+.tfh-lifecycleResouces {
+  margin-top: 2rem;
+}
+
+.tfh-lifecycleResouces .usa-card__body ul {
+  list-style: none;
+  padding-left: 0;
+  li {
+    margin-top: 1rem;
+    p {
+      margin-top: 0;
+      font-weight: bold;
+    }
+    p + p {
+      font-weight: normal;
+    }
+  }
 }
 
 @include at-media("tablet") {
@@ -153,6 +155,16 @@ li.usa-card {
 
     .usa-card__body {
       padding-bottom: 1rem;
+    }
+  }
+
+  .tfh-lifecycleResouces .usa-card__body ul {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      flex: 200px;
+      margin-top: 1rem;
     }
   }
 }

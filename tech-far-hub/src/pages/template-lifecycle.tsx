@@ -1,11 +1,9 @@
-import type { HeadFC, PageProps } from "gatsby";
+import type { HeadFC } from "gatsby";
 import { graphql } from "gatsby";
 import * as React from "react";
-import { DeepPick } from "ts-deep-pick";
 import PageLayoutNav from "../components/page-layout-nav";
 import MDXContent from "../components/mdxcontent";
-import { IPageContext } from "../types";
-import { ITOCItem, TOCEnhancedQueryPageProps } from "../types";
+import { TOCEnhancedQueryPageProps } from "../types";
 import SiteLayout from "../components/site-layout";
 
 type LifecycleInnerPageProps = TOCEnhancedQueryPageProps<Queries.LifecycleInnerPageQuery>;
