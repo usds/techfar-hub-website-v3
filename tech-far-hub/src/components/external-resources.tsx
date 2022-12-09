@@ -3,22 +3,22 @@ import { Card, CardMedia, CardHeader, CardBody } from "@trussworks/react-uswds";
 import { withPrefix } from "gatsby";
 const ExternalResouces = ({
   children,
-  media,
-  heading,
+  media = "/assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg",
+  media_alt = "A stock image",
+  heading = "External resources",
 }: {
   children: React.ReactNode;
-  media?: string;
-  heading?: string;
+  media: string;
+  media_alt: string;
+  heading: string;
 }): JSX.Element => {
-  const cardMediaUrl = media ? media : "/assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg";
-  const cardHeading = heading ? heading : "External resources";
   return (
     <Card layout="flagDefault" headerFirst gridLayout={{ tablet: { col: 12 } }} className="tfh-lifecycleResouces">
       <CardHeader>
-        <h3 className="usa-card__heading">{cardHeading}</h3>
+        <h3 className="usa-card__heading">{heading}</h3>
       </CardHeader>
       <CardMedia exdent>
-        <img src={withPrefix(cardMediaUrl)} alt="A stock image" />
+        <img src={withPrefix(media)} alt={media_alt} />
       </CardMedia>
       <div className="tfh-lifecycleResouces-internal">
         <CardBody>{children}</CardBody>
