@@ -36,7 +36,11 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
     });
   };
 
-  const getStartedSubItems = [<Link to="/get-started">Get Started</Link>];
+  const getStartedSubItems = [
+    <Link to="/get-started/">Get Started</Link>,
+    <Link to="/get-started/how-to-use/">How to Use TFH</Link>,
+  ];
+
   const secondaryLinks = [
     <a href="#privacy" key="privacy">
       Privacy Policy
@@ -59,7 +63,32 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
     <Link to="/solicitation/performance-based-contracting/">Performance Based Contracting</Link>,
     <Link to="/solicitation/small-business-programs/">Small Business Program</Link>,
     <Link to="/solicitation/terms-conditions/">Terms and Conditions</Link>,
-    <Link to="/solicitation/protests">Protests</Link>,
+    <Link to="/solicitation/protests/">Protests</Link>,
+  ];
+
+  const evaluationSubMenItems = [
+    <Link to="/evaluation/technical-evaluation/">Technical Evaluation</Link>,
+    <Link to="/evaluation/price-evaluation">Price Evaluation</Link>,
+  ];
+
+  const contractAdminSubItems = [
+    <Link to="/contract-administration/contract-administration-and-audit-services/">
+      Contract Administration and Audit Services
+    </Link>,
+    <Link to="/contract-administration/modifications/">Modifications</Link>,
+    <Link to="/contract-administration/subcontracting-policies-procedures/">
+      Subcontracting Policies and Procedure
+    </Link>,
+    <Link to="/contract-administration/quality-assurance">Quality Assurance</Link>,
+    <Link to="/contract-administration/terminating-agile-contracts">Terminating Agile Contracts</Link>,
+  ];
+
+  const resourcesSubItems = [
+    <Link to="/resources/learning-center">Learning Center</Link>,
+    <Link to="/resources/case-studies/">Case Studies</Link>,
+    <Link to="/resources/templates-samples/">Templates and Samples</Link>,
+    <Link to="/resources/policy-guidance/">Policy and Guidance</Link>,
+    <Link to="/resources/contract-solutions-vehicles">Contract Solutions and Vehicles</Link>,
   ];
   const mainNavItems = [
     <>
@@ -98,15 +127,42 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
       />
       <Menu key="solicitation" items={solicitationSubMenuItems} isOpen={isOpen[2]} />
     </>,
-    <a href="#three" key="evaluation" className="usa-nav__link">
-      <span>Evaluation</span>
-    </a>,
-    <a href="#three" key="contactAdministration" className="usa-nav__link">
-      <span>Contract Administration</span>
-    </a>,
-    <a href="#three" key="history" className="usa-nav__link">
-      <span>Resources</span>
-    </a>,
+    <>
+      <NavDropDownButton
+        onToggle={(): void => {
+          onToggle(3);
+        }}
+        menuId="evaluationDropdown"
+        isOpen={isOpen[3]}
+        label="Evaluation"
+        isCurrent={false}
+      />
+      <Menu key="evaluation" items={evaluationSubMenItems} isOpen={isOpen[3]} />
+    </>,
+    <>
+      <NavDropDownButton
+        onToggle={(): void => {
+          onToggle(4);
+        }}
+        menuId="contractAdminDropdown"
+        isOpen={isOpen[4]}
+        label="Contract Administration"
+        isCurrent={false}
+      />
+      <Menu key="contractAdministration" items={contractAdminSubItems} isOpen={isOpen[4]} />
+    </>,
+    <>
+      <NavDropDownButton
+        onToggle={(): void => {
+          onToggle(5);
+        }}
+        menuId="resourcesDropdown"
+        isOpen={isOpen[5]}
+        label="Resources"
+        isCurrent={false}
+      />
+      <Menu key="resources" items={resourcesSubItems} isOpen={isOpen[5]} />
+    </>,
   ];
   return (
     <>
