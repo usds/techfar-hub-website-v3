@@ -55,13 +55,13 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
           <h3>01. Get Started</h3>
           <ol>
             <li>
-              <a href="#">What is the TechFAR Hub?</a>
+              <a href="/get-started/">What is the TechFAR Hub?</a>
             </li>
             <li>
-              <a href="#">How to Use the TFH</a>
+              <a href="/get-started/how-to-use/">How to Use the TFH</a>
             </li>
             <li>
-              <a href="#">How to Get Involved</a>
+              <a href="https://github.com/usds/techfar-hub-website-v3">How to Get Involved</a>
             </li>
           </ol>
           <hr className="text-accent-cool-dark bg-accent-cool-dark" />
@@ -86,10 +86,10 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
           <p>View first-hand experiences of fellows acquisition professionals, get tools, access training, and more</p>
           <ol>
             <li>
-              <Link to="/resources/tools/agile-estimator">Agile Estimator</Link>
+              <Link to="/resources/templates-samples/agile-team-estimator/">Agile Estimator</Link>
             </li>
             <li>
-              <Link to="/resources/tools/sources-sought">Sources Sought Tool</Link>
+              <Link to="/resources/templates-samples/sources-sought-tool">Sources Sought Tool</Link>
             </li>
           </ol>
         </Grid>

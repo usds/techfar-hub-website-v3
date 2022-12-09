@@ -44,9 +44,9 @@ const Footer = () => {
                   links={[
                     <Link to="/resources/learning-center/">Learning Center</Link>,
                     <Link to="/resources/case-studies/">Case Studies</Link>,
-                    <Link to="/resources/templates/">Templates</Link>,
-                    <Link to="/resources/vehicles/">Vehicles &amp; Policy</Link>,
-                    <Link to="/resources/vehicles/">Contracts &amp; Vehicles</Link>,
+                    <Link to="/resources/templates-samples/">Templates and Samples</Link>,
+                    <Link to="/resources/policy-guidance/">Policy and Guidance</Link>,
+                    <Link to="/resources/contract-solutions-vehicles/">Contract Solutions and Vehicles</Link>,
                   ]}
                 />
               </Grid>
@@ -58,7 +58,7 @@ const Footer = () => {
                     <a href="https://www.acquisition.gov/">Acquisition.gov</a>,
                     <a href="https://www.fai.gov/periodic-table">FAR Periodic Table</a>,
                     <a href="https://www.usds.gov/apply">Apply to USDS</a>,
-                    <Link to="/resources/history/">History of TFH</Link>,
+                    <Link to="/resources/learning-center/history-of-tfh">History of TFH</Link>,
                     <a href="https://github.com/usds/techfar-hub-website-v3">Contribute to this site</a>,
                   ]}
                 />
