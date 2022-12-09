@@ -123,7 +123,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   nodes.forEach((node: IEnhancedTemplatedNode) => {
     const contentType: string = node.parent.relativeDirectory.split(path.sep)[0];
 
-    const defaultTemplateName = node.pageName === "index" ? "index" : "default";
+    const defaultTemplateName = "default";
     const templateName = node.frontmatter?.template ? node.frontmatter?.template : defaultTemplateName;
     const pagePath = node.pagePath;
     const template = path.resolve("src", "pages", `template-${templateName}.tsx`);
