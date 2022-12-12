@@ -167,4 +167,16 @@ li.usa-card {
       margin-top: 1rem;
     }
   }
+  .tfh-resources-landing .tfh-lifecycleResouces .usa-card__body {
+    min-height: 300px;
+    ul {
+      li {
+        flex: 250px;
+        margin-top: 2rem;
+        a {
+          color: color("ink");
+        }
+      }
+    }
+  }
 }
