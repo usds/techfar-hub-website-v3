@@ -1,6 +1,6 @@
 ---
 heading: Samples
-href: /resources/samples
+href: /resources/templates-samples/
 nav_weight: 10
 visible: true
 ---
