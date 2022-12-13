@@ -25,6 +25,7 @@ interface IPageLayoutNav {
   tableOfContents: Record<string, ITOCItem[]>;
   pageContext: IPageContext;
   useNextLink: boolean;
+  showSiblings?: boolean;
   children: React.ReactNode;
 }
 
@@ -35,14 +36,16 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   pageContext,
   children,
   useNextLink = false,
+  showSiblings = true,
 }: IPageLayoutNav) => {
   const currentSlug = frontmatter?.slug;
   const pathDepth = pageContext.pathParts.length;
   const isTopLevel = pathDepth === 2;
   const tocLinks = tableOfContents.items
     ? tableOfContents.items.map((item: ITOCItem) => {
+        const tocClass = !showSiblings ? "" : "font-ui-3xs";
         return (
-          <a href={item.url} key={item.url} className="font-ui-3xs">
+          <a href={item.url} key={item.url} className={tocClass}>
             {item.title}
           </a>
         );
@@ -78,13 +81,15 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
           atCurrent = true;
           return (
             <>
-              <a href="#" className="usa-current" key="current">
-                {node.frontmatter.heading}
-              </a>
+              {showSiblings && (
+                <a href="#" className="usa-current" key="current">
+                  {node.frontmatter.heading}
+                </a>
+              )}
               {tocLinks.length > 0 && <SideNav items={tocLinks}></SideNav>}
             </>
           );
-        } else {
+        } else if (showSiblings) {
           if (atCurrent) {
             nextLink = node.frontmatter;
             atCurrent = false;
