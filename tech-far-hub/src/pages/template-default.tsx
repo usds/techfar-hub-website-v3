@@ -44,6 +44,13 @@ export const query = graphql`
     ) {
       nodes {
         ...minimalFrontmatter
+        parent {
+          ... on File {
+            name
+            relativePath
+            relativeDirectory
+          }
+        }
       }
     }
   }

@@ -49,7 +49,9 @@ interface IPageContext {
   breadCrumbs: IBreadcrumb[];
   pathParts: string[];
   parentPath: string;
+  filePath: string;
   parentPathRegex: string;
+  childPathRegex: string;
   isIndex: boolean;
 }
 
@@ -100,7 +102,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const parentDirs: string = node.parent.relativeDirectory;
     const pageName: string = node.parent.name;
     const pageIdentifier: string = node.frontmatter.slug || pageName;
-
     const pagePath = pageName == "index" ? `/${parentDirs}/` : `/${parentDirs}/${pageIdentifier}/`;
     const heading = node.frontmatter?.heading;
     return {
@@ -126,6 +127,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const defaultTemplateName = "default";
     const templateName = node.frontmatter?.template ? node.frontmatter?.template : defaultTemplateName;
     const pagePath = node.pagePath;
+    const filePath = node.parent.relativePath;
     const template = path.resolve("src", "pages", `template-${templateName}.tsx`);
     const pathParts = node.pagePath.replace(/\/$/, "").split("/");
     const breadCrumbPaths = pathParts.reduce(
@@ -142,18 +144,20 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     }));
     const isIndex = node.pageName === "index";
     let parentPath: string;
-    if (node.pageName === "index") {
-      parentPath = pathParts.join("/");
-    } else {
-      parentPath = pathParts.slice(0, -1).join("/");
-    }
-    const parentPathRegex = `/${parentPath.replace("/", "\\/")}\\/.*/`;
+    parentPath = pathParts.slice(0, -1).join("/");
+    const parentPathRegex = `/${parentPath.replace(
+      "/",
+      "\\/"
+    )}\\/(?!index.md.)[A-Za-z0-9-.]+(\\/index.md|\\/index.mdx|$)/`;
+    const childPathRegex = `/${pagePath.replace("/", "\\/")}.*/`;
     const context: IPageContext = {
       id: node.id,
       breadCrumbs,
       pathParts,
       parentPath,
       parentPathRegex,
+      childPathRegex,
+      filePath,
       isIndex,
     };
     createPage({

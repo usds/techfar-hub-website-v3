@@ -12,6 +12,8 @@ export interface IPageContext {
   pathParts: string[];
   parentPath: string;
   parentPathRegex: string;
+  childPathRegex: string;
+  filePath: string;
   isIndex: boolean;
 }
 
