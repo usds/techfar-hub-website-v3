@@ -1,13 +1,8 @@
-import { Grid, SideNav } from "@trussworks/react-uswds";
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { graphql, Link } from "gatsby";
 import SiteLayout from "../components/site-layout";
-import { DeepPick } from "ts-deep-pick";
 import MDXContent from "../components/mdxcontent";
-import Resources from "../components/resources";
-import { Alert } from "../components/alert";
-import { IPageContext } from "../types";
 import { TOCEnhancedQueryPageProps } from "../types";
 import PageLayoutNav from "../components/page-layout-nav";
 

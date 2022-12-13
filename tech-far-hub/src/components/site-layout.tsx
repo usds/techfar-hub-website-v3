@@ -12,9 +12,10 @@ import { IBreadcrumb } from "../types";
 interface ILayoutProps {
   children: ReactNode;
   breadCrumbs?: IBreadcrumb[];
+  className?: string;
 }
 
-const SiteLayout = ({ children, breadCrumbs }: ILayoutProps) => {
+const SiteLayout = ({ children, breadCrumbs, className }: ILayoutProps) => {
   const [navExpanded, setNavExpanded] = React.useState(false);
   const onNavExpand = (): void => setNavExpanded((prvExpanded) => !prvExpanded);
 
@@ -35,7 +36,7 @@ const SiteLayout = ({ children, breadCrumbs }: ILayoutProps) => {
         <Navigation isNavExpanded={navExpanded} onNavExpanded={onNavExpand} />
       </Header>
 
-      <main id="main-content">
+      <main id="main-content" className={className}>
         <GridContainer>
           <Grid row>
             {breadCrumbs && (
