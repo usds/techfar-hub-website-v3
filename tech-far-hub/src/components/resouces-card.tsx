@@ -21,7 +21,7 @@ const ResouceCard = ({ node, width = 3 }: { node: IResourceNode; width?: ColumnS
         <CardBody dangerouslySetInnerHTML={{ __html: node.html }}></CardBody>
         <CardFooter>
           <Link to={node.frontmatter.href} className="usa-button">
-            See More
+            View
           </Link>
         </CardFooter>
       </Card>
