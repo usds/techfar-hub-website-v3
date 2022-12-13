@@ -50,6 +50,7 @@ interface IPageContext {
   pathParts: string[];
   parentPath: string;
   parentPathRegex: string;
+  childPathRegex: string;
   isIndex: boolean;
 }
 
@@ -142,18 +143,16 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     }));
     const isIndex = node.pageName === "index";
     let parentPath: string;
-    if (node.pageName === "index") {
-      parentPath = pathParts.join("/");
-    } else {
-      parentPath = pathParts.slice(0, -1).join("/");
-    }
-    const parentPathRegex = `/${parentPath.replace("/", "\\/")}\\/.*/`;
+    parentPath = pathParts.slice(0, -1).join("/");
+    const parentPathRegex = `/${parentPath.replace("/", "\\/")}\\/[A-Za-z0-9-.]+(\\/index.md|\\/index.mdx|$)/`;
+    const childPathRegex = `/${pagePath.replace("/", "\\/")}.*/`;
     const context: IPageContext = {
       id: node.id,
       breadCrumbs,
       pathParts,
       parentPath,
       parentPathRegex,
+      childPathRegex,
       isIndex,
     };
     createPage({
