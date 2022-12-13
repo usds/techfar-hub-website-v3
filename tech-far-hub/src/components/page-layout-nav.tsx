@@ -81,7 +81,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
           atCurrent = true;
           return (
             <>
-              {showSiblings === true && (
+              {showSiblings && (
                 <a href="#" className="usa-current" key="current">
                   {node.frontmatter.heading}
                 </a>
