@@ -144,7 +144,10 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     const isIndex = node.pageName === "index";
     let parentPath: string;
     parentPath = pathParts.slice(0, -1).join("/");
-    const parentPathRegex = `/${parentPath.replace("/", "\\/")}\\/[A-Za-z0-9-.]+(\\/index.md|\\/index.mdx|$)/`;
+    const parentPathRegex = `/${parentPath.replace(
+      "/",
+      "\\/"
+    )}\\/(?!index.md.)[A-Za-z0-9-.]+(\\/index.md|\\/index.mdx|$)/`;
     const childPathRegex = `/${pagePath.replace("/", "\\/")}.*/`;
     const context: IPageContext = {
       id: node.id,

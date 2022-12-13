@@ -19,9 +19,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
         pageContext={pageContext}
         useNextLink={false}
       >
-        <Grid row>
-          {pageContext.childPathRegex}
-          {JSON.stringify(data.children)}
+        <Grid row className="margin-bottom-2">
           <MDXContent>{children}</MDXContent>
         </Grid>
         <Grid row>

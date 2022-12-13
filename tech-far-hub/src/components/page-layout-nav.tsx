@@ -42,7 +42,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   let nextLink: IMinimalFrontmatter | null = null;
   const siblingLinks = siblings.nodes.map(({ frontmatter }) => {
     if (frontmatter && frontmatter.slug && frontmatter.heading) {
-      if (frontmatter.slug === currentSlug && frontmatter.slug !== "index") {
+      if (frontmatter.slug === currentSlug) {
         atCurrent = true;
         return (
           <>
@@ -52,7 +52,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
             {tocLinks.length > 0 && <SideNav items={tocLinks}></SideNav>}
           </>
         );
-      } else if (frontmatter.slug !== "index") {
+      } else {
         if (atCurrent) {
           nextLink = frontmatter as IMinimalFrontmatter;
           atCurrent = false;
