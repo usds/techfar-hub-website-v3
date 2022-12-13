@@ -1,8 +1,8 @@
 ---
-heading: Templates
-href: /resources/templates-samples/
-nav_weight: 20
+heading: Learning Center
+href: /resources/learning-center/
+nav_weight: 30
 visible: true
 ---
 
-Find templates for contract vehicles, scopes of work, etc.
+Advance your career by building new skills.

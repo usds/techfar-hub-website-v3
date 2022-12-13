@@ -1,8 +1,8 @@
 ---
-heading: Samples
+heading: Tools, Templates & Samples
 href: /resources/templates-samples/
 nav_weight: 10
 visible: true
 ---
 
-Learn from previous success with our sample procurement documents.
+Use these artifacts to get a head start on your work.

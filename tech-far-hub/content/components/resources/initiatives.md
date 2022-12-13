@@ -1,8 +1,8 @@
 ---
-heading: Initiatives
+heading: Contract Solutions & Vehicles
 href: /resources/contract-solutions-vehicles/
 nav_weight: 40
 visible: true
 ---
 
-Level-up your procurements with 8(a) vendors, DITAP training, and the Acquisition Innovation Advocates (AIA) Council.
+Don’t reinvent the wheel before checking out these ready-made solutions.

@@ -1,7 +1,8 @@
 ---
 heading: Case Studies
 href: /resources/case-studies
-nav_weight: 30
+nav_weight: 20
 visible: true
 ---
-Get inspired and learn from your peers through case studies.
+
+Learn from the good work of your peers, or contribute your own!
