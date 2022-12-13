@@ -24,6 +24,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
         </Grid>
         <Grid row>
           <CardGroup>
+            <pre>{JSON.stringify(data.siblings.nodes, undefined, 2)}</pre>
             {data.children.nodes.map(({ frontmatter }) => {
               if (frontmatter && frontmatter.heading && frontmatter.promo_description && frontmatter.slug) {
                 return (
@@ -71,6 +72,13 @@ export const query = graphql`
           slug
           heading
           promo_description
+        }
+        parent {
+          ... on File {
+            name
+            relativePath
+            relativeDirectory
+          }
         }
       }
     }

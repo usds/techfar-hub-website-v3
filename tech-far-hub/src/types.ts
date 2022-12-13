@@ -13,6 +13,7 @@ export interface IPageContext {
   parentPath: string;
   parentPathRegex: string;
   childPathRegex: string;
+  filePath: string;
   isIndex: boolean;
 }
 

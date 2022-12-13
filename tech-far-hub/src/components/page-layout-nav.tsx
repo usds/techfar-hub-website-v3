@@ -12,6 +12,14 @@ interface IPageLayoutNav {
   siblings: {
     readonly nodes: readonly {
       readonly frontmatter: IMinimalFrontmatter | null;
+      readonly parent:
+        | {}
+        | {
+            readonly name: string;
+            readonly relativePath: string;
+            readonly relativeDirectory: string;
+          }
+        | null;
     }[];
   };
   tableOfContents: Record<string, ITOCItem[]>;
@@ -29,6 +37,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   useNextLink = false,
 }: IPageLayoutNav) => {
   const currentSlug = frontmatter?.slug;
+  const currentURLPath = pageContext.pathParts.slice(0, -1).join("/").slice(1);
   const tocLinks = tableOfContents.items
     ? tableOfContents.items.map((item: ITOCItem) => {
         return (
@@ -39,25 +48,33 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
       })
     : [];
   let atCurrent = false;
-  let nextLink: IMinimalFrontmatter | null = null;
-  const siblingLinks = siblings.nodes.map(({ frontmatter }) => {
-    if (frontmatter && frontmatter.slug && frontmatter.heading) {
-      if (frontmatter.slug === currentSlug) {
+  let nextLink = null;
+  const siblingLinks = siblings.nodes.map((node) => {
+    if (
+      node &&
+      node.frontmatter &&
+      node.frontmatter.slug &&
+      node.frontmatter.heading &&
+      node.parent &&
+      "relativeDirectory" in node.parent
+    ) {
+      let actualSlug = node.frontmatter.slug === "index" ? "" : node.frontmatter.slug;
+      if (node.frontmatter.slug === currentSlug && node.parent.relativePath == pageContext.filePath) {
         atCurrent = true;
         return (
           <>
             <a href="#" className="usa-current" key="current">
-              {frontmatter.heading}
+              {node.frontmatter.heading}
             </a>
             {tocLinks.length > 0 && <SideNav items={tocLinks}></SideNav>}
           </>
         );
       } else {
         if (atCurrent) {
-          nextLink = frontmatter as IMinimalFrontmatter;
+          nextLink = node.frontmatter;
           atCurrent = false;
         }
-        return <Link to={`${pageContext.parentPath}/${frontmatter.slug}`}>{frontmatter.heading}</Link>;
+        return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
       }
     }
   });
@@ -105,6 +122,13 @@ export const query = graphql`
   fragment currentPageWithLocalNav on Mdx {
     ...minimalFrontmatter
     tableOfContents(maxDepth: 2)
+    parent {
+      ... on File {
+        name
+        relativePath
+        relativeDirectory
+      }
+    }
   }
 `;
 
