@@ -37,7 +37,8 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   useNextLink = false,
 }: IPageLayoutNav) => {
   const currentSlug = frontmatter?.slug;
-  const currentURLPath = pageContext.pathParts.slice(0, -1).join("/").slice(1);
+  const pathDepth = pageContext.pathParts.length;
+  const isTopLevel = pathDepth === 2;
   const tocLinks = tableOfContents.items
     ? tableOfContents.items.map((item: ITOCItem) => {
         return (
@@ -49,35 +50,50 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
     : [];
   let atCurrent = false;
   let nextLink = null;
-  const siblingLinks = siblings.nodes.map((node) => {
-    if (
-      node &&
-      node.frontmatter &&
-      node.frontmatter.slug &&
-      node.frontmatter.heading &&
-      node.parent &&
-      "relativeDirectory" in node.parent
-    ) {
-      let actualSlug = node.frontmatter.slug === "index" ? "" : node.frontmatter.slug;
-      if (node.frontmatter.slug === currentSlug && node.parent.relativePath == pageContext.filePath) {
-        atCurrent = true;
-        return (
-          <>
-            <a href="#" className="usa-current" key="current">
-              {node.frontmatter.heading}
-            </a>
-            {tocLinks.length > 0 && <SideNav items={tocLinks}></SideNav>}
-          </>
-        );
-      } else {
-        if (atCurrent) {
-          nextLink = node.frontmatter;
-          atCurrent = false;
+  let siblingNodes = siblings.nodes;
+  const siblingLinks = siblingNodes
+    .map((node) => {
+      if (
+        node &&
+        node.frontmatter &&
+        node.frontmatter.slug &&
+        node.frontmatter.heading &&
+        node.parent &&
+        "relativeDirectory" in node.parent
+      ) {
+        const actualSlug = node.frontmatter.slug === "index" ? "" : node.frontmatter.slug;
+        if (isTopLevel) {
+          // If this is a top-level page, like Get Started, we actually want first-children
+          if (
+            node.parent.relativeDirectory.startsWith(pageContext.pathParts.join("/").slice(1)) &&
+            node.parent.relativePath !== pageContext.filePath
+          ) {
+            return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
+          } else {
+            return null;
+          }
         }
-        return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
+
+        if (node.frontmatter.slug === currentSlug && node.parent.relativePath === pageContext.filePath) {
+          atCurrent = true;
+          return (
+            <>
+              <a href="#" className="usa-current" key="current">
+                {node.frontmatter.heading}
+              </a>
+              {tocLinks.length > 0 && <SideNav items={tocLinks}></SideNav>}
+            </>
+          );
+        } else {
+          if (atCurrent) {
+            nextLink = node.frontmatter;
+            atCurrent = false;
+          }
+          return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
+        }
       }
-    }
-  });
+    })
+    .filter((item) => !!item);
 
   const components = { Alert };
   return (
