@@ -34,12 +34,8 @@ export const MultiStep = ({ children }: { children: React.ReactElement }) => {
   const headings: React.ReactNode[] = [];
   const bodies: React.ReactNode[] = [];
   items.forEach((li: React.ReactNode, index: number) => {
-    console.log("\nNode: ");
     if (li && typeof li === "object" && "props" in li && "children" in li.props) {
       const filteredChildren = li.props.children.filter(elementFilter);
-      console.log(filteredChildren);
-      console.log("Heading: ", filteredChildren[0]);
-      console.log("Bodies: ", filteredChildren.slice(1));
       headings.push(
         <li
           className={`usa-step-indicator__segment ${
