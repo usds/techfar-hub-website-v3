@@ -138,6 +138,10 @@ export const query = graphql`
     frontmatter {
       slug
       heading
+      meta_title
+      meta_description
+      promo_description
+      robots
     }
   }
   fragment currentPageWithLocalNav on Mdx {

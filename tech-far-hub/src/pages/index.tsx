@@ -14,7 +14,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
   const initiatives = data.allMdx.nodes.map((node) => {
     if (
       node.frontmatter &&
-      node.frontmatter.description &&
+      node.frontmatter.promo_description &&
       node.frontmatter.heading &&
       node.frontmatter.slug &&
       node.frontmatter.media_image &&
@@ -25,7 +25,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
       const pagePath = `/${node.parent.relativeDirectory}/${node.frontmatter.slug}`;
       return (
         <Initiative heading={node.frontmatter.heading} destination={pagePath} media={node.frontmatter.media_image}>
-          {node.frontmatter.description}
+          {node.frontmatter.promo_description}
         </Initiative>
       );
     }
@@ -115,7 +115,7 @@ export const query = graphql`
         id
         frontmatter {
           slug
-          description
+          promo_description
           heading
           media_alt
           media_image

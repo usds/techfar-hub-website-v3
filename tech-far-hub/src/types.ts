@@ -22,6 +22,13 @@ export interface IMinimalFrontmatter {
   slug: string | null;
 }
 
+export interface ISEOFrontmatter extends IMinimalFrontmatter {
+  meta_title?: string;
+  meta_description?: string;
+  promo_description?: string;
+  robots?: string;
+}
+
 export interface ITOCItem {
   url: string;
   title: string;

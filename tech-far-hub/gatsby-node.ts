@@ -174,6 +174,12 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     type Mdx implements Node { frontmatter: Frontmatter }
     type Frontmatter {
       media_image: String
+      slug: String
+      heading: String
+      meta_title: String
+      meta_description: String
+      promo_description: String
+      robots: String
     }
   `;
   createTypes(typeDefs);

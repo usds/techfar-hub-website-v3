@@ -1,8 +1,9 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
-import { graphql, Link } from "gatsby";
+import type { HeadFC } from "gatsby";
+import { graphql } from "gatsby";
 import SiteLayout from "../components/site-layout";
 import MDXContent from "../components/mdxcontent";
+import { SEO } from "../components/seo";
 import { TOCEnhancedQueryPageProps } from "../types";
 import PageLayoutNav from "../components/page-layout-nav";
 
@@ -31,7 +32,9 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
 
 export default DefaultPageTemplate;
 
-export const Head: HeadFC = () => <title>TechFAR Hub</title>;
+export const Head: HeadFC<Queries.PageContentQuery> = ({ data }: { data: Queries.PageContentQuery }) => (
+  <SEO frontmatter={data.currentPage?.frontmatter}></SEO>
+);
 
 export const query = graphql`
   query PageContent($id: String, $parentPathRegex: String) {
