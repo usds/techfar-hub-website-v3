@@ -180,6 +180,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       meta_description: String
       promo_description: String
       robots: String
+      canonical: String
     }
   `;
   createTypes(typeDefs);

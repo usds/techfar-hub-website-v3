@@ -56,7 +56,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
 
 export default DefaultPageTemplate;
 
-export const Head: HeadFC<Queries.ListPageContentQuery> = ({ data }: { data: Queries.PageContentQuery }) => (
+export const Head: HeadFC<Queries.ListPageContentQuery> = ({ data }: { data: Queries.ListPageContentQuery }) => (
   <SEO frontmatter={data.currentPage?.frontmatter}></SEO>
 );
 

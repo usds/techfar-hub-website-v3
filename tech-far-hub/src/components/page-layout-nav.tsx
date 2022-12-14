@@ -142,6 +142,7 @@ export const query = graphql`
       meta_description
       promo_description
       robots
+      canonical
     }
   }
   fragment currentPageWithLocalNav on Mdx {

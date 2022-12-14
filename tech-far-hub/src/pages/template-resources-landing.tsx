@@ -2,9 +2,10 @@ import SiteLayout from "../components/site-layout";
 import MDXContent from "../components/mdxcontent";
 import { IPageContext } from "../types";
 import * as React from "react";
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import { CardGroup, Grid } from "@trussworks/react-uswds";
 import ResouceCard from "../components/resouces-card";
+import { SEO } from "../components/seo";
 
 type ResoucesPageProps = PageProps<Queries.ResourcesLandingContextQuery, IPageContext>;
 const ResoucesLandingPage: React.FC<ResoucesPageProps> = ({ data, children, pageContext }: ResoucesPageProps) => {
@@ -27,6 +28,12 @@ const ResoucesLandingPage: React.FC<ResoucesPageProps> = ({ data, children, page
 };
 
 export default ResoucesLandingPage;
+
+export const Head: HeadFC<Queries.ResourcesLandingContextQuery> = ({
+  data,
+}: {
+  data: Queries.ResourcesLandingContextQuery;
+}) => <SEO frontmatter={data.currentPage?.frontmatter}></SEO>;
 
 export const query = graphql`
   query ResourcesLandingContext($id: String) {

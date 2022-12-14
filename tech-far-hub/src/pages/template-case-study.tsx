@@ -33,9 +33,11 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
 
 export default DefaultPageTemplate;
 
-export const Head: HeadFC<Queries.CaseStudyPageContextQuery> = ({ data }: { data: Queries.PageContentQuery }) => (
-  <SEO frontmatter={data.currentPage?.frontmatter}></SEO>
-);
+export const Head: HeadFC<Queries.CaseStudyPageContextQuery> = ({
+  data,
+}: {
+  data: Queries.CaseStudyPageContextQuery;
+}) => <SEO frontmatter={data.currentPage?.frontmatter}></SEO>;
 
 export const query = graphql`
   query CaseStudyPageContext($id: String, $parentPathRegex: String) {

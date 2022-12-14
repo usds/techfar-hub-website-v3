@@ -106,7 +106,15 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>TechFAR Hub</title>;
+export const Head: HeadFC = () => (
+  <>
+    <title>The USDS TechFAR Hub | Public Sector Agile Software Development</title>
+    <meta name="title" content="The USDS TechFAR Hub | Public Sector Agile Software Development" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charSet="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  </>
+);
 
 export const query = graphql`
   query HomePageInitiatives {

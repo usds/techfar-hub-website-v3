@@ -20,6 +20,11 @@ export interface IPageContext {
 export interface IMinimalFrontmatter {
   heading: string | null;
   slug: string | null;
+  meta_title?: string | null;
+  meta_description?: string | null;
+  promo_description?: string | null;
+  robots?: string | null;
+  canonical?: string | null;
 }
 
 export interface ISEOFrontmatter extends IMinimalFrontmatter {

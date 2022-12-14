@@ -36,7 +36,7 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
 
 export default LifecycleInnerPage;
 
-export const Head: HeadFC<Queries.LifecycleInnerPageQuery> = ({ data }: { data: Queries.PageContentQuery }) => (
+export const Head: HeadFC<Queries.LifecycleInnerPageQuery> = ({ data }: { data: Queries.LifecycleInnerPageQuery }) => (
   <SEO frontmatter={data.currentPage?.frontmatter}></SEO>
 );
 
