@@ -39,6 +39,34 @@ h1 {
   margin-top: 0;
 }
 
+.usa-logo__text a {
+  @include u-font("heading", "xl");
+  @include u-text("heavy");
+  padding-top: 1rem;
+}
+
+.usa-nav__secondary {
+  margin-top: 0;
+}
+em.tfh-tagline {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: normal;
+  color: #103c68;
+  line-height: 2.5rem;
+
+  img {
+    display: inline;
+    height: 1.25rem;
+  }
+  span {
+    position: relative;
+    margin-left: 0.5rem;
+    top: -0.5rem;
+  }
+}
+
 .usa-breadcrumb__list-item.usa-current {
   font-weight: bold;
 }
@@ -187,7 +215,17 @@ li.usa-card {
   }
 }
 
+@include at-media-max("mobile-lg") {
+  .usa-navbar {
+    height: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
 @include at-media("tablet") {
+  .usa-header--extended .usa-logo {
+    margin: 1rem 1.5rem 1rem 1.5rem;
+  }
   .tfh-hp-initiatives .usa-card__container {
     min-height: 210px;
   }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ReactNode } from "react";
-import { Link } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 import "./tfh.scss";
 
 import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from "@trussworks/react-uswds";
@@ -26,9 +26,13 @@ const SiteLayout = ({ children, breadCrumbs, className }: ILayoutProps) => {
         <div className="usa-navbar">
           <Title>
             <Link to="/">TechFAR Hub</Link>
-            {/* TODO: Replace with a real component and not inline styles */}
-            <em style={{ display: "block", fontSize: "50%", fontWeight: "normal" }}>
-              an initiative of US Digital Service
+            <em className="tfh-tagline">
+              <img
+                className="tfh-tagline-logo"
+                src={withPrefix("/images/usds-logo-footer.svg")}
+                alt="United States Digital Service"
+              />
+              <span>U.S. DIGITAL SERVICE</span>
             </em>
           </Title>
           <NavMenuButton onClick={onNavExpand} label="Menu" />
