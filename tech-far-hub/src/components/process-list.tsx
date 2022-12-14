@@ -4,7 +4,7 @@ import * as React from "react";
 const processList = (children: React.ReactElement) => {
   const errorMessage = (
     <Alert type="warning" headingLevel="h3" heading="Error in process list">
-      A process list must be an ordered list.{" "}
+      A process list must be an ordered list.
       <a href="https://www.markdownguide.org/basic-syntax/#ordered-lists">See the markdown guide for examples.</a>
     </Alert>
   );
@@ -13,15 +13,15 @@ const processList = (children: React.ReactElement) => {
     return errorMessage;
   }
 
-  const elementFilter = (item: React.ReactNode) => typeof item == typeof {} && "type" in item;
+  const elementFilter = (item: React.ReactNode) => item && typeof item === "object" && "type" in item;
   let items = children.props.children.filter(elementFilter);
 
-  if (!items.every((item) => item.type == "li")) {
+  if (!items.every((item: React.ReactElement) => item.type == "li")) {
     return errorMessage;
   }
   return (
     <TWProcessList>
-      {items.map((li) => {
+      {items.map((li: React.ReactElement) => {
         if (typeof li.props.children === "string") {
           return (
             <ProcessListItem>

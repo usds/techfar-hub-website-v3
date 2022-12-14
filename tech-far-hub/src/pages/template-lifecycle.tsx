@@ -5,6 +5,7 @@ import PageLayoutNav from "../components/page-layout-nav";
 import MDXContent from "../components/mdxcontent";
 import { TOCEnhancedQueryPageProps } from "../types";
 import SiteLayout from "../components/site-layout";
+import { SEO } from "../components/seo";
 
 type LifecycleInnerPageProps = TOCEnhancedQueryPageProps<Queries.LifecycleInnerPageQuery>;
 
@@ -35,7 +36,9 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
 
 export default LifecycleInnerPage;
 
-export const Head: HeadFC = () => <title>TechFAR Hub</title>;
+export const Head: HeadFC<Queries.LifecycleInnerPageQuery> = ({ data }: { data: Queries.LifecycleInnerPageQuery }) => (
+  <SEO frontmatter={data.currentPage?.frontmatter}></SEO>
+);
 
 export const query = graphql`
   query LifecycleInnerPage($id: String, $parentPathRegex: String) {

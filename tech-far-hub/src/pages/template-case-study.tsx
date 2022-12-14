@@ -5,6 +5,7 @@ import SiteLayout from "../components/site-layout";
 import MDXContent from "../components/mdxcontent";
 import { TOCEnhancedQueryPageProps } from "../types";
 import PageLayoutNav from "../components/page-layout-nav";
+import { SEO } from "../components/seo";
 
 type DefaultPageProps = TOCEnhancedQueryPageProps<Queries.CaseStudyPageContextQuery>;
 
@@ -32,7 +33,11 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
 
 export default DefaultPageTemplate;
 
-export const Head: HeadFC = () => <title>TechFAR Hub</title>;
+export const Head: HeadFC<Queries.CaseStudyPageContextQuery> = ({
+  data,
+}: {
+  data: Queries.CaseStudyPageContextQuery;
+}) => <SEO frontmatter={data.currentPage?.frontmatter}></SEO>;
 
 export const query = graphql`
   query CaseStudyPageContext($id: String, $parentPathRegex: String) {

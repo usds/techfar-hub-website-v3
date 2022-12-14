@@ -6,6 +6,7 @@ import MDXContent from "../components/mdxcontent";
 import { TOCEnhancedQueryPageProps } from "../types";
 import PageLayoutNav from "../components/page-layout-nav";
 import { Card, CardBody, CardFooter, CardGroup, CardHeader, Grid } from "@trussworks/react-uswds";
+import { SEO } from "../components/seo";
 
 type DefaultPageProps = TOCEnhancedQueryPageProps<Queries.ListPageContentQuery>;
 
@@ -55,7 +56,9 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
 
 export default DefaultPageTemplate;
 
-export const Head: HeadFC = () => <title>TechFAR Hub</title>;
+export const Head: HeadFC<Queries.ListPageContentQuery> = ({ data }: { data: Queries.ListPageContentQuery }) => (
+  <SEO frontmatter={data.currentPage?.frontmatter}></SEO>
+);
 
 export const query = graphql`
   query ListPageContent($id: String, $parentPathRegex: String, $childPathRegex: String) {
