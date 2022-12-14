@@ -103,6 +103,10 @@ p {
   }
 }
 
+.tfh-multistep .usa-step-indicator__segment--complete {
+  cursor: pointer;
+}
+
 // TODO: Fix this to use the tokens defined by uswds
 .tfh-next-link {
   text-align: center;
