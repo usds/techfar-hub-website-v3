@@ -1,12 +1,13 @@
 import * as React from "react";
-import { SummaryBox, SummaryBoxContent, SummaryBoxHeading } from "@trussworks/react-uswds";
 
 export const Summary = ({ children, heading }: { children: React.ReactNode; heading?: string }): JSX.Element => {
   heading = heading ? heading : "Summary";
   return (
-    <SummaryBox>
-      <SummaryBoxHeading headingLevel="h3">{heading}</SummaryBoxHeading>
-      <SummaryBoxContent>{children}</SummaryBoxContent>
-    </SummaryBox>
+    <div className="usa-alert usa-alert--info">
+      <div className="usa-alert__body">
+        <h4 className="usa-alert__heading">{heading}</h4>
+        <p className="usa-alert__text">{children}</p>
+      </div>
+    </div>
   );
 };

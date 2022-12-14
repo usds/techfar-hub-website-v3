@@ -103,8 +103,6 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   const components = { Alert };
   return (
     <SiteLayout breadCrumbs={pageContext.breadCrumbs}>
-      <h1>{frontmatter?.heading}</h1>
-      <hr className="text-accent-warm " />
       <Grid row gap={2} className="margin-bottom-4">
         <Grid tablet={{ col: 2 }}>
           <div className="position-sticky top-0">
@@ -112,6 +110,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
           </div>
         </Grid>
         <Grid tablet={{ col: 10 }}>
+          <h1>{frontmatter?.heading}</h1>
           {children}
           {useNextLink && nextLink !== null && (
             <span className="tfh-next-link">

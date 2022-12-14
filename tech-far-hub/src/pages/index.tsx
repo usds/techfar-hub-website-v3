@@ -31,7 +31,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
     }
   });
   return (
-    <SiteLayout>
+    <SiteLayout className="tfh-home">
       <Grid row gap={6} className="tfh-hp-top">
         <Grid tablet={{ col: 8 }} className="tfh-hp-highlight">
           <h2 className="tfh-hp-highlight-h2 font-heading-xl">
@@ -51,7 +51,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
           />
         </Grid>
         <Grid tablet={{ col: 4 }} className="tfh-hp-right-nav">
-          <hr className="text-accent-warm bg-accent-warm" />
+          <hr className="bg-primary-dark" />
           <h3>01. Get Started</h3>
           <ol>
             <li>
@@ -64,7 +64,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
               <a href="https://github.com/usds/techfar-hub-website-v3">How to Get Involved</a>
             </li>
           </ol>
-          <hr className="text-accent-cool-dark bg-accent-cool-dark" />
+          <hr className="bg-primary-dark" />
           <h3>02. TFH Lifecycle</h3>
           <p>See how the TechFAR Hub takes an agile approach to digital acquisition.</p>
           <ol>
@@ -81,7 +81,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
               <Link to="/contract-administration/">Contract Administration</Link>
             </li>
           </ol>
-          <hr className="text-green bg-green " />
+          <hr className="bg-primary-dark" />
           <h3>03. Resources</h3>
           <p>View first-hand experiences of fellows acquisition professionals, get tools, access training, and more</p>
           <ol>

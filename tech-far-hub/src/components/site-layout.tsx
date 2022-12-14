@@ -33,11 +33,17 @@ const SiteLayout = ({ children, breadCrumbs, className }: ILayoutProps) => {
           </Title>
           <NavMenuButton onClick={onNavExpand} label="Menu" />
         </div>
-        <Navigation isNavExpanded={navExpanded} onNavExpanded={onNavExpand} />
+        <div className="tfh-nav-border"></div>
+        <GridContainer className="tfh-nav-grid">
+          <Grid row>
+            <Navigation isNavExpanded={navExpanded} onNavExpanded={onNavExpand} />
+          </Grid>
+        </GridContainer>
       </Header>
 
       <main id="main-content" className={className}>
         <GridContainer>
+          <hr className="tfh-top-hr" />
           <Grid row>
             {breadCrumbs && (
               <Grid col="fill">
