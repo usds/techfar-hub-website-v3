@@ -1,22 +1,61 @@
-import { Card, CardBody, Alert } from "@trussworks/react-uswds";
 import * as React from "react";
+import { Card, CardBody, Alert, Fieldset, Radio, Form } from "@trussworks/react-uswds";
+import Children from "react-children-utilities";
 
-export const AssessmentScore = ({
-  children,
-  scores = [],
-}: {
-  children: React.ReactNode;
-  scores?: Number[];
-}): JSX.Element => {
+const elementFilter = (item: React.ReactNode) => item && typeof item === "object" && "type" in item;
+const olTest = (node: React.ReactNode) =>
+  node &&
+  typeof node === "object" &&
+  "type" in node &&
+  node.type == "ol" &&
+  "props" in node &&
+  "children" in node.props &&
+  Array.isArray(node.props.children);
+
+const processScores = (lis: React.ReactElement[], score: Number) => {
+  return lis.map((li: React.ReactElement) => {
+    if (li.props.children.length >= 2) {
+      const rating = li.props.children.filter(elementFilter)[0];
+      const ratingText = Children.onlyText(rating);
+      const ratingRange = ratingText.match(/\(\s*(?<lowBound>[0-9]+)\s*-\s*(?<highBound>[0-9]+).* points/);
+      let lowBound, highBound;
+      if (ratingRange && ratingRange.groups) {
+        lowBound = Number(ratingRange.groups.lowBound);
+        highBound = Number(ratingRange.groups.highBound);
+        if (score >= lowBound && score <= highBound) {
+          return li;
+        }
+      }
+    }
+  });
+};
+
+export const AssessmentScore = ({ children, scores = [] }: { children: React.ReactNode; scores?: Number[] }) => {
+  const totalScore = scores.reduce((a, b) => +a + +b);
+  const errorMessage = (
+    <Alert type="warning" headingLevel="h3" heading="Error in score key">
+      An assessment score must contain an ordered list of score ranges
+      <a href="https://www.markdownguide.org/basic-syntax/#ordered-lists">See the markdown guide for examples.</a>
+    </Alert>
+  );
+  if (!(children && Array.isArray(children) && children.some(olTest))) {
+    return errorMessage;
+  }
   return (
     <>
-      {JSON.stringify(scores)}
-      {children}
+      <h3>Total: {String(totalScore)} Points</h3>
+      {children.filter(elementFilter).map((item: React.ReactNode) => {
+        if (item) {
+          if (olTest(item)) {
+            return processScores(item.props.children.filter(elementFilter), totalScore);
+          } else {
+            return item;
+          }
+        }
+      })}
     </>
   );
 };
-
-const elementFilter = (item: React.ReactNode) => item && typeof item === "object" && "type" in item;
 
 const AssessmentItem = ({
   children,
@@ -33,7 +72,6 @@ const AssessmentItem = ({
       <a href="https://www.markdownguide.org/basic-syntax/#ordered-lists">See the markdown guide for examples.</a>
     </Alert>
   );
-  console.log(children);
   if (
     !(
       children &&
@@ -47,15 +85,6 @@ const AssessmentItem = ({
   }
 
   const itemChildren: React.ReactNode[] = children.props.children.filter(elementFilter);
-  const olTest = (node: React.ReactNode) =>
-    node &&
-    typeof node === "object" &&
-    "type" in node &&
-    node.type == "ol" &&
-    "props" in node &&
-    "children" in node.props &&
-    Array.isArray(node.props.children);
-
   // Do we have an OL to turn into the scores?
   if (!itemChildren.some(olTest)) {
     return errorMessage;
@@ -65,39 +94,33 @@ const AssessmentItem = ({
     if (child && olTest(child)) {
       const rawAnswers = child.props.children.filter(elementFilter);
       return (
-        <form>
-          <fieldset className="usa-fieldset-inputs">
-            <ol>
-              {rawAnswers.map((li: React.ReactElement, index: number) => {
-                const liChildren = li.props.children;
-                const points = index + 1;
-                const name = `assessment-${itemNumber}`;
-                const key = `assessment-${itemNumber}-${index}`;
-                return (
-                  <li>
-                    <input
-                      onClick={() => handleUpdate(itemNumber, points)}
-                      type="radio"
-                      name={name}
-                      id={key}
-                      key={key}
-                      value={index + 1}
-                    ></input>
-                    <label htmlFor={key}>
-                      {points} - {liChildren}
-                    </label>
-                  </li>
-                );
-              })}
-            </ol>
-          </fieldset>
-        </form>
+        <Fieldset>
+          <ol className="add-list-reset">
+            {rawAnswers.map((li: React.ReactElement, index: number) => {
+              const liChildren = li.props.children;
+              const points = index + 1;
+              const name = `assessment-${itemNumber}`;
+              const key = `assessment-${itemNumber}-${index}`;
+              return (
+                <li>
+                  <Radio
+                    id={key}
+                    name={name}
+                    label={`${points} - ${liChildren}`}
+                    value={points}
+                    onClick={() => handleUpdate(itemNumber, points)}
+                  />
+                </li>
+              );
+            })}
+          </ol>
+        </Fieldset>
       );
     } else {
       return child;
     }
   });
-  return <>{processedChildren}</>;
+  return <form>{processedChildren}</form>;
 };
 
 export const Assessment = ({ children }: { children: React.ReactNode }): JSX.Element => {
