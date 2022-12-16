@@ -117,7 +117,20 @@ const AssessmentItem = ({
         </Fieldset>
       );
     } else {
-      return child;
+      // Grab the first heading and turn it into an h3
+      if (
+        child &&
+        typeof child == "object" &&
+        "type" in child &&
+        child.type === "p" &&
+        "props" in child &&
+        "children" in child.props
+      ) {
+        return <h3>{child.props.children}</h3>;
+      } else {
+        // Otherwise just return any other elements
+        return child;
+      }
     }
   });
   return <form>{processedChildren}</form>;
@@ -180,28 +193,15 @@ export const Assessment = ({ children }: { children: React.ReactNode }): JSX.Ele
       nextQuestionText = "Complete Assessment";
       atEnd = true;
     }
-    const prevQuestionLink = (
-      <span
-        onClick={() => {
-          handleNextPrevClick(index - 1);
-          return false;
-        }}
-        className="usa-button"
-      >
-        Previous Question
-      </span>
-    );
-
     nextQuestionLink = (
-      <span
+      <a
         onClick={() => {
           handleNextPrevClick(index + 1);
-          return false;
         }}
-        className="float-right usa-button"
+        className="tfh-assessment__next-question-link"
       >
         {nextQuestionText}
-      </span>
+      </a>
     );
     return (
       <>
@@ -210,7 +210,6 @@ export const Assessment = ({ children }: { children: React.ReactNode }): JSX.Ele
             {item}
           </AssessmentItem>
         )}
-        {isVisible[index] && index > 0 && prevQuestionLink}
         {isVisible[index] && nextQuestionLink}
       </>
     );
@@ -219,7 +218,7 @@ export const Assessment = ({ children }: { children: React.ReactNode }): JSX.Ele
   screens.push(<>{isVisible[items.length] && newScore}</>);
   return (
     <>
-      <Card>
+      <Card className="tfh-assessment">
         <CardBody>{screens}</CardBody>
       </Card>
     </>
