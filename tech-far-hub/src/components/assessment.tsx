@@ -57,7 +57,7 @@ export const AssessmentScore = ({
       <h3>Total: {String(totalScore)} Points</h3>
       {children.filter(elementFilter).map((item: React.ReactNode) => {
         if (item) {
-          if (olTest(item)) {
+          if (item && olTest(item) && typeof item === "object" && "props" in item) {
             return processScores(item.props.children.filter(elementFilter), totalScore);
           } else {
             return item;
@@ -108,7 +108,7 @@ const AssessmentItem = ({
   }
 
   const processedChildren = itemChildren.map((child: React.ReactNode) => {
-    if (child && olTest(child)) {
+    if (child && olTest(child) && typeof child === "object" && "props" in child) {
       const rawAnswers = child.props.children.filter(elementFilter);
       return (
         <Fieldset>
