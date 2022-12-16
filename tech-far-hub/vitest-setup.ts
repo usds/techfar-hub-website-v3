@@ -8,12 +8,6 @@ vi.mock(`gatsby`, async () => {
   return {
     ...gatsby,
     graphql: vi.fn(),
-    Link: vi.fn().mockImplementation(({ to, ...rest }) =>
-      React.createElement(`a`, {
-        ...rest,
-        href: to,
-      })
-    ),
     StaticQuery: vi.fn(),
     useStaticQuery: vi.fn(),
   };
