@@ -13,6 +13,9 @@ const olTest = (node: React.ReactNode) =>
   Array.isArray(node.props.children);
 
 const processScores = (lis: React.ReactElement[], score: Number) => {
+  // The goal here is to extract the score bounds from list-items that look like
+  // 1. Novice (9 - 18 total points)
+  // The key are the numbers between parens, formatted with a hypen.
   return lis.map((li: React.ReactElement) => {
     if (li.props.children.length >= 2) {
       const rating = li.props.children.filter(elementFilter)[0];
@@ -30,7 +33,15 @@ const processScores = (lis: React.ReactElement[], score: Number) => {
   });
 };
 
-export const AssessmentScore = ({ children, scores = [] }: { children: React.ReactNode; scores?: Number[] }) => {
+export const AssessmentScore = ({
+  children,
+  scores = [],
+  clickHandler,
+}: {
+  children: React.ReactNode;
+  scores?: Number[];
+  clickHandler: Function;
+}) => {
   const totalScore = scores.reduce((a, b) => +a + +b);
   const errorMessage = (
     <Alert type="warning" headingLevel="h3" heading="Error in score key">
@@ -53,6 +64,10 @@ export const AssessmentScore = ({ children, scores = [] }: { children: React.Rea
           }
         }
       })}
+      <span onClick={() => clickHandler(0)} className="usa-button">
+        Retake Assessment
+      </span>
+      <span className="usa-clearfix"></span>
     </>
   );
 };
@@ -214,7 +229,13 @@ export const Assessment = ({ children }: { children: React.ReactNode }): JSX.Ele
       </>
     );
   });
-  const newScore = <AssessmentScore scores={scores} children={score.props.children}></AssessmentScore>;
+  const newScore = (
+    <AssessmentScore
+      scores={scores}
+      children={score.props.children}
+      clickHandler={handleNextPrevClick}
+    ></AssessmentScore>
+  );
   screens.push(<>{isVisible[items.length] && newScore}</>);
   return (
     <>
