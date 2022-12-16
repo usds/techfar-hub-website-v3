@@ -76,10 +76,12 @@ const AssessmentItem = ({
   children,
   itemNumber,
   handleUpdate,
+  currentScores,
 }: {
   children: React.ReactNode;
   itemNumber: number;
   handleUpdate: Function;
+  currentScores: Number[];
 }): JSX.Element => {
   const errorMessage = (
     <Alert type="warning" headingLevel="h3" heading="Error in process list">
@@ -124,6 +126,7 @@ const AssessmentItem = ({
                     label={`${points} - ${liChildren}`}
                     value={points}
                     onClick={() => handleUpdate(itemNumber, points)}
+                    checked={currentScores[itemNumber] === points}
                   />
                 </li>
               );
@@ -221,7 +224,7 @@ export const Assessment = ({ children }: { children: React.ReactNode }): JSX.Ele
     return (
       <>
         {isVisible[index] && (
-          <AssessmentItem itemNumber={index} handleUpdate={handleUpdateScore}>
+          <AssessmentItem itemNumber={index} handleUpdate={handleUpdateScore} currentScores={scores}>
             {item}
           </AssessmentItem>
         )}
