@@ -41,4 +41,9 @@ describe("Hyperlink comonent", () => {
       .firstChild;
     expect(result).toMatchSnapshot();
   });
+  it("should add an icon to generic downloads", () => {
+    const result = render(<Hyperlink href="/assets/files/file.bin">Why would there be a bin file?</Hyperlink>)
+      .baseElement.firstChild;
+    expect(result).toMatchSnapshot();
+  });
 });

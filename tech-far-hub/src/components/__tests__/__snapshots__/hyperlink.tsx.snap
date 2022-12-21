@@ -11,6 +11,16 @@ exports[`Hyperlink comonent > should add a class to extenral links 1`] = `
 </div>
 `;
 
+exports[`Hyperlink comonent > should add an icon to generic downloads 1`] = `
+<div>
+  <a
+    href="/assets/files/file.bin"
+  >
+    Why would there be a bin file?
+  </a>
+</div>
+`;
+
 exports[`Hyperlink comonent > should add an icon to word docs 1`] = `
 <div>
   <a

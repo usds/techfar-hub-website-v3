@@ -28,7 +28,7 @@ export class URLInfo implements IURLInfo {
     return this.original;
   }
 
-  get #authoritativeUrl(): URL {
+  get authoritativeUrl(): URL {
     return new URL(this.authoritative, this.#siteUrl);
   }
 
@@ -37,14 +37,14 @@ export class URLInfo implements IURLInfo {
   }
 
   get isDownload(): boolean {
-    return !/(\/|.htm|.html)$/i.test(this.#authoritativeUrl.pathname);
+    return !/(\/|.htm|.html)$/i.test(this.authoritativeUrl.pathname);
   }
 
   get fileType(): DownloadFileType | null {
     if (this.isDownload) {
-      if (/\.pdf$/i.test(this.#authoritativeUrl.pathname)) {
+      if (/\.pdf$/i.test(this.authoritativeUrl.pathname)) {
         return DownloadFileType.Pdf;
-      } else if (/\.docx?$/i.test(this.#authoritativeUrl.pathname)) {
+      } else if (/\.docx?$/i.test(this.authoritativeUrl.pathname)) {
         return DownloadFileType.Word;
       } else {
         return DownloadFileType.Other;
