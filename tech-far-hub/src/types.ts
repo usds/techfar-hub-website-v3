@@ -53,3 +53,17 @@ export type TOCEnhancedQueryPageProps<T extends MinimalPageQuery> = PageProps<
   Omit<T, "currentPage"> & (DeepPick<T, "currentPage.!tableOfContents"> & TableOfContents),
   IPageContext
 >;
+
+export enum DownloadFileType {
+  Word,
+  Pdf,
+  Other,
+}
+
+export interface IURLInfo {
+  readonly original: string;
+  get authoritative(): string;
+  get isAbsolute(): boolean;
+  get isDownload(): boolean;
+  get fileType(): DownloadFileType | null;
+}
