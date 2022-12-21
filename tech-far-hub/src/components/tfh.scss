@@ -264,3 +264,18 @@ li.usa-card {
     }
   }
 }
+
+.tfh-assessment form {
+  margin-bottom: 1rem;
+}
+
+.tfh-assessment fieldset {
+  padding-left: 40px;
+}
+
+.tfh-assessment__next-question-link {
+  cursor: pointer;
+  padding-top: 1rem;
+  text-decoration: underline;
+  color: color("primary-vivid");
+}

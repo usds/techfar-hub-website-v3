@@ -31,6 +31,7 @@
     "gatsby-transformer-remark": "^6.2.0",
     "gatsby-transformer-sharp": "^5.0.0",
     "react": "^18.2.0",
+    "react-children-utilities": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
     "remark-gfm": "^1.0.0",
