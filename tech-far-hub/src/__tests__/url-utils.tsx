@@ -1,7 +1,7 @@
 import { URLInfo } from "../url-utils";
 import { DownloadFileType } from "../types";
 
-const site = "http://localhost";
+const site = "http://techfarhub.usds.gov/";
 describe("URLInfo Class", () => {
   it("returns absolute URLs as their own authoritative URLs", () => {
     const inURL = "https://www.usds.gov/";
@@ -30,5 +30,11 @@ describe("URLInfo Class", () => {
   it("idenifies word file types", () => {
     const info = new URLInfo("/assets/file/download.doc", site);
     expect(info.fileType).toBe(DownloadFileType.Word);
+  });
+  it("identifies internal vs external URLs", () => {
+    const internalInfo = new URLInfo("/resources/learning-center", site);
+    expect(internalInfo.isExternal).toBe(false);
+    const externalInfo = new URLInfo("https://www.usa.gov/federal-agencies/", site);
+    expect(externalInfo.isExternal).toBe(true);
   });
 });

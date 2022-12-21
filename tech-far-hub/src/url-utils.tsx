@@ -52,4 +52,8 @@ export class URLInfo implements IURLInfo {
     }
     return null;
   }
+
+  get isExternal(): boolean {
+    return this.isAbsolute && !this.authoritative.includes(this.#siteUrl);
+  }
 }

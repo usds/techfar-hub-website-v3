@@ -2,6 +2,8 @@ import * as React from "react";
 import { graphql, useStaticQuery, withPrefix, Link } from "gatsby";
 import classNames from "classnames";
 import { FaFilePdf, FaFileWord, FaDownload } from "react-icons/fa";
+import { URLInfo } from "../url-utils";
+import { DownloadFileType } from "../types";
 
 export const Hyperlink = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Element => {
   if (props && "href" in props && props.href) {
@@ -16,72 +18,51 @@ export const Hyperlink = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Elemen
         }
       `
     );
-    let href = props.href;
-    let isAbsolute = /^(?:[a-z+]+:)?\/\//i.test(href) || href.startsWith("mailto");
     const siteUrl = site.siteMetadata.siteUrl;
-    const url = new URL(href, siteUrl);
-    const isDownload = !/(\/|.htm|.html)$/i.test(url.pathname);
-    const isPdf = isDownload && /\.pdf$/i.test(url.pathname);
-    const isWord = isDownload && /\.docx?$/i.test(url.pathname);
-    let children = props.children;
+    const href = new URLInfo(props.href, siteUrl);
     props = { ...props };
+    let children = props.children;
     delete props.children;
-
-    // Fix links that are actually internal but absolute, or to github
-    if (isAbsolute) {
-      if (href.includes("://techfarhub.cio.gov")) {
-        href = href.replace(/https?:\/\/techfarhub\.cio\.gov/i, "");
-        isAbsolute = false;
-        props = {
-          ...props,
-          href,
-        };
-      } else if (/https:\/\/github\.com\/usds\/techfar-hub-website-v3\/.+\/main\/tech-far-hub/i.test(href)) {
-        href = href.replace(/https:\/\/github\.com\/usds\/techfar-hub-website-v3\/.+\/main\/tech-far-hub/i, "");
-        isAbsolute = false;
-        props = {
-          ...props,
-          href,
-        };
-      }
-    }
-
+    props = {
+      ...props,
+      href: href.authoritative,
+    };
     // Decorate external links and links to download files
-    const isExternal = isAbsolute && !href.includes(siteUrl);
-    if (isExternal) {
+    if (href.isExternal) {
       props = { ...props, className: classNames(props.className, "usa-link--external") };
     }
-    if (isPdf) {
-      children = (
+    if (href.isDownload) {
+      if (href.fileType === DownloadFileType.Pdf) {
+        children = (
+          <>
+            {children}
+            <FaFilePdf />
+          </>
+        );
+      } else if (href.fileType === DownloadFileType.Word) {
+        children = (
+          <>
+            {children}
+            <FaFileWord />
+          </>
+        );
+      } else {
         <>
           {children}
-          <FaFilePdf />
-        </>
-      );
-    } else if (isWord) {
-      children = (
-        <>
-          {children}
-          <FaFileWord />
-        </>
-      );
-    } else if (isDownload) {
-      <>
-        {children}
-        <FaDownload />
-      </>;
+          <FaDownload />
+        </>;
+      }
     }
-
     // Absolute URLs get regular links, internal page URLs get gatsby links
     // and file URLs get regular links again. All internal URLs get prefixed
-    if (isAbsolute) {
+    if (href.isAbsolute) {
       return <a {...props}>{children}</a>;
     } else {
-      props = { ...props, href: withPrefix(href) };
-      if (isDownload) {
+      props = { ...props, href: withPrefix(href.authoritative) };
+      if (href.isDownload) {
         return <a {...props}>{children}</a>;
       } else {
-        return <Link to={href}>{children}</Link>;
+        return <Link to={href.authoritative}>{children}</Link>;
       }
     }
   }

@@ -66,4 +66,5 @@ export interface IURLInfo {
   get isAbsolute(): boolean;
   get isDownload(): boolean;
   get fileType(): DownloadFileType | null;
+  get isExternal(): boolean;
 }
