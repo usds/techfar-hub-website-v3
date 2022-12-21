@@ -279,3 +279,12 @@ li.usa-card {
   text-decoration: underline;
   color: color("primary-vivid");
 }
+
+a.usa-button.usa-link--external {
+  padding-right: 2rem;
+}
+
+a.usa-button.usa-link--external::after {
+  top: 0.5rem;
+  margin-left: 5px;
+}

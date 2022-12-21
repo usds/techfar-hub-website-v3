@@ -14,6 +14,7 @@ interface ITemplatedNode {
     slug?: string;
     heading?: string;
     template?: string;
+    link?: string;
   };
   internal: {
     contentFilePath: string;
@@ -83,6 +84,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
               slug
               heading
               template
+              link
             }
             internal {
               contentFilePath
@@ -121,51 +123,51 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     return path;
   };
 
-  nodes.forEach((node: IEnhancedTemplatedNode) => {
-    const contentType: string = node.parent.relativeDirectory.split(path.sep)[0];
-
-    const defaultTemplateName = "default";
-    const templateName = node.frontmatter?.template ? node.frontmatter?.template : defaultTemplateName;
-    const pagePath = node.pagePath;
-    const filePath = node.parent.relativePath;
-    const template = path.resolve("src", "pages", `template-${templateName}.tsx`);
-    const pathParts = node.pagePath.replace(/\/$/, "").split("/");
-    const breadCrumbPaths = pathParts.reduce(
-      (accumulator: string[], currentValue: string) => [
-        ...accumulator,
-        [accumulator[accumulator.length - 1], currentValue, ""].join("/").replace("//", "/"),
-      ],
-      []
-    );
-    const breadCrumbHeadings = breadCrumbPaths.map(getHeadingForPath);
-    const breadCrumbs: IBreadcrumb[] = breadCrumbPaths.map((path, i) => ({
-      path: path,
-      label: breadCrumbHeadings[i],
-    }));
-    const isIndex = node.pageName === "index";
-    let parentPath: string;
-    parentPath = pathParts.slice(0, -1).join("/");
-    const parentPathRegex = `/${parentPath.replace(
-      "/",
-      "\\/"
-    )}\\/(?!index.md.)[A-Za-z0-9-.]+(\\/index.md|\\/index.mdx|$)/`;
-    const childPathRegex = `/${pagePath.replace("/", "\\/")}.*/`;
-    const context: IPageContext = {
-      id: node.id,
-      breadCrumbs,
-      pathParts,
-      parentPath,
-      parentPathRegex,
-      childPathRegex,
-      filePath,
-      isIndex,
-    };
-    createPage({
-      path: pagePath,
-      component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
-      context,
+  nodes
+    .filter((node: IEnhancedTemplatedNode) => !node.frontmatter.link)
+    .forEach((node: IEnhancedTemplatedNode) => {
+      const defaultTemplateName = "default";
+      const templateName = node.frontmatter?.template ? node.frontmatter?.template : defaultTemplateName;
+      const pagePath = node.pagePath;
+      const filePath = node.parent.relativePath;
+      const template = path.resolve("src", "pages", `template-${templateName}.tsx`);
+      const pathParts = node.pagePath.replace(/\/$/, "").split("/");
+      const breadCrumbPaths = pathParts.reduce(
+        (accumulator: string[], currentValue: string) => [
+          ...accumulator,
+          [accumulator[accumulator.length - 1], currentValue, ""].join("/").replace("//", "/"),
+        ],
+        []
+      );
+      const breadCrumbHeadings = breadCrumbPaths.map(getHeadingForPath);
+      const breadCrumbs: IBreadcrumb[] = breadCrumbPaths.map((path, i) => ({
+        path: path,
+        label: breadCrumbHeadings[i],
+      }));
+      const isIndex = node.pageName === "index";
+      let parentPath: string;
+      parentPath = pathParts.slice(0, -1).join("/");
+      const parentPathRegex = `/${parentPath.replace(
+        "/",
+        "\\/"
+      )}\\/(?!index.md.)[A-Za-z0-9-.]+(\\/index.md|\\/index.mdx|$)/`;
+      const childPathRegex = `/${pagePath.replace("/", "\\/")}.*/`;
+      const context: IPageContext = {
+        id: node.id,
+        breadCrumbs,
+        pathParts,
+        parentPath,
+        parentPathRegex,
+        childPathRegex,
+        filePath,
+        isIndex,
+      };
+      createPage({
+        path: pagePath,
+        component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
+        context,
+      });
     });
-  });
 };
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
@@ -181,6 +183,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       promo_description: String
       robots: String
       canonical: String
+      link: String
     }
   `;
   createTypes(typeDefs);

@@ -7,6 +7,7 @@ import { TOCEnhancedQueryPageProps } from "../types";
 import PageLayoutNav from "../components/page-layout-nav";
 import { Card, CardBody, CardFooter, CardGroup, CardHeader, Grid } from "@trussworks/react-uswds";
 import { SEO } from "../components/seo";
+import { Hyperlink } from "../components/hyperlink";
 
 type DefaultPageProps = TOCEnhancedQueryPageProps<Queries.ListPageContentQuery>;
 
@@ -34,9 +35,16 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
                     </CardHeader>
                     <CardBody>{frontmatter.promo_description}</CardBody>
                     <CardFooter>
-                      <Link to={frontmatter.slug} className="usa-button">
-                        Read More
-                      </Link>
+                      {!frontmatter.link && (
+                        <Link to={frontmatter.slug} className="usa-button">
+                          Read More
+                        </Link>
+                      )}
+                      {frontmatter.link && (
+                        <Hyperlink href={frontmatter.link} className="usa-button">
+                          Read More
+                        </Hyperlink>
+                      )}
                     </CardFooter>
                   </Card>
                 );
@@ -74,6 +82,7 @@ export const query = graphql`
           slug
           heading
           promo_description
+          link
         }
         parent {
           ... on File {
@@ -93,6 +102,7 @@ export const query = graphql`
           slug
           heading
           promo_description
+          link
         }
       }
     }

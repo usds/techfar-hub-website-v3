@@ -25,6 +25,7 @@ export interface IMinimalFrontmatter {
   promo_description?: string | null;
   robots?: string | null;
   canonical?: string | null;
+  link?: string | null;
 }
 
 export interface ISEOFrontmatter extends IMinimalFrontmatter {
@@ -57,6 +58,7 @@ export type TOCEnhancedQueryPageProps<T extends MinimalPageQuery> = PageProps<
 export enum DownloadFileType {
   Word,
   Pdf,
+  Excel,
   Other,
 }
 

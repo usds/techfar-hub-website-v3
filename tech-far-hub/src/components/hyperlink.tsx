@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql, useStaticQuery, withPrefix, Link } from "gatsby";
 import classNames from "classnames";
-import { FaFilePdf, FaFileWord, FaDownload } from "react-icons/fa";
+import { FaFilePdf, FaFileExcel, FaFileWord, FaDownload } from "react-icons/fa";
 import { URLInfo } from "../url-utils";
 import { DownloadFileType } from "../types";
 
@@ -44,6 +44,13 @@ export const Hyperlink = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Elemen
           <>
             {children}
             <FaFileWord />
+          </>
+        );
+      } else if (href.fileType === DownloadFileType.Excel) {
+        children = (
+          <>
+            {children}
+            <FaFileExcel />
           </>
         );
       } else {
