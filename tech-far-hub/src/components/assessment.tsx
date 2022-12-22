@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Card, CardBody, Alert, Fieldset, Radio, Form } from "@trussworks/react-uswds";
-import Children from "react-children-utilities";
 
 // Filter for getting rid of newlines and nulls in a list of nodes
 const elementFilter = (item: React.ReactNode) => item && typeof item === "object" && "type" in item;

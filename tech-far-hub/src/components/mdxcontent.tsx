@@ -6,9 +6,21 @@ import ExternalResources from "./external-resources";
 import { ProcessList } from "./process-list";
 import { MultiStep } from "./multi-step";
 import { Assessment, AssessmentScore } from "./assessment";
+import { Hyperlink } from "./hyperlink";
+import { Image } from "./image";
 
 const MDXContent = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const components = { Alert, Summary, ExternalResources, ProcessList, MultiStep, Assessment, AssessmentScore };
+  const components = {
+    Alert,
+    Summary,
+    ExternalResources,
+    ProcessList,
+    MultiStep,
+    Assessment,
+    AssessmentScore,
+    a: Hyperlink,
+    img: Image,
+  };
   return <MDXProvider components={components}>{children}</MDXProvider>;
 };
 
