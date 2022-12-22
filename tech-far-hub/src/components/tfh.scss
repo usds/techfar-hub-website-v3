@@ -318,3 +318,15 @@ a.usa-button.usa-link--external::after,
   top: 0.5rem;
   margin-left: 5px;
 }
+
+.tfh-tagBox a {
+  text-decoration: none;
+  background-color: color("base");
+  color: #fff;
+  text-transform: uppercase;
+  padding: 3px 0.5rem;
+}
+
+.tfh-tagBox h4 {
+  margin-bottom: 0.75rem;
+}

@@ -7,6 +7,7 @@ import { IPageContext } from "../types";
 import Resources from "../components/resources";
 import { IMinimalFrontmatter, ITOCItem } from "../types";
 import { Hyperlink } from "./hyperlink";
+import { TagList } from "./tag-list";
 
 interface IPageLayoutNav {
   frontmatter: IMinimalFrontmatter | null | undefined;
@@ -117,6 +118,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
         <Grid tablet={{ col: 2 }}>
           <div className="position-sticky top-0">
             <SideNav items={siblingLinks}></SideNav>
+            {frontmatter?.tags && <TagList tags={frontmatter.tags} />}
           </div>
         </Grid>
         <Grid tablet={{ col: 10 }}>
