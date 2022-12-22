@@ -9,10 +9,10 @@ import { IMinimalFrontmatter, ITOCItem } from "../types";
 import { Hyperlink } from "./hyperlink";
 
 interface IPageLayoutNav {
-  frontmatter: IMinimalFrontmatter;
+  frontmatter: IMinimalFrontmatter | null | undefined;
   siblings: {
     readonly nodes: readonly {
-      readonly frontmatter: IMinimalFrontmatter | null;
+      readonly frontmatter: IMinimalFrontmatter | null | undefined;
       readonly parent:
         | {}
         | {
@@ -153,6 +153,7 @@ export const query = graphql`
       robots
       canonical
       link
+      tags
     }
   }
   fragment currentPageWithLocalNav on Mdx {
