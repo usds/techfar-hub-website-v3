@@ -39,6 +39,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: iNavigation) => {
   const getStartedSubItems = [
     <Link to="/get-started/">Get Started</Link>,
     <Link to="/get-started/#how-to-use-techfar-hub">How to Use TFH</Link>,
+    <Link to="/get-started/ditap">DITAP</Link>,
   ];
 
   const secondaryLinks = [
