@@ -27,7 +27,6 @@ $theme-global-link-styles: true;
 $theme-link-color: "ink";
 
 @import "../../node_modules/uswds/dist/scss/uswds.scss";
-// @import "../../node_modules/@trussworks/react-uswds/lib"
 @import "~@trussworks/react-uswds/lib/index.css";
 
 .usa-prose > p,
@@ -37,6 +36,34 @@ p {
 
 h1 {
   margin-top: 0;
+}
+
+table {
+  border: 1px solid #5b616b;
+  border-collapse: collapse;
+  font-family: Source Sans Pro, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+}
+
+thead {
+  background-color: #f1f1f1;
+  margin: 2rem 0;
+}
+
+tr {
+  border: 1px solid #5b616b;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+  border: 1px solid #5b616b;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+li {
+  line-height: 1.5;
 }
 
 .usa-logo__text a {
@@ -177,7 +204,6 @@ em.tfh-tagline {
   cursor: pointer;
 }
 
-// TODO: Fix this to use the tokens defined by uswds
 .tfh-next-link {
   text-align: left;
   display: block;
@@ -223,6 +249,9 @@ li.usa-card {
 }
 
 @include at-media("tablet") {
+  table {
+    max-width: 960px;
+  }
   .usa-header--extended .usa-logo {
     margin: 1rem 1.5rem 1rem 1.5rem;
   }
