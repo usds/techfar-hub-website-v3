@@ -1,0 +1,21 @@
+name: Create new page
+
+on:
+  workflow_dispatch:
+    inputs:
+      page_heading:
+        description: The Heading (h1) of the new page
+        required: true
+        type: string
+
+jobs:
+  create-page:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout source
+        uses: actions/checkout@v3.1.0
+      - name: Setup node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
