@@ -1,5 +1,4 @@
 name: Create new page
-
 on:
   workflow_dispatch:
     inputs:
@@ -7,9 +6,38 @@ on:
         description: The Heading (h1) of the new page
         required: true
         type: string
+      page_kind:
+        description: What kind of page is this?
+        required: true
+        type: choice
+        default: case study
+        options:
+        - case-study
+        - generic
+        - lifecycle
+        - listing
+        - landing
+        - resource
+        - alias
+      page_location:
+        description: Where does this page live?
+        required: true
+        type: choice
+        default: "Case Studies"
+        options:
+        - "Case Studies"
+        - "Templates"
+        - "Learning Center"
+        - "Policy Guidance"
+        - "Templates"
+        - "Get Started"
+        - "Pre-Solicitation"
+        - "Solicitation"
+        - "Evaluation"
+        - "Contract Administration"
 
 jobs:
-  create-page:
+  create_page:
     runs-on: ubuntu-latest
 
     steps: 
@@ -19,3 +47,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Setup clicms
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: clicms
+      - name: create the file
+        id: create-file
+        run: |
+          PAGE_LOCATION=$(npm run clicms -- -k '${{ inputs.page_kind }}' -h '${{ inputs.page_heading }}' -p '${{ inputs.page_location }}' | tail -1)
+          echo $PAGE_LOCATION
+          echo "PAGE_LOCATION=${PAGE_LOCATION}" >> $GITHUB_ENV
+        working-directory: clicms
+      - name: make sure the page location exists
+        run: echo "${{ env.PAGE_LOCATION }}"
+      - name: Cat the page too
+        run: cat ${{ env.PAGE_LOCATION }}
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.1.1 
+        with:
+          add: ${{ env.PAGE_LOCATION }}
+          message: "Add new page"
+

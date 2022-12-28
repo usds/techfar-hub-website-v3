@@ -1,0 +1,32 @@
+{
+  "name": "clicms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "clicms": "node dist/index.js"
+  },
+  "bin": {
+    "clicms": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "figlet": "^1.5.2",
+    "lodash": "^4.17.21",
+    "ts-dedent": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.5",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.18",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "typescript": "^4.9.4"
+  }
+}
