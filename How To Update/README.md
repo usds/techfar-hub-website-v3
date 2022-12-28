@@ -24,6 +24,7 @@ Having learned how to edit existing pages and add new pages, you'll likely want 
 
 - Learn about the [overall site structure](overall-site-structure.md) to understand where new pages should go.
 - Get fimilar with the [basics of github for content editors](github-for-content.md) to understand branches, commits, and the features we use to make this site on github.
+- [See how to include downloads](static-files-and-aliases.md) that can show up on listings and in the side nav with
 - Check out the [advanced components](advanced-components.md) that you can use to enhance your pages for greater usability and interactivity.
 - Get to know [page fragment and promo items](fragments-and-promo.md) to see how to update the homepage, landing pages, and content items that appear across the site.
 - See the [markdown and content idioms](content-idioms.md) used repeatedly throughout the site, so that your new content is consistent with the existing site and takes advanges of its features.
