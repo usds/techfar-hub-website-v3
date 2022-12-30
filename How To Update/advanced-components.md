@@ -80,5 +80,70 @@ An _External Resource_ is an unordered list with links under each bullet. They c
 
 A `<ProcessList></ProcessList>` breaks down a complex, ordered process into smaller steps. It looks like this on the site:
 
+![A process list component](images/process-list.png)
+
+A process list contains an ordered list. The list items are the headings, and the content under them is, well, the content under the headings. Here's what the code looks like for the above one:
+
+```markdown
+<ProcessList>
+1. Determine Where You Are in the Acquisition Lifecycle
+
+    Whether you’re working a brand new procurement or need some help with evaluation criteria, we make it easy to find the help you need. Content is organized into four acquisition lifecycle stages: 
+
+    1. [Pre-Solicitation](/pre-solicitation/),
+    2. [Solicitation](/solicitation/), 
+    3. [Evaluation](/evaluation/), 
+    4. [Contract Administration](/contract-administration/). 
+    
+    Within each stage, you’ll find relevant guidance, tools, and templates to help you succeed. [Link to Acq Lifecycle Landing Page]
+
+2. Browse Tools, Templates, and Samples
+
+    Looking for inspiration? Imitation is the sincerest form of flattery, which is why we’re collecting a repository of useful tools, templates and samples proven to be successful in the public sector. Jump directly to this page and see what’s in our library, and find out how you can contribute your own. [Link to this Resources subpage]
+
+3. Review Our Case Studies
+
+    Case studies are a great way to learn from the success of others. We’re adding new case studies often, in collaboration with smart professionals all over the government. Do you have a case study or situation you think would make a great case study? We’d love to consider it for inclusion in the TechFAR Hub! You may even get some swag out of it. [Link to this Resources subpage]
+</ProcessList>
+```
+
 ## MultiStep
+
+The `<MultiStep></MultiStep>` is an interactive component that allows you to display multiple, related concepts in a single area. It looks like this:
+
+![A multi-step component](images/multistep.png)
+
+Each bold item at the top is clickable.
+
+The markdown is very similar to the [_ProcessList_](#processlist) --- the core is an ordered list, where the headings are the list items and the content is the content under the list item. To create one like the above, the markdown looks like
+
+```markdown
+<MultiStep>
+
+1. Pre-Solicitation
+
+    The pre-solicitation phase of the acquisition lifecycle is where planning, market research, and requirements development occur.
+
+2. Solicitation
+
+    After you’ve completed pre-solicitation activities, it’s time to solicit offers from industry during the solicitation phase.
+
+3. Evaluation
+
+   Offers are in and it’s time to select the contractor who is best suited for the job, based on the criteria you develop in the Evaluation phase of the acquisition lifecycle.
+
+4. Contract Administration
+
+    When you’ve completed all the pre-award activities, from acquisition planning through evaluation and award, it’s time to focus on delivery.
+
+</MultiStep>
+```
+
+
 ## Assessment and AssessmentScore
+
+The `<Assessment></Assessment>` component allows you to build a scored quiz/assessment to help visitors assess something they're working on. This is the most involved component, but it follows the same form as the others --- if you can make a process list, you can make a new assessment.
+
+An _Assessment_ looks like this: 
+
+![Assessment Component](images/assessment.png)
