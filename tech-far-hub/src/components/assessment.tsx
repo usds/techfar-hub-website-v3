@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Card, CardBody, Alert, Fieldset, Radio, Form } from "@trussworks/react-uswds";
+import { Card, CardBody, Alert, Fieldset, Radio } from "@trussworks/react-uswds";
+import { onlyText } from 'react-children-utilities';
 
 // Filter for getting rid of newlines and nulls in a list of nodes
 const elementFilter = (item: React.ReactNode) => item && typeof item === "object" && "type" in item;
@@ -260,7 +261,7 @@ const processScores = (lis: React.ReactElement[], score: Number) => {
   return lis.map((li: React.ReactElement) => {
     if (li.props.children.length >= 2) {
       const rating = li.props.children.filter(elementFilter)[0];
-      const ratingText = Children.onlyText(rating);
+      const ratingText = onlyText(rating);
       const ratingRange = ratingText.match(/\(\s*(?<lowBound>[0-9]+)\s*-\s*(?<highBound>[0-9]+).* points/);
       let lowBound, highBound;
       if (ratingRange && ratingRange.groups) {
