@@ -147,3 +147,97 @@ The `<Assessment></Assessment>` component allows you to build a scored quiz/asse
 An _Assessment_ looks like this: 
 
 ![Assessment Component](images/assessment.png)
+
+The options are clickable, and as the visitor pages through using the "Next question" link, they're eventually brought to a score page that looks like 
+
+![An assessment score](images/assessment-score.png)
+
+Like most of the above custom components, assessments and assessment scores are built out of lists with content nested under them. Here is a simplified example, which we'll walk through below:
+
+```markdown
+<Assessment>
+1. Transparency & Openness
+
+    - Provides a  protected “space” (physical location or attitude) for innovation to happen
+    - Intensive and frequent communication with the customer and/or end users of the system
+
+    1. No adoption
+    2. Awareness of topics with limited adoption
+    3. Adopted some practices
+    4. Clear adoption of most practices
+    5. All practices adopted into organizational culture
+
+2. Organizational Culture of Delivery
+
+    - Empowered small teams with a focus on delivering quality solutions
+    - It is a practiced tactic to fail or succeed fast, and know what to do as a result
+
+    1. No adoption
+    2. Awareness of topics with limited adoption
+    3. Adopted some practices
+    4. Clear adoption of most practices
+    5. All practices adopted into organizational culture
+
+<AssessmentScore>
+1. Novice (9 - 18 total points)
+
+    Lack of structure or practice of the attributes; relies on tried and true methods such as waterfall;  management and practitioners are interested in change but not yet executing on adopting the cultural and technical changes necessary
+
+2. Intermediate  (19 - 36 total points)
+
+    Begins implementing changes to governance and culture to adopt of model attributes as repeatable processes; starting to qualitatively track metrics and apply lessons learned
+
+3. Expert  (37 - 45 total points)
+
+    Embodies the model attributes, continually refining and optimizing team efforts; proactively building & investing in continuous delivery with end users
+
+### Next Steps
+Use the Digital Acquisition Strategy Guide for best practices to plan your next solicitation!
+</AssessmentScore>
+
+</Assessment>
+```
+
+A few things might jump out immediately:
+
+- There are actually two components here, one nested in the other:
+  - The `<Assessment></Assessment>`, which contains the questions/answers and the `<AssessmentScore></AssessmentScore>`
+- It's mostly a bunch of nested lists
+
+For the questions, the structure is as follows:
+
+```markdown
+1. The question heading is the list item
+
+    - Any information you want to put under the heading to explain the question goes in bullets under the first list item
+    - You can have as many or as few of these as you want.
+    - The options will come after
+
+    1. Options have a score equal to their position
+    2. So, this option will be worth two points
+    3. And this one three
+```
+
+You can have as many questions as you'd like, and questions don't have to have the same number of options, assuming you can make the rubric work.
+
+After all the questions comes the `<AssessmentScore></AssessmentScore>`, which needs to be the last element in the _Assessment_. It again contains at least one ordered list. The list items need to be structured as follows:
+
+1. A word to describe the score
+2. An opening parenthesis
+3. A range of points, separated by a hyphen
+4. The words "total points"
+5. A closing parenthesis
+6. Any explanatory text you want about the score as a child of the list item 
+
+So, a given score range looks like:
+
+```markdown
+
+1. Novice (9 - 18 total points)
+
+    Lack of structure or practice of the attributes; relies on tried and true methods such as waterfall;  management and practitioners are interested in change but not yet executing on adopting the cultural and technical changes necessary
+```
+
+You can then have whatever text you want under the scores, and you can have as many ranges as you want. It's up to you to ensure they don't overlap --- if they do overlap, the behavior may not be what you want.
+
+After the score, remember to close the `</Assessment>` tag.
