@@ -33,7 +33,9 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
                     <CardHeader>
                       <h2>{frontmatter.heading}</h2>
                     </CardHeader>
-                    <CardBody>{frontmatter.promo_description}</CardBody>
+                    <CardBody>
+                      <div dangerouslySetInnerHTML={{ __html: frontmatter.promo_description }}></div>
+                    </CardBody>
                     <CardFooter>
                       {!frontmatter.link && (
                         <Link to={frontmatter.slug} className="usa-button">

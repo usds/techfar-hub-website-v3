@@ -284,7 +284,8 @@ a.usa-button.usa-link--external {
   padding-right: 2rem;
 }
 
-a.usa-button.usa-link--external::after {
+a.usa-button.usa-link--external::after,
+.usa-button svg {
   top: 0.5rem;
   margin-left: 5px;
 }
