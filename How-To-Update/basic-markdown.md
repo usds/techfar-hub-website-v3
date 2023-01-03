@@ -33,7 +33,7 @@ Second level headings, or `##` are used to break up page sections. On lifecycle 
 ## About this page
 ```
 
-Third-level through sixth level (`###`, `####`, `#####`, `######`) are used as subheadings under a second-level heading to improve readability. Nothing cool or automatic happens with them, but they're usful for creating a skimmable outline of you content. As an example
+Third-level through sixth level (`###`, `####`, `#####`, `######`) are used as subheadings under a second-level heading to improve readability. Nothing cool or automatic happens with them, but they're useful for creating a skimmable outline of you content. As an example
 
 ```markdown
 ## About this page
@@ -59,7 +59,7 @@ There are a bunch of ways to write links in markdown. Here's the one you should 
 [The link text](/the/link/url)
 ```
 
-When the site builds, the link text will be a link with an underline, and when you click it, it'll go to `/the/link/url`. If the URL is to another site (e.g., `[See the page on SAM.gov](https://sam.gov)`), the link will get a little arrow that indicates that it's an offite link. If the link is to a document, like a PDF or word doc (e.g.e, `[Download the agile estimator](/assets/files/agile-estimator.docx)`), it'll get a cute little icon for its file type. This all happens automatically.
+When the site builds, the link text will be a link with an underline, and when you click it, it'll go to `/the/link/url`. If the URL is to another site (e.g., `[See the page on SAM.gov](https://sam.gov)`), the link will get a little arrow that indicates that it's an offsite link. If the link is to a document, like a PDF or word doc (e.g.e, `[Download the agile estimator](/assets/files/agile-estimator.docx)`), it'll get a cute little icon for its file type. This all happens automatically.
 
 ### A few notes on links
 
@@ -88,7 +88,7 @@ An ordered list is a series of lines that start with a number and a period. The 
 3. Third item
 ```
 
-Note that the numbers don't actually have to be consecutive; they'll get re-written when the page gets rendered. So, this is equivilant to the above:
+Note that the numbers don't actually have to be consecutive; they'll get re-written when the page gets rendered. So, this is equivalent to the above:
 
 ```markdown
 1. First item
@@ -120,11 +120,11 @@ You can have content under each list item, and we use this idiom throughout the 
     Case studies are a great way to learn from the success of others. We’re adding new case studies often, in collaboration with smart professionals all over the government. Do you have a case study or situation you think would make a great case study? We’d love to consider it for inclusion in the TechFAR Hub! You may even get some swag out of it. 
 ```
 
-Note that the content that goes under the list item is preceeded by at least one blank lines and is indented by four spaces. This tells the system that the content is still part of the bullet and not its own paragraphs.
+Note that the content that goes under the list item is preceded by at least one blank lines and is indented by four spaces. This tells the system that the content is still part of the bullet and not its own paragraphs.
 
 ### Unordered list
 
-Unordered lists are almost identical to ordered lists, only instead of numerals they use hypens (`-`). So, a simple unordered list looks like
+Unordered lists are almost identical to ordered lists, only instead of numerals they use hyphens (`-`). So, a simple unordered list looks like
 
 ```markdown
 - Item one
@@ -158,21 +158,21 @@ Note the exclamation point (`!`) at the front. Please write descriptive alt text
 
 ## Bold and Italic
 
-You can **bold** text by surrounding it in asterics (`*`) like so
+You can **bold** text by surrounding it in astericks (`*`) like so
 
 ```markdown
-You can **bold** text by surrounding it in asterics (`*`) like so
+You can **bold** text by surrounding it in astericks (`*`) like so
 ```
 
-And you can _italicize_ text but surounding it in underbars (`_`), like so
+And you can _italicize_ text but surrounding it in underbars (`_`), like so
 
 ```markdown
-And you can _italicize_ text but surounding it in underbars (`_`), like so
+And you can _italicize_ text but surrounding it in underbars (`_`), like so
 ```
 
 ## Tables
 
-Tables are formatted using pipes (`|`) and hypens. You separate cells with pipes, and you separate rows with cells full of hyphens. The first row automatically becomes the heading. A simple table looks like this:
+Tables are formatted using pipes (`|`) and hyphens. You separate cells with pipes, and you separate rows with cells full of hyphens. The first row automatically becomes the heading. A simple table looks like this:
 
 ```markdown
 | heading 1 | heading 2 |
