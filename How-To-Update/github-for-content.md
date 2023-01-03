@@ -8,7 +8,7 @@ While github isn't exactly meant for content entry, by adding an interface to [g
 -  [The editor](#the-editor): The text editor thing built into github
 -  [Actions](#actions): The system we use to automate adding pages and creating the actual website
 
-Note that this explanation is targetted at content editors, not engineers, so engineers, be cool about some of the details I'm glossing.
+Note that this explanation is targeted at content editors, not engineers, so engineers, be cool about some of the details I'm glossing.
 
 ## Commits
 
@@ -89,7 +89,7 @@ Now that you've made a branch, you'll probably want to make some changes. Github
 2. Navigate to the file you want. You can either click through the web interface (clicking `tech-far-hub` -> `content` -> _the directory you want_ -> _the file you want_) or, if you want to feel like a hacker, hit the `t` key on your keyboard to bring up a file search.
 
     ![File search UI](images/file-search.png)
-3. You'll see a cool preview of the file, along with some data about who last edited it when. The key tihng to notice is the little pencil icon above the file content. Click it.
+3. You'll see a cool preview of the file, along with some data about who last edited it when. The key thing to notice is the little pencil icon above the file content. Click it.
 
     ![The github edit icon](images/pencil-icon.png)
 4. Congrats! You're in a very simple text editor! You can now edit the text content with your wisdom and use [markdown](basic-markdown.md) and our [components](advanced-components.md) to make it engaging.
@@ -105,13 +105,13 @@ Rinse and repeat until you've made all the changes you want.
 
 ## Pull requests
 
-Once you have a branch full of changes you are happy with, you need to get it merged into the main branch so it can become part of the public website. As a measure of quality control, we require that a second person look at your changes before they go live. This way you get feedback and proof-reading of your changes, and we know that at least one of your peers approves what you've written. The way we ensure this is though a **pull request,** also called a PR, which is a system built into github for getting feedback on changes and formally approving or rejecting the changes overall.
+Once you have a branch full of changes you are happy with, you need to get it merged into the main branch so it can become part of the public website. As a measure of quality control, we require that a second person look at your changes before they go live. This way you get feedback and proof-reading of your changes, and we know that at least one of your peers approves what you've written. The way we ensure this is through a **pull request,** also called a PR, which is a system built into github for getting feedback on changes and formally approving or rejecting the changes overall.
 
 We're not going to exhaustively document how to comment on and interact with pull requests, since [github has good documentation about their pull request system](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) already. However, we will cover the basics here.
 
 ### Creating a pull request
 
-1. At the top of the repo in github, there's a bar of links --- click the one that says _Pull reqeusts_
+1. At the top of the repo in github, there's a bar of links --- click the one that says _Pull requests_
 
     ![Main toolbar on a repo](images/main-tabs.png)
 2. Click the green "new pull request" button
