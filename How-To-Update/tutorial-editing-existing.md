@@ -23,7 +23,7 @@ This will not only create the branch for you, but it will also select it so that
 1. Navigate to the file you want. You can either click through the web interface (clicking `tech-far-hub` -> `content` -> _the directory you want_ -> _the file you want_) or, if you want to feel like a hacker, hit the `t` key on your keyboard to bring up a file search.
 
     ![File search UI](images/file-search.png)
-3. You'll see a cool preview of the file, along with some data about who last edited it when. The key tihng to notice is the little pencil icon above the file content. Click it.
+3. You'll see a cool preview of the file, along with some data about who last edited it when. The key thing to notice is the little pencil icon above the file content. Click it.
 
     ![The github edit icon](images/pencil-icon.png)
 4. Congrats! You're in a very simple text editor! You can now edit the text content with your wisdom and use [markdown](basic-markdown.md) and our [components](advanced-components.md) to make it engaging.
@@ -40,7 +40,7 @@ This will not only create the branch for you, but it will also select it so that
 
 ## Make a pull request
 
-1. At the top of the repo in github, there's a bar of links --- click the one that says _Pull reqeusts_
+1. At the top of the repo in github, there's a bar of links --- click the one that says _Pull requests_
 
     ![Main toolbar on a repo](images/main-tabs.png)
 2. Click the green "new pull request" button
