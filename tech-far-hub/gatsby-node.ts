@@ -62,11 +62,6 @@ interface IPageContext {
   isIndex: boolean;
 }
 
-const createTagPages = (data: Queries.AllTagsQuery) => {
-  console.log(data);
-  console.log(data.allMdx);
-};
-
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
