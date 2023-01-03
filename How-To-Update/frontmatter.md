@@ -31,10 +31,15 @@ Almost all pages will have the following frontmatter:
 There are a few less-frequently used frontmatter keys that you'll want to know about, too:
 
 - link: To allow us to have content that shows up on listing pages but then just links to some other content, like a download. See [static files and aliases](static-files-and-aliases.md) for more information.
+- page_type: Currently used to mark "initiatives," which show up on the homepage. You can see this in action in [8a.mdx](https://github.com/usds/techfar-hub-website-v3/blob/main/tech-far-hub/content/resources/learning-center/training/8a.mdx) and [ditap.mdx](https://github.com/usds/techfar-hub-website-v3/blob/main/tech-far-hub/content/resources/learning-center/training/8a.mdx) and their associated promos at the bottom of the homepage.
 - meta_title: If you want the title tag (used by search engines) to differ from the `heading`, this will give you that control.
 - meta_description: If you want the meta description (used by search engines) to differ from the `promo_description`, this will give you that control.
 - robots: If you need to set the meta robots value, so that you can control search indexing and crawling, this will give you that control.
 - canonical: If you need to set a `rel='canonical'` URL for a page, because it duplicates some other page substantially, this will give you that control.
+- [is_featured](#is_featured): used by the case studies to decide which one goes on the homepage. The valid values are "true" and "false"
+- media_image: for content that could have an image associated, like case studies that are featured on the home page, the path to their image
+- media_alt_text: the alt text for the media image above
+
 
 A few of the above deserve greater explanation.
 
@@ -87,3 +92,8 @@ Clicking a tag brings a user to a list of all the pages tagged with that page:
 ![Tag landing page](images/tag-landing.png)
 
 Note that the listings use the `heading:` for the heading of the box and the `promo_description:` (if any) for content below the heading. 
+
+
+## `is_featured:`
+
+The homepage features a single case study at the top, which is the "featured" case study. You can pick which case study is featured by setting `is_featured: true` on one of the case study mdx files. If you do so, make sure you also have set the `media_image` and `media_alt`. Look at the current featured case study for an example.
