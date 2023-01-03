@@ -46,6 +46,8 @@ export class URLInfo implements IURLInfo {
         return DownloadFileType.Pdf;
       } else if (/\.docx?$/i.test(this.authoritativeUrl.pathname)) {
         return DownloadFileType.Word;
+      } else if (/\.xlsx?$/i.test(this.authoritativeUrl.pathname)) {
+        return DownloadFileType.Excel;
       } else {
         return DownloadFileType.Other;
       }

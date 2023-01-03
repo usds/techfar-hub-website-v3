@@ -31,6 +31,10 @@ describe("URLInfo Class", () => {
     const info = new URLInfo("/assets/file/download.doc", site);
     expect(info.fileType).toBe(DownloadFileType.Word);
   });
+  it("idenifies excel file types", () => {
+    const info = new URLInfo("/assets/file/download.xlsx", site);
+    expect(info.fileType).toBe(DownloadFileType.Excel);
+  });
   it("identifies internal vs external URLs", () => {
     const internalInfo = new URLInfo("/resources/learning-center", site);
     expect(internalInfo.isExternal).toBe(false);

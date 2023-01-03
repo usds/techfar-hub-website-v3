@@ -6,6 +6,7 @@ import SiteLayout from "../components/site-layout";
 import { IPageContext } from "../types";
 import Resources from "../components/resources";
 import { IMinimalFrontmatter, ITOCItem } from "../types";
+import { Hyperlink } from "./hyperlink";
 
 interface IPageLayoutNav {
   frontmatter: IMinimalFrontmatter;
@@ -71,6 +72,9 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
             node.parent.relativeDirectory.startsWith(pageContext.pathParts.join("/").slice(1)) &&
             node.parent.relativePath !== pageContext.filePath
           ) {
+            if (node.frontmatter.link) {
+              return <Hyperlink href={node.frontmatter.link}>{node.frontmatter.heading}</Hyperlink>;
+            }
             return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
           } else {
             return null;
@@ -91,10 +95,16 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
           );
         } else if (showSiblings) {
           if (atCurrent) {
-            nextLink = node.frontmatter;
+            if (!node.frontmatter.link) {
+              nextLink = node.frontmatter;
+            }
             atCurrent = false;
           }
-          return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
+          if (node.frontmatter.link) {
+            <Hyperlink href={node.frontmatter.link}>{node.frontmatter.heading}</Hyperlink>;
+          } else {
+            return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
+          }
         }
       }
     })
@@ -142,6 +152,7 @@ export const query = graphql`
       promo_description
       robots
       canonical
+      link
     }
   }
   fragment currentPageWithLocalNav on Mdx {
