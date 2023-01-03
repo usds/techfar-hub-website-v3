@@ -41,6 +41,7 @@
     "react-icons": "^4.7.1",
     "react-use": "^17.4.0",
     "remark-gfm": "^1.0.0",
+    "remark-html": "^15.0.1",
     "sass": "^1.56.1",
     "ts-deep-pick": "^0.2.2",
     "uswds": "^2.13.3"

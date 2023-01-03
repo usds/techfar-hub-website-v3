@@ -8,6 +8,8 @@ import PageLayoutNav from "../components/page-layout-nav";
 import { Card, CardBody, CardFooter, CardGroup, CardHeader, Grid } from "@trussworks/react-uswds";
 import { SEO } from "../components/seo";
 import { Hyperlink } from "../components/hyperlink";
+import remark from "remark";
+import remarkHtml from "remark-html";
 
 type DefaultPageProps = TOCEnhancedQueryPageProps<Queries.ListPageContentQuery>;
 
@@ -28,13 +30,19 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
           <CardGroup>
             {data.children.nodes.map(({ frontmatter }) => {
               if (frontmatter && frontmatter.heading && frontmatter.promo_description && frontmatter.slug) {
+                const description = remark()
+                  // .use(recommended)
+                  .use(remarkHtml)
+                  .processSync(frontmatter.promo_description)
+                  .toString();
+
                 return (
                   <Card>
                     <CardHeader>
                       <h2>{frontmatter.heading}</h2>
                     </CardHeader>
                     <CardBody>
-                      <div dangerouslySetInnerHTML={{ __html: frontmatter.promo_description }}></div>
+                      <div dangerouslySetInnerHTML={{ __html: description }}></div>
                     </CardBody>
                     <CardFooter>
                       {!frontmatter.link && (
