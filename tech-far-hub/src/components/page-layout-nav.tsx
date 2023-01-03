@@ -7,12 +7,13 @@ import { IPageContext } from "../types";
 import Resources from "../components/resources";
 import { IMinimalFrontmatter, ITOCItem } from "../types";
 import { Hyperlink } from "./hyperlink";
+import { TagList } from "./tag-list";
 
 interface IPageLayoutNav {
-  frontmatter: IMinimalFrontmatter;
+  frontmatter: IMinimalFrontmatter | null | undefined;
   siblings: {
     readonly nodes: readonly {
-      readonly frontmatter: IMinimalFrontmatter | null;
+      readonly frontmatter: IMinimalFrontmatter | null | undefined;
       readonly parent:
         | {}
         | {
@@ -117,6 +118,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
         <Grid tablet={{ col: 2 }}>
           <div className="position-sticky top-0">
             <SideNav items={siblingLinks}></SideNav>
+            {frontmatter?.tags && <TagList tags={frontmatter.tags} />}
           </div>
         </Grid>
         <Grid tablet={{ col: 10 }}>
@@ -153,6 +155,7 @@ export const query = graphql`
       robots
       canonical
       link
+      tags
     }
   }
   fragment currentPageWithLocalNav on Mdx {

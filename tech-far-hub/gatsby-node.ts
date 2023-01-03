@@ -1,5 +1,6 @@
 import type { GatsbyNode } from "gatsby";
 import path from "path";
+import _ from "lodash";
 
 interface ITemplatedNode {
   id: string;
@@ -30,8 +31,13 @@ interface IEnhancedTemplatedNode extends ITemplatedNode {
 }
 
 interface ITemplateNodeResultSet {
-  allMdx: {
+  pagesMdx: {
     edges: ReadonlyArray<{ readonly node: ITemplatedNode }>;
+  };
+  tagsGroup: {
+    group: {
+      fieldValue: string;
+    }[];
   };
 }
 
@@ -61,7 +67,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   const result: IGraphQLTemplateNodeResult = await graphql(`
     query CreatePages {
-      allMdx(
+      pagesMdx: allMdx(
         filter: {
           internal: { contentFilePath: { glob: "!*components" } }
           frontmatter: { page_type: { ne: "homepage" } }
@@ -92,15 +98,20 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
           }
         }
       }
+      tagsGroup: allMdx(limit: 2000) {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
+        }
+      }
     }
   `);
 
   if (result.errors || !result.data) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    reporter.panicOnBuild(`Error while running page GraphQL query.`);
     return;
   }
 
-  const nodes: IEnhancedTemplatedNode[] = result.data.allMdx.edges.map(({ node }: { node: ITemplatedNode }) => {
+  const nodes: IEnhancedTemplatedNode[] = result.data.pagesMdx.edges.map(({ node }: { node: ITemplatedNode }) => {
     const parentDirs: string = node.parent.relativeDirectory;
     const pageName: string = node.parent.name;
     const pageIdentifier: string = node.frontmatter.slug || pageName;
@@ -168,6 +179,17 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         context,
       });
     });
+  const tags = result.data.tagsGroup.group;
+
+  // Make tag pages
+  tags.forEach((tag) => {
+    const template = path.resolve("src", "pages", `template-tag.tsx`);
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}`,
+      component: template,
+      context: { tag: tag.fieldValue },
+    });
+  });
 };
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
@@ -184,6 +206,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       robots: String
       canonical: String
       link: String
+      tags: [String]
     }
   `;
   createTypes(typeDefs);

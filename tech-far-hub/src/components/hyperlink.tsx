@@ -69,7 +69,11 @@ export const Hyperlink = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Elemen
       if (href.isDownload) {
         return <a {...props}>{children}</a>;
       } else {
-        return <Link to={href.authoritative}>{children}</Link>;
+        return (
+          <Link to={href.authoritative} className={props.className}>
+            {children}
+          </Link>
+        );
       }
     }
   }

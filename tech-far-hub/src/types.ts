@@ -26,6 +26,7 @@ export interface IMinimalFrontmatter {
   robots?: string | null;
   canonical?: string | null;
   link?: string | null;
+  tags: readonly (string | null)[] | null;
 }
 
 export interface ISEOFrontmatter extends IMinimalFrontmatter {
@@ -45,7 +46,7 @@ export type TableOfContents = { currentPage: { tableOfContents: Record<string, I
 export type MinimalPageQuery = {
   readonly currentPage: {
     readonly tableOfContents: Record<string, ITOCItem | unknown> | null;
-    readonly frontmatter: IMinimalFrontmatter | null;
+    readonly frontmatter: IMinimalFrontmatter | null | undefined;
   } | null;
   readonly siblings: { readonly nodes: ReadonlyArray<{ readonly frontmatter: IMinimalFrontmatter | null }> };
 };
