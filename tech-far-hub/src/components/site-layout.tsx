@@ -65,6 +65,7 @@ const SiteLayout = ({ children, breadCrumbs, className }: ILayoutProps) => {
         src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=Executive%20Office%20of%20the%20President&subagency=USDS"
         id="_fed_an_ua_tag"
       ></script>
+      <script src="https://touchpoints.app.cloud.gov/touchpoints/e93bb39d.js"></script>
     </>
   );
 };
