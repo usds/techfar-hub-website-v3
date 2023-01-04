@@ -1,5 +1,6 @@
 import type { PageProps } from "gatsby";
-import { DeepPick } from "ts-deep-pick";
+import { DeepPick, DeepPickGrammar, DefaultGrammar } from "ts-deep-pick";
+import { T } from "vitest/dist/types-71ccd11d";
 
 export interface IBreadcrumb {
   label: string;
@@ -51,10 +52,10 @@ export type MinimalPageQuery = {
   readonly siblings: { readonly nodes: ReadonlyArray<{ readonly frontmatter: IMinimalFrontmatter | null }> };
 };
 
-export type TOCEnhancedQueryPageProps<T extends MinimalPageQuery> = PageProps<
-  Omit<T, "currentPage"> & (DeepPick<T, "currentPage.!tableOfContents"> & TableOfContents),
-  IPageContext
->;
+type EnhancedTOCQuery<T> = DeepPick<T, "currentPage.!tableOfContents"> & TableOfContents;
+type TOCEnhancedCurrentPageQuery<T> = Omit<T, "currentPage"> & EnhancedTOCQuery<T>;
+
+export type TOCEnhancedQueryPageProps<T> = PageProps<TOCEnhancedCurrentPageQuery<T>, IPageContext>;
 
 export enum DownloadFileType {
   Word,
