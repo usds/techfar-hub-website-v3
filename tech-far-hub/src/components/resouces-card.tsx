@@ -12,7 +12,7 @@ interface IResourceNode {
   } | null;
 }
 
-const ResouceCard = ({ node, width = 3 }: { node: IResourceNode; width?: ColumnSizes }): JSX.Element => {
+const ResourceCard = ({ node, width = 3 }: { node: IResourceNode; width?: ColumnSizes }): JSX.Element => {
   if (node.html && node.frontmatter && node.frontmatter.href && node.frontmatter.heading) {
     return (
       <Card
@@ -40,4 +40,4 @@ const ResouceCard = ({ node, width = 3 }: { node: IResourceNode; width?: ColumnS
   }
 };
 
-export default ResouceCard;
+export default ResourceCard;
