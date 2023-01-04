@@ -90,7 +90,14 @@ const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => 
         mobileExpanded={isNavExpanded}
         onToggleMobileNav={onNavExpanded}
       >
-        <Search onSubmit={() => false} />
+        <Search
+          onSubmit={(event) => {
+            event.preventDefault();
+            const baseUrl = `https://search.usa.gov/search?affiliate=techfar-hub&commit=Search&query=`;
+            const query = encodeURIComponent(window.document.getElementById("search-field")?.value);
+            window.location.href = `${baseUrl}${query}`;
+          }}
+        />
       </ExtendedNav>
     </>
   );

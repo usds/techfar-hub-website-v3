@@ -12,7 +12,7 @@ export const SEO = ({ frontmatter }: { frontmatter?: IMinimalFrontmatter | null 
       <meta name="title" content={titleTag} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       {description && <meta name="description" content={description} />}
       {robots && <meta name="robots" content={robots} />}
       {canonical && <link rel="canonical" href={canonical} />}
