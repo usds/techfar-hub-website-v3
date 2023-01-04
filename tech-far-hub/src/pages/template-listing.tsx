@@ -10,6 +10,7 @@ import { SEO } from "../components/seo";
 import { Hyperlink } from "../components/hyperlink";
 import remark from "remark";
 import remarkHtml from "remark-html";
+import _ from "lodash";
 
 type DefaultPageProps = TOCEnhancedQueryPageProps<Queries.ListPageContentQuery>;
 
@@ -37,7 +38,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
                   .toString();
 
                 return (
-                  <Card>
+                  <Card key={`card-${_.snakeCase(frontmatter.heading)}`}>
                     <CardHeader>
                       <h2>{frontmatter.heading}</h2>
                     </CardHeader>

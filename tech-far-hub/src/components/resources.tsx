@@ -35,7 +35,7 @@ const Resources = () => {
   return (
     <CardGroup>
       {data.allMarkdownRemark.edges.map(({ node }) => {
-        return <ResouceCard node={node}></ResouceCard>;
+        return <ResouceCard node={node} key={node.id}></ResouceCard>;
       })}
     </CardGroup>
   );

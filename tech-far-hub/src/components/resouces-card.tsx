@@ -2,6 +2,7 @@ import { Card, CardHeader, CardBody, CardFooter } from "@trussworks/react-uswds"
 import { ColumnSizes } from "@trussworks/react-uswds/lib/components/grid/types";
 import { Link } from "gatsby";
 import * as React from "react";
+import _ from "lodash";
 
 interface IResourceNode {
   html: string | null;
@@ -12,9 +13,13 @@ interface IResourceNode {
 }
 
 const ResouceCard = ({ node, width = 3 }: { node: IResourceNode; width?: ColumnSizes }): JSX.Element => {
-  if (node.html && node.frontmatter && node.frontmatter.href) {
+  if (node.html && node.frontmatter && node.frontmatter.href && node.frontmatter.heading) {
     return (
-      <Card headerFirst gridLayout={{ tablet: { col: width } }}>
+      <Card
+        headerFirst
+        gridLayout={{ tablet: { col: width } }}
+        key={`resource-${_.snakeCase(node.frontmatter.heading)}`}
+      >
         <CardHeader>
           <h4>{node.frontmatter.heading}</h4>
         </CardHeader>

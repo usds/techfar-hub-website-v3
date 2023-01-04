@@ -1,7 +1,6 @@
 import { Grid, SideNav } from "@trussworks/react-uswds";
 import { graphql, Link } from "gatsby";
 import * as React from "react";
-import { Alert } from "../components/alert";
 import SiteLayout from "../components/site-layout";
 import { IPageContext } from "../types";
 import Resources from "../components/resources";
@@ -111,7 +110,12 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
     })
     .filter((item) => !!item);
 
-  const components = { Alert };
+  // This is honestly for the type checker; it should be obvious
+  // that nextLink is an IMinimalFrontmatter, but not to typescript
+  if (nextLink) {
+    nextLink = nextLink as IMinimalFrontmatter;
+  }
+
   return (
     <SiteLayout breadCrumbs={pageContext.breadCrumbs}>
       <Grid row gap={2} className="margin-bottom-4">

@@ -19,7 +19,7 @@ const ResoucesLandingPage: React.FC<ResoucesPageProps> = ({ data, children, page
       <Grid row>
         <CardGroup>
           {data.resourceLandPagePromos.edges.map(({ node }) => {
-            return <ResouceCard node={node} width={6}></ResouceCard>;
+            return <ResouceCard node={node} width={6} key={node.id}></ResouceCard>;
           })}
         </CardGroup>
       </Grid>
