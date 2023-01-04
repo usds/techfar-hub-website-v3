@@ -7,7 +7,7 @@ The [content of TechFAR Hub](https://github.com/usds/techfar-hub-website-v3/tree
 - The site offers a staging version --- if you [make a branch](github-for-content.md#branches) and commit your changes to it, a github action will run to publish you changes to a directory of https://usds.github.io/techfar-hub-staging-v3 and will add a comment to your commit with a link to the staging site for your branch. This process takes about 3 minutes as of the writing of these docs.
 - Commits to the main branch automatically publish to the live site --- assuming the commits are all valid Markdown/MDX, they will rebuild and publish to the internet in 2-3 minutes.
 - The site contents use an enhanced version of Markdown called [MDX](https://mdxjs.com/), which allows us to have some more sophisticated components added to pages with simple markdown. [See the advanced components section for details](advanced-components.md).
-- Individual pages have metadata in their "frontmatter" (the section at the top of the file) to allow you to control the page's URL, on-page title, and position within navigation, and a variet of SEO fields. See [frontmatter](frontmatter.md) for details.
+- Individual pages have metadata in their "frontmatter" (the section at the top of the file) to allow you to control the page's URL, on-page title, and position within navigation, and a variety of SEO fields. See [frontmatter](frontmatter.md) for details.
 - Local navigation is automatically generated based on the site's folders, data in each page's frontmatter, and subheadings. See [about local and global site navigation](navigation.md) for details.
 
 ## Your first edits
