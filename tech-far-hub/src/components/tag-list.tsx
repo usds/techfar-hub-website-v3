@@ -1,11 +1,15 @@
 import * as React from "react";
 import { Hyperlink } from "./hyperlink";
 
-export const TagList = ({ tags }: { tags: (string | null)[] }): JSX.Element | null => {
+export const TagList = ({ tags }: { tags: readonly (string | null)[] }): JSX.Element | null => {
   if (tags && tags.length) {
     const tagList = tags.map((tag) => {
       if (tag) {
-        return <Hyperlink href={`/tags/${tag}`}>{tag}</Hyperlink>;
+        return (
+          <Hyperlink href={`/tags/${tag}`} key={`tag-${tag}`}>
+            {tag}
+          </Hyperlink>
+        );
       }
     });
     return (

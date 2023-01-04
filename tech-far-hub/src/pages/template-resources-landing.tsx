@@ -4,14 +4,14 @@ import { IPageContext } from "../types";
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { CardGroup, Grid } from "@trussworks/react-uswds";
-import ResouceCard from "../components/resouces-card";
+import ResourceCard from "../components/resouces-card";
 import { SEO } from "../components/seo";
 
 type ResoucesPageProps = PageProps<Queries.ResourcesLandingContextQuery, IPageContext>;
 const ResoucesLandingPage: React.FC<ResoucesPageProps> = ({ data, children, pageContext }: ResoucesPageProps) => {
   const pageHeading = data.currentPage?.frontmatter?.heading ?? "Resources";
   return (
-    <SiteLayout breadCrumbs={pageContext.breadCrumbs} className="tfh-resources-landing">
+    <SiteLayout breadCrumbs={pageContext.breadCrumbs} className="tfh-resources-landing" pagePath={pageContext.pagePath}>
       <h1>{pageHeading}</h1>
       <Grid row>
         <MDXContent>{children}</MDXContent>
@@ -19,7 +19,7 @@ const ResoucesLandingPage: React.FC<ResoucesPageProps> = ({ data, children, page
       <Grid row>
         <CardGroup>
           {data.resourceLandPagePromos.edges.map(({ node }) => {
-            return <ResouceCard node={node} width={6}></ResouceCard>;
+            return <ResourceCard node={node} width={6} key={node.id}></ResourceCard>;
           })}
         </CardGroup>
       </Grid>

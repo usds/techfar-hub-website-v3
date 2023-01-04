@@ -60,6 +60,7 @@ interface IPageContext {
   parentPathRegex: string;
   childPathRegex: string;
   isIndex: boolean;
+  pagePath: string;
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
@@ -172,6 +173,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
         childPathRegex,
         filePath,
         isIndex,
+        pagePath,
       };
       createPage({
         path: pagePath,
@@ -184,10 +186,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   // Make tag pages
   tags.forEach((tag) => {
     const template = path.resolve("src", "pages", `template-tag.tsx`);
+    const pagePath = `/tags/${_.kebabCase(tag.fieldValue)}`;
     createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}`,
+      path: pagePath,
       component: template,
-      context: { tag: tag.fieldValue },
+      context: { tag: tag.fieldValue, pagePath },
     });
   });
 };

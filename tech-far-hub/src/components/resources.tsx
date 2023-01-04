@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { CardGroup, Card, CardHeader, CardBody, CardFooter } from "@trussworks/react-uswds";
-import ResouceCard from "./resouces-card";
+import ResourceCard from "./resouces-card";
 const Resources = () => {
   const data: Queries.ResourcePromosQuery = useStaticQuery(graphql`
     query ResourcePromos {
@@ -35,7 +35,7 @@ const Resources = () => {
   return (
     <CardGroup>
       {data.allMarkdownRemark.edges.map(({ node }) => {
-        return <ResouceCard node={node}></ResouceCard>;
+        return <ResourceCard node={node} key={node.id}></ResourceCard>;
       })}
     </CardGroup>
   );

@@ -8,7 +8,7 @@ export const Breadcrumbs = ({ breadCrumbs }: { breadCrumbs: IBreadcrumb[] }) => 
   breadCrumbs.forEach((crumbData, index) => {
     if (index < breadCrumbs.length - 1) {
       rows.push(
-        <Breadcrumb>
+        <Breadcrumb key={`crumb-${index}`}>
           <BreadcrumbLink href={withPrefix(crumbData.path)}>
             <span>{crumbData.label}</span>
           </BreadcrumbLink>
@@ -16,7 +16,7 @@ export const Breadcrumbs = ({ breadCrumbs }: { breadCrumbs: IBreadcrumb[] }) => 
       );
     } else {
       rows.push(
-        <Breadcrumb current>
+        <Breadcrumb current key="crumb-current">
           <span>{crumbData.label}</span>
         </Breadcrumb>
       );

@@ -11,11 +11,12 @@ import { IBreadcrumb } from "../types";
 
 interface ILayoutProps {
   children: ReactNode;
+  pagePath: string;
   breadCrumbs?: IBreadcrumb[];
   className?: string;
 }
 
-const SiteLayout = ({ children, breadCrumbs, className }: ILayoutProps) => {
+const SiteLayout = ({ children, pagePath, breadCrumbs, className }: ILayoutProps) => {
   const [navExpanded, setNavExpanded] = React.useState(false);
   const onNavExpand = (): void => setNavExpanded((prvExpanded) => !prvExpanded);
 
@@ -40,7 +41,7 @@ const SiteLayout = ({ children, breadCrumbs, className }: ILayoutProps) => {
         <div className="tfh-nav-border"></div>
         <GridContainer className="tfh-nav-grid">
           <Grid row>
-            <Navigation isNavExpanded={navExpanded} onNavExpanded={onNavExpand} />
+            <Navigation pagePath={pagePath} isNavExpanded={navExpanded} onNavExpanded={onNavExpand} />
           </Grid>
         </GridContainer>
       </Header>
