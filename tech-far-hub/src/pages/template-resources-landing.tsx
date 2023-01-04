@@ -11,7 +11,7 @@ type ResoucesPageProps = PageProps<Queries.ResourcesLandingContextQuery, IPageCo
 const ResoucesLandingPage: React.FC<ResoucesPageProps> = ({ data, children, pageContext }: ResoucesPageProps) => {
   const pageHeading = data.currentPage?.frontmatter?.heading ?? "Resources";
   return (
-    <SiteLayout breadCrumbs={pageContext.breadCrumbs} className="tfh-resources-landing">
+    <SiteLayout breadCrumbs={pageContext.breadCrumbs} className="tfh-resources-landing" pagePath={pageContext.pagePath}>
       <h1>{pageHeading}</h1>
       <Grid row>
         <MDXContent>{children}</MDXContent>

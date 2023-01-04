@@ -16,6 +16,7 @@ export interface IPageContext {
   childPathRegex: string;
   filePath: string;
   isIndex: boolean;
+  pagePath: string;
 }
 
 export interface IMinimalFrontmatter {

@@ -31,7 +31,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
     }
   });
   return (
-    <SiteLayout className="tfh-home">
+    <SiteLayout className="tfh-home" pagePath="/">
       <Grid row gap={6} className="tfh-hp-top">
         <Grid tablet={{ col: 8 }} className="tfh-hp-highlight">
           <h2 className="tfh-hp-highlight-h2 font-heading-xl">

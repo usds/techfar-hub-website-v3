@@ -21,8 +21,9 @@ interface INavParent extends INavItem {
 interface INavigation {
   isNavExpanded: boolean;
   onNavExpanded: onClickHandler;
+  pagePath: string;
 }
-const Navigation = ({ isNavExpanded, onNavExpanded }: INavigation) => {
+const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => {
   const navYAML = YAMLData as INavParent[];
   const { width } = useWindowSize();
   const [isOpen, setIsOpen] = React.useState(Array(navYAML.length).fill(false));
@@ -65,6 +66,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: INavigation) => {
         </Link>
       );
     });
+    const isCurrent = pagePath !== "/" && pagePath.startsWith(element.link);
     return (
       <>
         <NavDropDownButton
@@ -74,7 +76,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded }: INavigation) => {
           menuId={`menu-${_.snakeCase(element.heading)}`}
           isOpen={isOpen[idx]}
           label={element.heading}
-          isCurrent={false}
+          isCurrent={isCurrent}
         />
         <Menu key={_.snakeCase(element.heading)} items={menuItems} isOpen={isOpen[idx]} />
       </>

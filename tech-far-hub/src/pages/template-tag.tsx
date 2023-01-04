@@ -8,6 +8,7 @@ import { Hyperlink } from "../components/hyperlink";
 
 interface ITagPageContext {
   tag: string;
+  pagePath: string;
 }
 
 const TagPageTemplate: React.FC<PageProps<Queries.TagPageQueryQuery, ITagPageContext>> = ({
@@ -42,7 +43,7 @@ const TagPageTemplate: React.FC<PageProps<Queries.TagPageQueryQuery, ITagPageCon
     }
   });
   return (
-    <SiteLayout>
+    <SiteLayout pagePath={pageContext.pagePath}>
       <>
         <h1>Tagged: {pageContext.tag}</h1>
         {relatedPages}

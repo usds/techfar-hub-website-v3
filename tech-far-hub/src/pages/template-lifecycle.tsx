@@ -28,7 +28,7 @@ const LifecycleInnerPage: React.FC<LifecycleInnerPageProps> = ({
     );
   }
   return (
-    <SiteLayout>
+    <SiteLayout pagePath={pageContext.pagePath}>
       <h1>Something went wrong</h1>
     </SiteLayout>
   );

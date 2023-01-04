@@ -24,7 +24,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
     );
   }
   return (
-    <SiteLayout>
+    <SiteLayout pagePath={pageContext.pagePath}>
       <h1>Something went wrong</h1>
     </SiteLayout>
   );

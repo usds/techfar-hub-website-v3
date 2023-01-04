@@ -5,7 +5,11 @@ export const TagList = ({ tags }: { tags: readonly (string | null)[] }): JSX.Ele
   if (tags && tags.length) {
     const tagList = tags.map((tag) => {
       if (tag) {
-        return <Hyperlink href={`/tags/${tag}`}>{tag}</Hyperlink>;
+        return (
+          <Hyperlink href={`/tags/${tag}`} key={`tag-${tag}`}>
+            {tag}
+          </Hyperlink>
+        );
       }
     });
     return (

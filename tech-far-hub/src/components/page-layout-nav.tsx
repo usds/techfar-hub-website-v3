@@ -117,7 +117,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
   }
 
   return (
-    <SiteLayout breadCrumbs={pageContext.breadCrumbs}>
+    <SiteLayout breadCrumbs={pageContext.breadCrumbs} pagePath={pageContext.pagePath}>
       <Grid row gap={2} className="margin-bottom-4">
         <Grid tablet={{ col: 2 }}>
           <div className="position-sticky top-0">
