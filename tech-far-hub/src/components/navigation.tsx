@@ -86,7 +86,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => 
     <>
       <ExtendedNav
         primaryItems={yamlNavItems}
-        secondaryItems={secondaryLinks}
+        secondaryItems={[]}
         mobileExpanded={isNavExpanded}
         onToggleMobileNav={onNavExpanded}
       >
