@@ -1,14 +1,24 @@
 import * as React from "react";
-import { Link, withPrefix } from "gatsby";
-
+import {  withPrefix } from "gatsby";
+import { Hyperlink } from "./hyperlink";
 import { GridContainer, Grid, FooterNav, SocialLink, SocialLinks } from "@trussworks/react-uswds";
+import YAMLData from "../../content/components/main-nav.yaml";
 
+import { INavigationConfiguration } from "../types";
 const Footer = () => {
+
+  const navYAML = YAMLData as INavigationConfiguration;
+  const footerNav = navYAML.footerNavigation;
   const socialLinks = [
-    <SocialLink key="facebook" name="Facebook" href="https://www.facebook.com/unitedstatesdigitalservice" />,
-    <SocialLink key="twitter" name="Twitter" href="https://twitter.com/USDS" />,
-    <SocialLink key="instagram" name="Instagram" href="https://www.instagram.com/usdigitalservice" />,
+    <SocialLink key="facebook" name="Facebook" href={footerNav.facebookLink}/>,
+    <SocialLink key="twitter" name="Twitter" href={footerNav.twitterLink}/>,
+    <SocialLink key="instagram" name="Instagram" href={footerNav.instagramLink}/>,
   ];
+  const colLinks = [footerNav.column1, footerNav.column2, footerNav.column3].map(column => {
+    return column.map(linkData => {
+      return <Hyperlink href={linkData.link}>{linkData.heading}</Hyperlink>
+    })
+  });
   return (
     <footer className="usa-footer usa-footer--big">
       <GridContainer className="usa-footer__return-to-top">
@@ -28,39 +38,21 @@ const Footer = () => {
                 <FooterNav
                   aria-label="Footer navigation"
                   size="big"
-                  links={[
-                    <Link to="/get-started/">Get Started</Link>,
-                    <Link to="/pre-solicitation/">Pre-Solicitation</Link>,
-                    <Link to="/solicitation/">Solicitation</Link>,
-                    <Link to="/evaluation/">Evaluation</Link>,
-                    <Link to="/contract-administration/">Contract Administration</Link>,
-                  ]}
+                  links={colLinks[0]}
                 />
               </Grid>
               <Grid tablet={{ col: 2 }}>
                 <FooterNav
                   aria-label="Footer navigation"
                   size="big"
-                  links={[
-                    <Link to="/resources/learning-center/">Learning Center</Link>,
-                    <Link to="/resources/case-studies/">Case Studies</Link>,
-                    <Link to="/resources/templates-samples/">Templates and Samples</Link>,
-                    <Link to="/resources/policy-guidance/">Policy and Guidance</Link>,
-                    <Link to="/resources/contract-solutions-vehicles/">Contract Solutions and Vehicles</Link>,
-                  ]}
+                  links={colLinks[1]}
                 />
               </Grid>
               <Grid tablet={{ col: 3 }}>
                 <FooterNav
                   aria-label="Footer navigation"
                   size="big"
-                  links={[
-                    <a href="https://www.acquisition.gov/">Acquisition.gov</a>,
-                    <a href="https://www.fai.gov/periodic-table">FAR Periodic Table</a>,
-                    <a href="https://www.usds.gov/apply">Apply to USDS</a>,
-                    <Link to="/resources/learning-center/history-of-tfh">History of TFH</Link>,
-                    <a href="https://github.com/usds/techfar-hub-website-v3">Contribute to this site</a>,
-                  ]}
+                  links={colLinks[2]}
                 />
               </Grid>
               <Grid tablet={{ col: 2 }}>

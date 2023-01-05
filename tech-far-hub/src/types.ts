@@ -73,3 +73,27 @@ export interface IURLInfo {
   get fileType(): DownloadFileType | null;
   get isExternal(): boolean;
 }
+
+export interface INavItem {
+  heading: string;
+  link: string;
+}
+
+export interface INavParent extends INavItem {
+  children: INavItem[];
+}
+
+export interface IFooterNavContainer {
+  column1: INavItem[]
+  column2: INavItem[]
+  column3: INavItem[]
+  facebookLink: string;
+  twitterLink: string;
+  instagramLink: string;
+}
+
+export interface INavigationConfiguration {
+  mainGlobalNavigation: INavParent[] ;
+  secondaryGlobalNavigation: INavItem[]
+  footerNavigation: IFooterNavContainer;
+}
