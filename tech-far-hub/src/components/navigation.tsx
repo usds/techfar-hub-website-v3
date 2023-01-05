@@ -1,32 +1,25 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { USWDS_BREAKPOINTS } from "../settings";
-import { useWindowSize } from "react-use";
-import YAMLData from "../../content/components/main-nav.yaml";
+import { ExtendedNav, Menu, NavDropDownButton, Search } from "@trussworks/react-uswds";
 import _ from "lodash";
-
-import { NavDropDownButton, Menu, ExtendedNav, Search } from "@trussworks/react-uswds";
+import { useWindowSize } from "react-use";
+import YAMLData from "../../content/components/global-nav.yaml";
+import { USWDS_BREAKPOINTS } from "../settings"
+import { INavigationConfiguration } from "../types";
 
 type onClickHandler = () => void;
-
-interface INavItem {
-  heading: string;
-  link: string;
-}
-
-interface INavParent extends INavItem {
-  children: INavItem[];
-}
 
 interface INavigation {
   isNavExpanded: boolean;
   onNavExpanded: onClickHandler;
   pagePath: string;
 }
+
+
 const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => {
-  const navYAML = YAMLData as INavParent[];
+  const navYAML = YAMLData as INavigationConfiguration;
   const { width } = useWindowSize();
-  const [isOpen, setIsOpen] = React.useState(Array(navYAML.length).fill(false));
+  const [isOpen, setIsOpen] = React.useState(Array(navYAML.mainGlobalNavigation.length).fill(false));
   /**
    * This toggle function will handle all navigation toggle links
    *
@@ -58,7 +51,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => 
     </a>,
   ];
 
-  const yamlNavItems = navYAML.map((element, idx) => {
+  const yamlNavItems = navYAML.mainGlobalNavigation.map((element, idx) => {
     const menuItems = element.children.map((child) => {
       return (
         <Link to={child.link} key={`nav-link-${_.snakeCase(element.heading)}-${_.snakeCase(child.heading)}`}>
@@ -82,11 +75,16 @@ const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => 
       </>
     );
   });
+  const yamlSecondaryNavItems = navYAML.secondaryGlobalNavigation.map((element, idx) => {
+    return (
+      <Link to={element.link} key={`secondary-nav-${idx}`}>{element.heading}</Link>
+    )
+  });
   return (
     <>
       <ExtendedNav
         primaryItems={yamlNavItems}
-        secondaryItems={[]}
+        secondaryItems={yamlSecondaryNavItems}
         mobileExpanded={isNavExpanded}
         onToggleMobileNav={onNavExpanded}
       >
