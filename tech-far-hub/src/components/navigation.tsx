@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { ExtendedNav, Menu, NavDropDownButton, Search } from "@trussworks/react-uswds";
 import _ from "lodash";
 import { useWindowSize } from "react-use";
-import YAMLData from "../../content/components/main-nav.yaml";
+import YAMLData from "../../content/components/global-nav.yaml";
 import { USWDS_BREAKPOINTS } from "../settings"
 import { INavigationConfiguration } from "../types";
 

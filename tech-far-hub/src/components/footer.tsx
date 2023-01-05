@@ -2,7 +2,7 @@ import * as React from "react";
 import {  withPrefix } from "gatsby";
 import { Hyperlink } from "./hyperlink";
 import { GridContainer, Grid, FooterNav, SocialLink, SocialLinks } from "@trussworks/react-uswds";
-import YAMLData from "../../content/components/main-nav.yaml";
+import YAMLData from "../../content/components/global-nav.yaml";
 
 import { INavigationConfiguration } from "../types";
 const Footer = () => {
