@@ -6,6 +6,8 @@ TechFAR Hub has a couple different kinds of navigation that you might want to ed
   - [The main global navigation](#the-main-global-navigation)
   - [Secondary global navigation](#secondary-global-navigation)
   - [The footer](#the-footer)
+- [Local, page-level navigation](#local-page-level-navigation)
+- [Tags](#tags)
 
 The [Global Main Navigation](#global-main-navigation) and [The footer](#the-footer) are the same on every page and appear on every page, and they allow visitors to go from any part of the site to any other. They are manually controlled via [YAML files](https://learnxinyminutes.com/docs/yaml/) and can be edited by site editors.
 
@@ -115,3 +117,50 @@ The first three keys are, as they appear, the links to USDS's facebook, twitter,
 
 As you might have surmised, the link stanzas under each of the column keys become the links in the footer. You can't add a column, but you can have as many links in each column as you want.
 
+## Local, page-level navigation
+
+Pages have local navigation in their left sidebar/rail:
+
+![Local navigation example](images/local-nav.png)
+
+The specific way the local navigation functions depends on the template the page uses.
+
+- Pages in _Get Started_, _Pre-Solicitation_, _Solicitation_, _Evaluation_, and _Contract Administration_ use the default template and have local navigation, where every page links to its siblings in its left-rail. Additionally, these pages generate an _anchor link_ (a link to a part within the page itself) for all second level headings on the page `##`
+- Listing pages, like the _Learning Center_ and _Case Studies_ have listings of their child pages on the index page for the folder. For example, case studies look like:
+
+    ![Case Studies Listing Page](images/index-listing.png)
+
+    These pages also generate _anchor links_ internally for all second-level headings.
+- Specific case studies pages are a special case --- their local navigation ONLY takes level two headings into account; they don't link to sibling or child pages at all, since there are so many case studies.
+
+  ![A case study](images/example-case-study.png)
+
+
+In general, you need to be thoughtful with your second-level headings, since they form the core outline of your page and provide useful navigation to visitors.
+
+- Some pages, like the resources page and the homepage, don't have local navigation at all, per-se, since they are entirely navigation anyway.
+
+
+## Tags
+
+To allow for topical content discovery that cuts across the site's main navigation, we also employ "tags," like what you would find on a blog. Tags are set per page, using the `tags:` [frontmatter](frontmatter.md#tags). As that page says,
+
+
+```yaml
+tags:
+  - risk
+  - agile
+  - lean
+```
+
+These will then render in the page's left rail, under the local navigation:
+
+![The local tag navigation](images/tag-nav.png)
+
+Clicking a tag brings a user to a list of all the pages tagged with that page:
+
+![Tag landing page](images/tag-landing.png)
+
+Note that the listings use the `heading:` for the heading of the box and the `promo_description:` (if any) for content below the heading. 
+
+Tags are not centrally managed --- the list of possible tags on the site are the tags used on all the pages. Pick tags that can apply to multiple pages that exist in different sections of the site. For example, tagging all downloads, templates, handbook content, and case studies that pertain to BAAs with the tag "BAA" would allow users interested in that specific subject to find relevant content by clicking the tag. You can also link to the generate tag pages from within content, if you think an index of all content on a particular subject would be helpful for users who click that link.
