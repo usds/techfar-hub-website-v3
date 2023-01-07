@@ -5,93 +5,64 @@ import SiteLayout from "../components/site-layout";
 import { Grid } from "@trussworks/react-uswds";
 import { Initiative } from "../components/initiative";
 
-const IndexPage: React.FC<PageProps<Queries.HomePageInitiativesQuery>> = ({
+const IndexPage: React.FC<PageProps<Queries.HomePagePromosQuery>> = ({
   data,
 }: {
-  data: Queries.HomePageInitiativesQuery;
+  data: Queries.HomePagePromosQuery;
   children: undefined;
 }) => {
-  const initiatives = data.allMdx.nodes.map((node) => {
+  const initiatives = data.initiatives.nodes.map((node) => {
     if (
       node.frontmatter &&
-      node.frontmatter.promo_description &&
+      node.frontmatter.link &&
       node.frontmatter.heading &&
-      node.frontmatter.slug &&
       node.frontmatter.media_image &&
-      node.frontmatter.media_alt &&
-      node.parent &&
-      "relativeDirectory" in node.parent
+      node.html
     ) {
-      const pagePath = `/${node.parent.relativeDirectory}/${node.frontmatter.slug}`;
       return (
-        <Initiative heading={node.frontmatter.heading} destination={pagePath} media={node.frontmatter.media_image}>
-          {node.frontmatter.promo_description}
+        <Initiative
+          heading={node.frontmatter.heading}
+          destination={node.frontmatter.link}
+          media={node.frontmatter.media_image}
+        >
+          <div dangerouslySetInnerHTML={{ __html: node.html }} />
         </Initiative>
       );
     }
   });
+  let caseStudyPromo = null;
+  if (
+    data.caseStudy &&
+    data.caseStudy.frontmatter &&
+    data.caseStudy.frontmatter.link &&
+    data.caseStudy.frontmatter.media_alt_text &&
+    data.caseStudy.frontmatter.media_image &&
+    data.caseStudy.html
+  ) {
+    caseStudyPromo = (
+      <>
+        <h2 className="tfh-hp-highlight-h2 font-heading-xl">
+          <Link to={data.caseStudy?.frontmatter?.link}>Case Study: VA.Gov Modernization Comparative Analysis</Link>
+        </h2>
+        <p className="tfh-hp-highlight-desc" dangerouslySetInnerHTML={{ __html: data.caseStudy?.html }}></p>
+        <img
+          src="/assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg"
+          width={623}
+          alt={data.caseStudy.frontmatter.media_alt_text}
+        />
+      </>
+    );
+  }
   return (
     <SiteLayout className="tfh-home" pagePath="/">
       <Grid row gap={6} className="tfh-hp-top">
         <Grid tablet={{ col: 8 }} className="tfh-hp-highlight">
-          <h2 className="tfh-hp-highlight-h2 font-heading-xl">
-            <Link to="/resouces/case-studies/va-user-research">
-              Case Study: VA.Gov Modernization Comparative Analysis
-            </Link>
-          </h2>
-          <p className="tfh-hp-highlight-desc">
-            The VA technology Acquisition Cent, in support of VA OIT/DSVA, utilized FAR 13.1 Simplified Acquisition
-            Procedures, which enabled the team to streamline a multi-step evaluation with onsite demonstrations, and
-            documented the evaluation using a comparative analysis.
-          </p>
-          <StaticImage
-            src="../../static/assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg"
-            width={623}
-            alt="Two people collaborating over graphs"
-          />
+          {caseStudyPromo}
         </Grid>
         <Grid tablet={{ col: 4 }} className="tfh-hp-right-nav">
-          <hr className="bg-primary-dark" />
-          <h3>01. Get Started</h3>
-          <ol>
-            <li>
-              <a href="get-started/">What is the TechFAR Hub?</a>
-            </li>
-            <li>
-              <a href="get-started/how-to-use/">How to Use the TFH</a>
-            </li>
-            <li>
-              <a href="https://github.com/usds/techfar-hub-website-v3">How to Get Involved</a>
-            </li>
-          </ol>
-          <hr className="bg-primary-dark" />
-          <h3>02. TFH Lifecycle</h3>
-          <p>See how the TechFAR Hub takes an agile approach to digital acquisition.</p>
-          <ol>
-            <li>
-              <Link to="pre-solicitation/">Pre-Solicitation</Link>
-            </li>
-            <li>
-              <Link to="solicitation/">Solicitation</Link>
-            </li>
-            <li>
-              <Link to="evaluation/">Evaluation</Link>
-            </li>
-            <li>
-              <Link to="contract-administration/">Contract Administration</Link>
-            </li>
-          </ol>
-          <hr className="bg-primary-dark" />
-          <h3>03. Resources</h3>
-          <p>View first-hand experiences of fellows acquisition professionals, get tools, access training, and more</p>
-          <ol>
-            <li>
-              <Link to="resources/templates-samples/agile-team-estimator/">Agile Estimator</Link>
-            </li>
-            <li>
-              <Link to="resources/templates-samples/sources-sought-tool">Sources Sought Tool</Link>
-            </li>
-          </ol>
+          {data.rightRail && data.rightRail.html && (
+            <div dangerouslySetInnerHTML={{ __html: data.rightRail.html }}></div>
+          )}
         </Grid>
       </Grid>
       <Grid row>
@@ -116,28 +87,63 @@ export const Head: HeadFC = () => (
   </>
 );
 
+// export const query = graphql`
+//   query HomePageInitiatives {
+//     allMdx(filter: { frontmatter: { page_type: { eq: "initiative" } } }, sort: { frontmatter: { nav_weight: ASC } }) {
+//       nodes {
+//         id
+//         frontmatter {
+//           slug
+//           promo_description
+//           heading
+//           media_alt
+//           media_image
+//         }
+//         internal {
+//           contentDigest
+//         }
+//         parent {
+//           ... on File {
+//             id
+//             name
+//             relativeDirectory
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
+
 export const query = graphql`
-  query HomePageInitiatives {
-    allMdx(filter: { frontmatter: { page_type: { eq: "initiative" } } }, sort: { frontmatter: { nav_weight: ASC } }) {
+  query HomePagePromos {
+    initiatives: allMarkdownRemark(
+      filter: { frontmatter: { promo_type: { eq: "initiative" } } }
+      sort: { frontmatter: { nav_weight: ASC } }
+    ) {
       nodes {
-        id
+        html
         frontmatter {
-          slug
-          promo_description
           heading
-          media_alt
+          link
           media_image
+          media_alt_text
         }
-        internal {
-          contentDigest
-        }
-        parent {
-          ... on File {
-            id
-            name
-            relativeDirectory
-          }
-        }
+      }
+    }
+    caseStudy: markdownRemark(frontmatter: { promo_type: { eq: "case-study" } }) {
+      html
+      frontmatter {
+        heading
+        link
+        media_image
+        media_alt_text
+      }
+    }
+    rightRail: markdownRemark(frontmatter: { promo_type: { eq: "homepage-right-rail" } }) {
+      html
+      frontmatter {
+        heading
+        link
       }
     }
   }
