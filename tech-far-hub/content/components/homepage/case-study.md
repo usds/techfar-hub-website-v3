@@ -3,7 +3,7 @@ slug: case-study-promo
 promo_type: case-study
 heading: VA dot gov Modernization - Comparative Analysis
 link: /resources/case-studies/va-dot-gov-salesforce-coe/
-media_image: ../../static/assets/img/ux-indonesia-9mikJ83LmSQ-unsplash.jpg
+media_image: ./img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg
 media_alt_text: A stock image of two people reviewing a presentation.
 ---
 
