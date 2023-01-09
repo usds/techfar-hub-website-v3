@@ -198,7 +198,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
-    type Mdx implements Node { frontmatter: Frontmatter }
+    type Mdx implements Node { 
+      frontmatter: Frontmatter 
+    }
     type Frontmatter {
       media_image: String
       slug: String
@@ -210,6 +212,20 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       canonical: String
       link: String
       tags: [String]
+    }
+    type ComponentFrontmatter {
+      slug: String
+      heading: String
+      promo_type: String
+      nav_weight: Int
+      media_image: File @fileByRelativePath
+      media_alt: String
+      link: String
+      href: String
+      visible: Boolean
+    }
+    type MarkdownRemark implements Node {
+      frontmatter: ComponentFrontmatter 
     }
   `;
   createTypes(typeDefs);
