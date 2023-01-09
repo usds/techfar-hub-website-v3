@@ -221,7 +221,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       media_image: File @fileByRelativePath
       media_alt: String
       link: String
-      href: String
       visible: Boolean
     }
     type MarkdownRemark implements Node {

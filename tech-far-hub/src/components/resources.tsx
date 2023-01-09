@@ -25,7 +25,7 @@ const Resources = () => {
             }
             frontmatter {
               heading
-              href
+              link
             }
           }
         }

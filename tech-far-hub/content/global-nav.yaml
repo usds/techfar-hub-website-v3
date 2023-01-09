@@ -1,0 +1,107 @@
+mainGlobalNavigation:
+  - heading: Get Started
+    link: /get-started/
+    children:
+      - heading: Get Started
+        link: /get-started/
+      - heading: How to Use TFH
+        link: /get-started/#how-to-use-techfar-hub
+      - heading: DITAP
+        link: /get-started/ditap/
+  - heading: Pre-Solicitation
+    link: /pre-solicitation/
+    children:
+      - heading: Agile Overview
+        link: /pre-solicitation/agile-overview/
+      - heading: Planning for agile
+        link: /pre-solicitation/planning-for-agile/
+      - heading: Market Research
+        link: /pre-solicitation/market-research/
+      - heading: Requirements Development
+        link: /pre-solicitation/requirements-development/
+  - heading: Solicitation
+    link: /solicitation/
+    children:
+      - heading: Contract Design
+        link: /solicitation/contract-design/
+      - heading: Vehicles
+        link: /solicitation/vehicles/
+      - heading: Performance Based Contracting
+        link: /solicitation/performance-based-contracting/
+      - heading: Small Business Programs
+        link: /solicitation/small-business-programs/
+      - heading: Terms and Conditions
+        link: /solicitation/terms-conditions/
+      - heading: Protests
+        link: /solicitation/protests/
+  - heading: Evaluation
+    link: /evaluation/
+    children:
+      - heading: Technical Evaluation
+        link: /evaluation/technical-evaluation/
+      - heading: Price Evaluation
+        link: /evaluation/price-evaluation/
+  - heading: Contract Administration
+    link: /contract-administration/
+    children:
+      - heading: Contract Administration and Audit Services
+        link: /contract-administration/contract-administration-and-audit-services/
+      - heading: Modifications
+        link: /contract-administration/modifications/
+      - heading: Subcontracting Policies & Procedures
+        link: /contract-administration/subcontracting-policies-procedures/
+      - heading: Quality Assurance
+        link: /contract-administration/quality-assurance/
+      - heading: Terminating Agile Contracts
+        link: /contract-administration/terminating-agile-contracts/
+  - heading: Resources
+    link: /resources/
+    children:
+      - heading: Learning Center
+        link: /resources/learning-center/
+      - heading: Case Studies
+        link: /resources/case-studies/
+      - heading: Templates and Samples
+        link: /resources/templates-samples/
+      - heading: Policy and Guidance
+        link: /resources/policy-guidance/
+      - heading: Contract Solutions and Vehicles
+        link: /resources/contract-solutions-vehicles/
+secondaryGlobalNavigation: []
+footerNavigation:
+  facebookLink: "https://www.facebook.com/unitedstatesdigitalservice" 
+  twitterLink: "https://twitter.com/USDS" 
+  instagramLink: "https://www.instagram.com/usdigitalservice" 
+  column1: 
+    - heading: Get Started
+      link: /get-started/
+    - heading: Pre-Solicitation
+      link: /pre-solicitation/
+    - heading: Solicitation
+      link: /solicitation/
+    - heading: Evaluation
+      link: /evaluation/
+    - heading: Contract Administration
+      link: /contract-administration/
+  column2: 
+    - link: /resources/learning-center/
+      heading: Learning Center
+    - link: /resources/case-studies/
+      heading: Case Studies
+    - link: /resources/templates-samples/
+      heading: Templates and Samples
+    - link: /resources/policy-guidance/
+      heading: Policy and Guidance
+    - link: /resources/contract-solutions-vehicles/
+      heading: Contract Solutions and Vehicles
+  column3: 
+    - link: https://www.acquisition.gov/
+      heading: Acquisition.gov
+    - link: https://www.fai.gov/periodic-table
+      heading: FAR Periodic Table
+    - link: https://www.usds.gov/apply
+      heading: Apply to USDS
+    - link: /resources/learning-center/history-of-tfh
+      heading: History of TFH
+    - link: https://github.com/usds/techfar-hub-website-v3
+      heading: Contribute to this site

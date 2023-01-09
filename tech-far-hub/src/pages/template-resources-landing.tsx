@@ -63,7 +63,7 @@ export const query = graphql`
           }
           frontmatter {
             heading
-            href
+            link
           }
         }
       }
