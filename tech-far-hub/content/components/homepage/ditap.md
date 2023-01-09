@@ -3,7 +3,8 @@ slug: promo-ditap
 heading: Digital IT Acquisition Professional Training (DITAP)
 promo_type: initiative
 link: /get-started/ditap/
-media_image: /assets/img/the-climate-reality-project-Hb5uWq0i4MI-unsplash.jpg
+nav_weight: 10
+media_image: "/assets/img/the-climate-reality-project-Hb6uWq0i4MI-unsplash.jpg"
 media_alt: A stock image of people taking notes.
 ---
 

@@ -87,33 +87,6 @@ export const Head: HeadFC = () => (
   </>
 );
 
-// export const query = graphql`
-//   query HomePageInitiatives {
-//     allMdx(filter: { frontmatter: { page_type: { eq: "initiative" } } }, sort: { frontmatter: { nav_weight: ASC } }) {
-//       nodes {
-//         id
-//         frontmatter {
-//           slug
-//           promo_description
-//           heading
-//           media_alt
-//           media_image
-//         }
-//         internal {
-//           contentDigest
-//         }
-//         parent {
-//           ... on File {
-//             id
-//             name
-//             relativeDirectory
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const query = graphql`
   query HomePagePromos {
     initiatives: allMarkdownRemark(
