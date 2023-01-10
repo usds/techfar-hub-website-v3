@@ -1,6 +1,6 @@
 ---
 heading: Case Studies
-href: /resources/case-studies
+link: /resources/case-studies
 nav_weight: 10
 visible: true
 ---

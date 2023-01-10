@@ -24,7 +24,7 @@ The global navigation appears at the top of every page and has two parts:
 
 ![The global main and secondary navigation](images/global-nav.png)
 
-There are both controlled in [`content/compontents/main-nav.yaml`](https://github.com/usds/techfar-hub-website-v3/blob/main/tech-far-hub/content/components/global-nav.yaml)
+There are both controlled in [`content/main-nav.yaml`](https://github.com/usds/techfar-hub-website-v3/blob/main/tech-far-hub/content/global-nav.yaml)
 
 
 All items in the global navigation are build up from _link stanzas_ that look like this:
@@ -39,7 +39,7 @@ These stanzas appear in several places, but they are the heart of configuring na
 
 ### The main global navigation
 
-In [`content/compontents/main-nav.yaml`](https://github.com/usds/techfar-hub-website-v3/blob/main/tech-far-hub/content/components/main-nav.yaml), you will see a heading `mainGlobalNavigation:` and a series of stanzas indented under it that look like these:
+In [`content/main-nav.yaml`](https://github.com/usds/techfar-hub-website-v3/blob/main/tech-far-hub/content/main-nav.yaml), you will see a heading `mainGlobalNavigation:` and a series of stanzas indented under it that look like these:
 
 ```yaml
 mainGlobalNavigation:

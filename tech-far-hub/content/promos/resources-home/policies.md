@@ -1,6 +1,6 @@
 ---
 heading: Policy & Guidance
-href: /resources/policy-guidance/
+link: /resources/policy-guidance/
 nav_weight: 30
 visible: true
 ---

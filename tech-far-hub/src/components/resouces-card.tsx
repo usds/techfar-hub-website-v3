@@ -7,13 +7,13 @@ import _ from "lodash";
 interface IResourceNode {
   html: string | null;
   frontmatter: {
-    href: string | null;
+    link: string | null;
     heading: string | null;
   } | null;
 }
 
 const ResourceCard = ({ node, width = 3 }: { node: IResourceNode; width?: ColumnSizes }): JSX.Element => {
-  if (node.html && node.frontmatter && node.frontmatter.href && node.frontmatter.heading) {
+  if (node.html && node.frontmatter && node.frontmatter.link && node.frontmatter.heading) {
     return (
       <Card
         headerFirst
@@ -25,7 +25,7 @@ const ResourceCard = ({ node, width = 3 }: { node: IResourceNode; width?: Column
         </CardHeader>
         <CardBody dangerouslySetInnerHTML={{ __html: node.html }}></CardBody>
         <CardFooter>
-          <Link to={node.frontmatter.href} className="usa-button">
+          <Link to={node.frontmatter.link} className="usa-button">
             View
           </Link>
         </CardFooter>

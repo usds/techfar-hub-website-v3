@@ -1,6 +1,6 @@
 ---
 heading: Templates, Samples & Tools
-href: /resources/templates-samples/
+link: /resources/templates-samples/
 nav_weight: 10
 visible: true
 ---

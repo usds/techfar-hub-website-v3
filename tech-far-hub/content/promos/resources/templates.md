@@ -1,6 +1,6 @@
 ---
 heading: Learning Center
-href: /resources/learning-center/
+link: /resources/learning-center/
 nav_weight: 30
 visible: true
 ---

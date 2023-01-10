@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 import { ExtendedNav, Menu, NavDropDownButton, Search } from "@trussworks/react-uswds";
 import _ from "lodash";
 import { useWindowSize } from "react-use";
-import YAMLData from "../../content/components/global-nav.yaml";
-import { USWDS_BREAKPOINTS } from "../settings"
+import YAMLData from "../../content/global-nav.yaml";
+import { USWDS_BREAKPOINTS } from "../settings";
 import { INavigationConfiguration } from "../types";
 
 type onClickHandler = () => void;
@@ -14,7 +14,6 @@ interface INavigation {
   onNavExpanded: onClickHandler;
   pagePath: string;
 }
-
 
 const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => {
   const navYAML = YAMLData as INavigationConfiguration;
@@ -77,8 +76,10 @@ const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => 
   });
   const yamlSecondaryNavItems = navYAML.secondaryGlobalNavigation.map((element, idx) => {
     return (
-      <Link to={element.link} key={`secondary-nav-${idx}`}>{element.heading}</Link>
-    )
+      <Link to={element.link} key={`secondary-nav-${idx}`}>
+        {element.heading}
+      </Link>
+    );
   });
   return (
     <>

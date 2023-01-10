@@ -1,6 +1,6 @@
 ---
 heading: Contract Solutions & Vehicles
-href: /resources/contract-solutions-vehicles/
+link: /resources/contract-solutions-vehicles/
 nav_weight: 40
 visible: true
 ---

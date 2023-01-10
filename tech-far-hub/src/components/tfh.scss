@@ -162,6 +162,11 @@ em.tfh-tagline {
     margin: 0 auto;
     border: none;
   }
+  h3 {
+    border-top: color("primary-dark") solid 4px;
+    margin-top: 0;
+    padding-top: 1.4rem;
+  }
 }
 
 .tfh-resources-bar hr {
