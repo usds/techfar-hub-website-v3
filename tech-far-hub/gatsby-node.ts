@@ -70,7 +70,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
     query CreatePages {
       pagesMdx: allMdx(
         filter: {
-          internal: { contentFilePath: { glob: "!*components" } }
+          internal: { contentFilePath: { glob: "!*promos" } }
           frontmatter: { page_type: { ne: "homepage" } }
         }
       ) {

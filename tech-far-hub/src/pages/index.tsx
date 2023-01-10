@@ -32,7 +32,6 @@ const IndexPage: React.FC<PageProps<Queries.HomePagePromosQuery>> = ({
     }
   });
   let caseStudyPromo = null;
-  console.log("Case Study", JSON.stringify(data.caseStudy));
   if (
     data.caseStudy &&
     data.caseStudy.frontmatter &&
@@ -43,7 +42,6 @@ const IndexPage: React.FC<PageProps<Queries.HomePagePromosQuery>> = ({
     data.caseStudy.html
   ) {
     const caseStudyImage = getImage(data.caseStudy.frontmatter.media_image.childImageSharp);
-    console.log("caseStudyImage", caseStudyImage);
     caseStudyPromo = (
       <>
         <h2 className="tfh-hp-highlight-h2 font-heading-xl">

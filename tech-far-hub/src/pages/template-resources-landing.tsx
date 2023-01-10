@@ -42,7 +42,7 @@ export const query = graphql`
     }
     resourceLandPagePromos: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/.*/components/resources-home/.*/" }
+        fileAbsolutePath: { regex: "/.*/promos/resources-home/.*/" }
         frontmatter: { visible: { eq: true } }
       }
       sort: { frontmatter: { nav_weight: ASC } }

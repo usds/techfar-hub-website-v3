@@ -6,7 +6,7 @@ const Resources = () => {
   const data: Queries.ResourcePromosQuery = useStaticQuery(graphql`
     query ResourcePromos {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/.*/components/resources/.*/" }, frontmatter: { visible: { eq: true } } }
+        filter: { fileAbsolutePath: { regex: "/.*/promos/resources/.*/" }, frontmatter: { visible: { eq: true } } }
         sort: { frontmatter: { nav_weight: ASC } }
       ) {
         edges {
