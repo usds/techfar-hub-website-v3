@@ -1,5 +1,4 @@
 ---
-slug: promo-ditap
 heading: Digital IT Acquisition Professional Training (DITAP)
 promo_type: initiative
 link: /get-started/ditap/

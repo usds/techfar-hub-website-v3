@@ -1,7 +1,5 @@
 ---
-slug: homepage-right-rail
 promo_type: homepage-right-rail
-nav_weight: 10
 ---
 
 ### 01. Get Started

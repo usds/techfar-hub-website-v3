@@ -1,5 +1,4 @@
 ---
-slug: case-study-promo
 promo_type: case-study
 heading: VA dot gov Modernization - Comparative Analysis
 link: /resources/case-studies/va-dot-gov-salesforce-coe/
