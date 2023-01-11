@@ -8,6 +8,8 @@ mainGlobalNavigation:
         link: /get-started/#how-to-use-techfar-hub
       - heading: DITAP
         link: /get-started/ditap/
+      - heading: 8(a) Digital Service Initiative
+        link: /get-started/8a/
   - heading: Pre-Solicitation
     link: /pre-solicitation/
     children:
