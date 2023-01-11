@@ -101,7 +101,7 @@ const PageLayoutNav: React.FC<IPageLayoutNav> = ({
             atCurrent = false;
           }
           if (node.frontmatter.link) {
-            <Hyperlink href={node.frontmatter.link}>{node.frontmatter.heading}</Hyperlink>;
+            return <Hyperlink href={node.frontmatter.link}>{node.frontmatter.heading}</Hyperlink>;
           } else {
             return <Link to={`/${node.parent.relativeDirectory}/${actualSlug}`}>{node.frontmatter.heading}</Link>;
           }

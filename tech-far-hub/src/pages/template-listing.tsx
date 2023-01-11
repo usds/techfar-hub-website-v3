@@ -29,8 +29,16 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
         </Grid>
         <Grid row>
           <CardGroup>
-            {data.children.nodes.map(({ frontmatter }) => {
-              if (frontmatter && frontmatter.heading && frontmatter.promo_description && frontmatter.slug) {
+            {data.children.nodes.map(({ frontmatter, parent }) => {
+              if (
+                frontmatter &&
+                frontmatter.heading &&
+                frontmatter.promo_description &&
+                frontmatter.slug &&
+                parent &&
+                "relativeDirectory" in parent &&
+                parent.relativeDirectory
+              ) {
                 const description = remark()
                   // .use(recommended)
                   .use(remarkHtml)
@@ -47,7 +55,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
                     </CardBody>
                     <CardFooter>
                       {!frontmatter.link && (
-                        <Link to={frontmatter.slug} className="usa-button">
+                        <Link to={`/${parent.relativeDirectory}/${frontmatter.slug}`} className="usa-button">
                           Read More
                         </Link>
                       )}
@@ -114,6 +122,13 @@ export const query = graphql`
           heading
           promo_description
           link
+        }
+        parent {
+          ... on File {
+            name
+            relativePath
+            relativeDirectory
+          }
         }
       }
     }

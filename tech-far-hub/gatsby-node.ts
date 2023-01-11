@@ -71,7 +71,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
       pagesMdx: allMdx(
         filter: {
           internal: { contentFilePath: { glob: "!*promos" } }
-          frontmatter: { page_type: { ne: "homepage" } }
         }
       ) {
         edges {
