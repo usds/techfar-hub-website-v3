@@ -1,5 +1,7 @@
 # The Homepage
 
+**Note that this page pertains ONLY to the homepage. You probably want to be reading the [markdown](basic-markdown.md) tutorial or [components](advanced-components.md) documentation, if you're not editing the literal homepage.**
+
 Homepages are always special and weird, and not a group to break with tradition, so is the one for TechFAR Hub. This is because the homepage isn't a page like basically anything else on the site --- it's not a bunch of copy, nor is it a listing of other content. Instead, it's promos for content around the site.
 
 
