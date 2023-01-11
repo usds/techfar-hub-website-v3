@@ -29,7 +29,7 @@ This will not only create the branch for you, but it will also select it so that
     then click "Create new file
 
     ![Create new file](images/create-new-file.png)
-3. Give the file a that ends in `.mdx`. While not strictly necessary, it's nice to name the file using all lowercase letters and hyphens instead of spaces
+3. Give the file a that ends in `.mdx`.  **The file name must be all lower case and cannot contain spaces --- use hyphens instead of spaces.** So the name `Examples of Agile Team Members and Roles` should be `examples-of-agile-team-members-and-roles.mdx`
 4. Add the key [frontmatter](frontmatter.md) to the file:
 
     ```yaml
