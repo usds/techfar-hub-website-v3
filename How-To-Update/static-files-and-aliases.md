@@ -56,4 +56,4 @@ If you want the resource to show up on a listing page, such as _Learning Center_
     ![Creating an alias](images/creating-an-alias.png)
 - Write a commit message and commit the file
 
-Note that your new markdown file does NOT need any content --- when users click the link on the site, they'll go directly to the download file.
+Note that your new markdown file does NOT need any content --- when users click the link on the site, they'll go directly to the download file. Also, for the attentive reader who is still with us, the link doesn't have to be to a file --- you could put an offsite URL or the URL of another page on the site, and that will work just fine.

@@ -29,7 +29,6 @@ Having learned how to edit existing pages and add new pages, you'll likely want 
 - Check out the [advanced components](advanced-components.md) that you can use to enhance your pages for greater usability and interactivity.
 - Get to know [page fragment and promo items](fragments-and-promo.md) to see how to update the homepage, landing pages, and content items that appear across the site.
 - Learn to [edit the homepage](the-homepage.md).
-- See the [markdown and content idioms](content-idioms.md) used repeatedly throughout the site, so that your new content is consistent with the existing site and takes advanges of its features.
 
 ## For Developers
 
