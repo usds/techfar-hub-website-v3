@@ -22,4 +22,3 @@ See how the TechFAR Hub takes an agile approach to digital acquisition.
 View first-hand experiences of fellows acquisition professionals, get tools, access training, and more
 
 1. [Agile Estimator](/resources/templates-samples/agile-team-estimator/)
-2. [Sources Sought Tool](#)
