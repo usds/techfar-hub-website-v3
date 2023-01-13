@@ -9,7 +9,58 @@ tags:
   
 ## Who is the Agile Team
 
-A key feature of Agile software development is the emphasis on the team approach. A cross-functional or Integrated Product Team (IPT) is integral to the success and administration of Agile software development contracts. The [members of the agile team](/resources/learning-center/examples-agile-team-members/) need to include key stakeholders from the program and acquisition office, and should be led by a program manager holding the appropriate level of Federal Acquisition Certification in Program/Project Management. It is essential that team members are champions for Agile, as the cultural change from traditional methods to Agile may be challenging. 
+First, understand and accept this fact: agile software development does not work without involvement from all members of the team, government and contractors alike. It is imperative that agencies and their leaders recognize agile development will require involvement from resources who might not be used to working in such a hands-on manner. A strong agile team also needs to be cross-functional, represented by key stakeholders from the program and acquisition office. An empowered, dedicated, and senior level Product Owner who can make decisions with limited oversight increases the likelihood of success by leaps and bounds. A contract specialist who has completed the [Digital IT Acquisition Program (DITAP)](get-started/ditap/), a core-plus specialization for the 1102 job series, will help structure contracts that enable the agile process and create [contract administration](/contract-administration/contract-administration-and-audit-services/) tasks that serve the project, rather than the other way around.
 
-To make this shift happen as seamlessly as possible, before conducting pre-award activities, the key members of the team should be familiar with Agile software development and open to learning new ways of thinking. Contracting officers and contracting officer’s representatives need not be trained as software developers, but should have a working knowledge of the concepts and processes associated with agile development. The United States Digital Service sponsors the [Digital IT Acquisition Program (DITAP)](get-started/ditap/), a core-plus specialization for the 1102 job series, for contracting professionals who want to learn how to plan, award, and administer agile contracts.
+A successful agile team appreciates the culture change required to make projects successful, and serves as champions for agile within their organizations and across the goverment. As such, key members of the team should [be familiar with Agile software development](/pre-solicitation/agile-overview/) and open to learning new ways of thinking. Adaptability and a thirst for knowledge go a long way to making an agile team successful; while the process is new, it is not beyond comprehension and agile advocates love to teach new skills to people with an appetite to learn them.
 
+So who is the Agile Team? We've outlined some common roles below from the government and the contractor.
+
+## Example Team Members and Roles
+
+### Government
+
+- Product Owner (PO): Responsible for maximizing the value delivered by the team and ensuring that the Team Backlog is aligned with customer and stakeholder needs.
+- Tester: Government user to test features and functionality of the system.
+- Contracting Officer (CO): Authorized to bind the Government contractually and direct contractor action.
+- Contracting Officer’s Representative (COR): Performs functions specifically delegated to them by the CO in writing for the particular contract/order. This individual may also serve as the Product Owner.
+- Project Manager (PM): Government manager of the Agile process. Also sometimes called Product Owner. Not to be confused with Program Manager.
+- Legal: Provides legal review of all documents and actions.
+
+### Contractor
+
+- Developers: Software architects who design the system and write code.
+- Designer: Building wireframes and prototypes and defining critical structures and flows.
+- Project Manager: Manages the team’s execution of the project.
+- Tester: Tests features and functionality of system to uncover software bugs in functional and non-functional areas of the system; ensures system functionality.
+- Interface: Ensures system can communicate with other systems or people as needed. This is not a required team member; membership depends on project needs.
+
+## Best Practices for Team Composition
+
+As with anything agile, there is no one-size-fits all approach to assembling a team. Here are some considerations to help make the most of your agency's available talent resources.
+
+- Each requirement should be individually assessed to see which roles are or are not needed.
+- Some roles are only needed during certain stages of the requirement and may roll on or off.
+- Some federal agencies, such as the [United States Digital Service](https://www.usds.gov/) and [18F](https://18f.gsa.gov/), have team members who can fill the contractor roles.
+- Developers and tester roles should be cross functional individuals who are able to work either position.
+- Automated testing is encouraged where the tester can write and run automated tests that are supplemented with exploratory testing.
+
+Whether you are assembling an agile team or have just been assigned to one, success begins long before the work starts. Review the resources below to gain a better understanding of the role of the agile team.
+
+<ExternalResources heading="Additional resources" media="/assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg" media_alt="People working together">
+- Agile Team Governance
+
+    This guide to [Governing Agile Teams](https://www.pmi.org/disciplined-agile/people/governing-agile-teams) offers unique perspective.
+
+- Senior Executives & Agile
+
+    This blog series from 18F discusses the role of [senior executives in supporting tech teams](https://18f.gsa.gov/2022/07/20/senior-executives-pt1/).
+
+- Cross-Functional Teams
+
+    Gain an appreciation for the [value of cross functional teams](https://18f.gsa.gov/2019/06/18/cross-functional-teams/) in agile development.
+
+- Stakeholder Buy-In
+
+    Every team needs an agile champion or two. Learn how to [gain stakeholder buy in for agile](https://18f.gsa.gov/2017/12/14/getting-stakeholder-buy-in-for-agile-development/) within your agency.
+
+</ExternalResources>
