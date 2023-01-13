@@ -28,7 +28,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
           <MDXContent>{children}</MDXContent>
         </Grid>
         <Grid row>
-          <CardGroup>
+          <CardGroup className="tfh-listing-cards">
             {data.children.nodes.map(({ frontmatter, parent }) => {
               if (
                 frontmatter &&
@@ -39,11 +39,7 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
                 "relativeDirectory" in parent &&
                 parent.relativeDirectory
               ) {
-                const description = remark()
-                  // .use(recommended)
-                  .use(remarkHtml)
-                  .processSync(frontmatter.promo_description)
-                  .toString();
+                const description = remark().use(remarkHtml).processSync(frontmatter.promo_description).toString();
 
                 return (
                   <Card key={`card-${_.snakeCase(frontmatter.heading)}`}>
