@@ -65,8 +65,10 @@ export const Hyperlink = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Elemen
     if (href.isAbsolute) {
       return <a {...props}>{children}</a>;
     } else {
-      props = { ...props, href: withPrefix(href.authoritative) };
       if (href.isDownload) {
+        if (process.env.DEPLOY_PREFIX && !href.authoritative.includes(process.env.DEPLOY_PREFIX)) {
+          props = { ...props, href: withPrefix(href.authoritative) };
+        }
         return <a {...props}>{children}</a>;
       } else {
         return (
