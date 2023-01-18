@@ -67,9 +67,9 @@ mainGlobalNavigation:
 
 Each dropdown of the main global navigation is a _link stanza_ that has `children`, which are just a list of link stanzas. The items in the dropdown are the `children`. Read these like an outline --- the indentation of a list 
 
-While you can technically add another top-level dropdown using this mechanism, you shouldn't; the design is setup for the number we have. You can, however, add, rephrase, and re-order links in the each dropdown by changing the `children` for a given dropdown.
+While you can technically add another top-level dropdown using this mechanism, you shouldn't; the design is setup for the number we have. You can, however, add, rephrase, and re-order links in each dropdown by changing the `children` for a given dropdown.
 
-You can and **should** add new pages under exsiting top-level drop-downs --- that's the whole point of this system.
+You can and **should** add new pages under existing top-level drop-downs --- that's the whole point of this system.
 
 ### Secondary global navigation
 
@@ -91,7 +91,7 @@ Note that, because it's optional, it might look like this:
 secondaryGlobalNavigation: []
 ```
 
-The empty `[]` telling the system "this would be a list of links, but it's empty." If you want to add those links, delete the `[]` and add the two heading/link items indented like shown above.
+The empty `[]` telling the system "This would be a list of links, but it's empty." If you want to add those links, delete the `[]` and add the two heading/link items indented like shown above.
 
 ### The footer
 
@@ -113,7 +113,7 @@ footerNavigation:
       link: /solicitation/
 ```
 
-The first three keys are, as they appear, the links to USDS's facebook, twitter, and instagram accounts. After that are three _column_ keys, one for each column on the desktop version of the footer:
+The first three keys are, as they appear, the links to USDS's Facebook, twitter, and Instagram accounts. After that are three _column_ keys, one for each column on the desktop version of the footer:
 
 ![The footer navigation](images/footer-nav.png)
 
@@ -125,7 +125,7 @@ Pages have local navigation in their left sidebar/rail:
 
 ![Local navigation example](images/local-nav.png)
 
-The specific way the local navigation functions depends on the template the page uses.
+The specific way the local navigation functions depend on the template the page uses.
 
 - Pages in _Get Started_, _Pre-Solicitation_, _Solicitation_, _Evaluation_, and _Contract Administration_ use the default template and have local navigation, where every page links to its siblings in its left-rail. Additionally, these pages generate an _anchor link_ (a link to a part within the page itself) for all second level headings on the page `##`
 - Listing pages, like the _Learning Center_ and _Case Studies_ have listings of their child pages on the index page for the folder. For example, case studies look like:
@@ -138,9 +138,9 @@ The specific way the local navigation functions depends on the template the page
   ![A case study](images/example-case-study.png)
 
 
-In general, you need to be thoughtful with your second-level headings, since they form the core outline of your page and provide useful navigation to visitors.
+In general, you need to be thoughtful with your second-level headings since they form the core outline of your page and provide useful navigation to visitors.
 
-- Some pages, like the resources page and the homepage, don't have local navigation at all, per-se, since they are entirely navigation anyway.
+- Some pages, like the Resources page and the Homepage, don't have local navigation at all, since they are entirely navigation anyway.
 
 
 ## Tags
