@@ -6,7 +6,6 @@ promo_type: homepage-right-rail
 
 1. [What is the TechFAR Hub?](/get-started/)
 2. [How to Use the TFH](/get-started/#how-to-use-techfar-hub)
-3. [How to Get Involved](https://github.com/usds/techfar-hub-website-v3)
 
 ### 02. TFH Lifecycle
 
