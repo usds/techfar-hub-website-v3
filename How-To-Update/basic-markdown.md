@@ -120,7 +120,7 @@ You can have content under each list item, and we use this idiom throughout the 
     Case studies are a great way to learn from the success of others. We’re adding new case studies often, in collaboration with smart professionals all over the government. Do you have a case study or situation you think would make a great case study? We’d love to consider it for inclusion in the TechFAR Hub! You may even get some swag out of it. 
 ```
 
-Note that the content that goes under the list item is preceded by at least one blank lines and is indented by four spaces. This tells the system that the content is still part of the bullet and not its own paragraphs.
+Note that the content that goes under the list item is preceded by at least one blank line and is indented by four spaces. This tells the system that the content is still part of the bullet and not its own paragraphs.
 
 ### Unordered list
 
@@ -158,10 +158,10 @@ Note the exclamation point (`!`) at the front. Please write descriptive alt text
 
 ## Bold and Italic
 
-You can **bold** text by surrounding it in astericks (`*`) like so
+You can **bold** text by surrounding it in asterick's (`*`) like so
 
 ```markdown
-You can **bold** text by surrounding it in astericks (`*`) like so
+You can **bold** text by surrounding it in asterick's (`*`) like so
 ```
 
 And you can _italicize_ text but surrounding it in underbars (`_`), like so
