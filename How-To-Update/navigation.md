@@ -67,7 +67,9 @@ mainGlobalNavigation:
 
 Each dropdown of the main global navigation is a _link stanza_ that has `children`, which are just a list of link stanzas. The items in the dropdown are the `children`. Read these like an outline --- the indentation of a list 
 
-While you can technically add another dropdown using this mechanism, you shouldn't; the design is setup for the number we have. You can, however, add, rephrase, and re-order links in the each dropdown by changing the `children` for a given dropdown.
+While you can technically add another top-level dropdown using this mechanism, you shouldn't; the design is setup for the number we have. You can, however, add, rephrase, and re-order links in the each dropdown by changing the `children` for a given dropdown.
+
+You can and **should** add new pages under exsiting top-level drop-downs --- that's the whole point of this system.
 
 ### Secondary global navigation
 
