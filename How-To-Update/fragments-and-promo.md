@@ -29,7 +29,7 @@ nav_weight: 10
 visible: true
 ---
 
-Learn from the good work of your peers, or contribute your own!
+Learn from the good work of your peers or contribute your own!
 ```
 
 This is a slight elaboration on the data used by [aliases](static-files-and-aliases.md) elsewhere on the site:
@@ -55,7 +55,7 @@ nav_weight: 20
 visible: true
 ---
 
-Learn from the good work of your peers, or contribute your own!
+Learn from the good work of your peers or contribute your own!
 ```
 
 Just like the above, the fields mean
