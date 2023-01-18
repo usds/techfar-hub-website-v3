@@ -58,7 +58,7 @@ As the purpose of this initiative is to help agency’s get started with digital
 
 1. Identify which SOO(s) is most appropriate for your agency/program and tailor for your requirement. Be sure to include in the “History Section” any pertinent information related to your technical environment, operating constraints, organizational information or history related to the end users of the systems, etc. which will help the offeror tailor their solution to your requirement.
 2. Identify capable 8(a) vendors (this may include vendors with valid GSA Stars II contracts)
-3. Proceed through the normal procurement process per FAR 19.8. (Note: If using GSA Stars II, follow GSA’s ordering guide, which can be found at <a href="http://www.gsa.gov/portal/content/105243" target="_blank" class="usa-external_link">http://www.gsa.gov/portal/content/105243</a>
+3. Proceed through the normal procurement process per FAR 19.8. (Note: If using GSA Stars II, follow GSA’s ordering guide, which can be found at http://www.gsa.gov/portal/content/105243
 
 a. Selecting acquisitions for the 8(a) program (FAR 19.803)
 
