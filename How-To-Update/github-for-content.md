@@ -48,7 +48,7 @@ To make a branch, head to [the main repository](https://github.com/usds/techfar-
 
 ![The main branch selected on github](images/main-branch.png)
 
-Click that, and you'll get a dialogue that lets you select and existing branch or create a new one.
+Click that, and you'll get a dialogue that lets you select an existing branch or create a new one.
 
 ![The list of branches](images/branches-dropdown-expanded.png)
 
@@ -56,7 +56,7 @@ Give your branch a nice, descriptive name, unlike the one in this screenshot and
 
 ![Creating a branch](images/making-a-branch.png)
 
-This will not only create the branch for you, but it will also select it so that your changes will be committed to that branch, instead of the main one. Now, you can make a bunch of changes and they'll all be collected together. When the system builds previews for you, it'll know that you made the on a branch and it will build a version of the site that takes your branch's changes into account even.
+This will not only create the branch for you, but it will also select it so that your changes will be committed to that branch, instead of the main one. Now, you can make a bunch of changes and they'll all be collected together. When the system builds previews for you, it'll know that you made them on a branch and it will build a version of the site that takes your branch's changes into account even.
 
 
 ### Selecting an existing branch
@@ -65,7 +65,7 @@ This is similar to the above. If you're not already there, head to [the main rep
 
 ![The main branch selected on github](images/main-branch.png)
 
-Click that, and you'll get a dialogue that lets you select and existing branch or create a new one.
+Click that, and you'll get a dialogue that lets you select an existing branch or create a new one.
 
 ![The list of branches](images/branches-dropdown-expanded.png)
 
@@ -77,7 +77,7 @@ Start typing the name of a branch you're looking for, and then click it:
 
 There are two "special" branches on the site:
 
-* **main** is the branch that turns into the actual live website at <https://techfarhub.usds.gov>. Generally you can't directly commit changes to main, but instead need to make a branch and have it merge via a pull request into main.
+* **main** is the branch that turns into the actual live website at <https://techfarhub.usds.gov>. Generally, you can't directly commit changes to main, but instead need to make a branch and have it merge via a pull request into main.
 * **gh-pages** is a special, system-created branch that contains the actual HTML of the website. You'll never need to even look at this, but I know USDSers are curious, so you'll probably find it at some point. 
 
 
@@ -105,7 +105,7 @@ Rinse and repeat until you've made all the changes you want.
 
 ## Pull requests
 
-Once you have a branch full of changes you are happy with, you need to get it merged into the main branch so it can become part of the public website. As a measure of quality control, we require that a second person look at your changes before they go live. This way you get feedback and proof-reading of your changes, and we know that at least one of your peers approves what you've written. The way we ensure this is through a **pull request,** also called a PR, which is a system built into github for getting feedback on changes and formally approving or rejecting the changes overall.
+Once you have a branch full of changes you are happy with, you need to get it merged into the main branch so it can become part of the public website. As a measure of quality control, we require that a second person looks at your changes before they go live. This way you get feedback and proof-reading of your changes, and we know that at least one of your peers approves what you've written. The way we ensure this is through a **pull request,** also called a PR, which is a system built into github for getting feedback on changes and formally approving or rejecting the changes overall.
 
 We're not going to exhaustively document how to comment on and interact with pull requests, since [github has good documentation about their pull request system](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) already. However, we will cover the basics here.
 
@@ -137,7 +137,7 @@ We're not going to exhaustively document how to comment on and interact with pul
 Hopefully if you're reviewing a pull request, someone sent you a link. If not though, you can find them easily.
 
 
-1. Just like creating a new pull request, at the top of the repo in github, there's a bar of links --- click the one that says _Pull reqeusts_
+1. Just like creating a new pull request, at the top of the repo in github, there's a bar of links --- click the one that says _Pull requests_
 
     ![Main toolbar on a repo](images/main-tabs.png)
 
@@ -198,7 +198,7 @@ This will bring you to the build status page. In the box "annotations," you'll s
 
 ![The build status page](images/build-status-page.png)
 
-This will bring you to a big long error message. In there though should be the URL of the page that failed to build, and _maybe_ (although probably not) something useful about what went wrong. 
+This will bring you to a big, long error message. In there should be the URL of the page that failed to build, and _maybe_ (although probably not) something useful about what went wrong. 
 
 ![The build error log](images/build-log.png)
 
