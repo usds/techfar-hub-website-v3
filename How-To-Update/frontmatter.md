@@ -54,7 +54,7 @@ If there are multiple folders, they are incorporated into the URL. For the [VA d
 
 ### Index pages
 
-You might now be wondering, "cool, I see how the folders end up in the URLs, but how do I get a page with the URL `https://techfarhub.usds.gov/resources/case-studies/` since that's a folder, not a markdown file? The answer is you create a markdown file in that folder called `index.mdx` and give it the slug `slug: index`. That tells the system "this is the content for the page with the name of this folder." If that's strange to you, blame early web developers for the convention.
+You might now be wondering, "cool, I see how the folders end up in the URLs, but how do I get a page with the URL `https://techfarhub.usds.gov/resources/case-studies/` since that's a folder, not a markdown file? The answer is you create a markdown file in that folder called `index.mdx` and give it the slug `slug: index`. That tells the system "This is the content for the page with the name of this folder." If that's strange to you, blame early web developers for the convention.
 
 
 ## `nav_weight`
