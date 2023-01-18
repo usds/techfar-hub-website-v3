@@ -1,6 +1,6 @@
 # Overall Site Structure
 
-TechFAR Hub version 3 uses folders to create URLs, local navigation, breadcrumbs, and the overall conceptual structure of the site. _However,_ the conceptual structure of the site doesn't perfectly match the folder structure. That's probably confusing, so read on and it might get more clear.
+TechFAR Hub version 3 uses folders to create URLs, local navigation, breadcrumbs, and the overall conceptual structure of the site. _However,_ the conceptual structure of the site doesn't perfectly match the folder structure. That's probably confusing, so read on and it might get clearer.
 
 You can think of the site as having four "areas":
 
