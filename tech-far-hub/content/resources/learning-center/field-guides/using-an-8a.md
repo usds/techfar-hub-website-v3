@@ -5,8 +5,6 @@ nav_weight: 40
 promo_description: The use of SBA’s 8(a) program can reduce pressure on agencies to use digital services by shortening procurement lead times, ease competition requirements, and provide coaching around new implementation methods.
 ---
 
-# How to use an 8(a) company for your digital service needs
-
 _8(a) DIGITAL SERVICE INITIATIVE FOR SBA 8(a) AWARDS_
 _V.1 Dec. 2016_
 

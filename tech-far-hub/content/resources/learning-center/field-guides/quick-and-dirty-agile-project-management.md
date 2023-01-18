@@ -5,8 +5,6 @@ nav_weight: 20
 promo_description: This summary provides information on the key tenants of agile project management and explains how it can be used to manage digital services projects.
 ---
 
-# Quick and Dirty Guide to Agile Project Management
-
 This summary provides information on the key tenants of agile project managment and explains how it can be used to manage digital services projects.
 
 <a class="usa-button" target="_blank" href="/assets/files/Quick%20and%20Dirty%20Skinny%20on%20Agile%20Software%20Development-I2.pdf">Download PDF</a>
