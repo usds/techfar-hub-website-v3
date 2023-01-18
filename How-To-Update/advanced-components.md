@@ -16,7 +16,7 @@ Because components require more care to use than the rest of the markdown, we've
 </ComponentName>
 ```
 
-The thing to notice in the above are the "tags", which start with `<` and end with `>`. Each component starts with an "opening tag," like `<ComponentName>` and terminated with a "closing tag," which is the component name prefixed by a forward slash: `</ComponentName>`. This tells the site where the component starts and stops --- you can think of them as fancy parentheses in a sentence.
+The thing to notice in the above are the "tags", which start with `<` and end with `>`. Each component starts with an "opening tag," like `<ComponentName>` and terminate with a "closing tag," which is the component name prefixed by a forward slash: `</ComponentName>`. This tells the site where the component starts and stops --- you can think of them as fancy parentheses in a sentence.
 
 We have the following custom components, listed in order of likelihood you'll want to use them:
 
@@ -29,7 +29,7 @@ We have the following custom components, listed in order of likelihood you'll wa
 
 ## Summary
 
-The _Summary_ component allows you to, well, summarize the main topics of a page at the top. This makes it easier for visitors to digest long pages. 
+The _Summary_ component allows you to summarize the main topics of a page at the top. This makes it easier for visitors to digest long pages. 
 
 The majority of pages have a `<Summary></Summary>` section at the top. Summaries look like this:
 
@@ -95,15 +95,15 @@ A process list contains an ordered list. The list items are the headings, and th
     3. [Evaluation](/evaluation/), 
     4. [Contract Administration](/contract-administration/). 
     
-    Within each stage, you’ll find relevant guidance, tools, and templates to help you succeed. [Link to Acq Lifecycle Landing Page]
+    Within each stage, you’ll find relevant guidance, tools, and templates to help you succeed.
 
 2. Browse Tools, Templates, and Samples
 
-    Looking for inspiration? Imitation is the sincerest form of flattery, which is why we’re collecting a repository of useful tools, templates and samples proven to be successful in the public sector. Jump directly to this page and see what’s in our library, and find out how you can contribute your own. [Link to this Resources subpage]
+    Looking for inspiration? Imitation is the sincerest form of flattery, which is why we’re collecting a repository of useful tools, templates and samples proven to be successful in the public sector. Jump directly to this page and see what’s in our library, and find out how you can contribute your own.
 
 3. Review Our Case Studies
 
-    Case studies are a great way to learn from the success of others. We’re adding new case studies often, in collaboration with smart professionals all over the government. Do you have a case study or situation you think would make a great case study? We’d love to consider it for inclusion in the TechFAR Hub! You may even get some swag out of it. [Link to this Resources subpage]
+    Case studies are a great way to learn from the success of others. We’re adding new case studies often, in collaboration with smart professionals all over the government. Do you have a case study or situation you think would make a great case study? We’d love to consider it for inclusion in the TechFAR Hub! You may even get some swag out of it.
 </ProcessList>
 ```
 
@@ -140,7 +140,7 @@ The markdown is very similar to the [_ProcessList_](#processlist) --- the core i
 ```
 
 
-## Assessment and AssessmentScore
+## Assessment and Assessment Score
 
 The `<Assessment></Assessment>` component allows you to build a scored quiz/assessment to help visitors assess something they're working on. This is the most involved component, but it follows the same form as the others --- if you can make a process list, you can make a new assessment.
 
@@ -181,13 +181,13 @@ Like most of the above custom components, assessments and assessment scores are 
 <AssessmentScore>
 1. Novice (9 - 18 total points)
 
-    Lack of structure or practice of the attributes; relies on tried and true methods such as waterfall;  management and practitioners are interested in change but not yet executing on adopting the cultural and technical changes necessary
+    Lack of structure or practice of the attributes; relies on tried and true methods such as waterfall; management and practitioners are interested in change but not yet executing on adopting the cultural and technical changes necessary
 
-2. Intermediate  (19 - 36 total points)
+2. Intermediate (19 - 36 total points)
 
     Begins implementing changes to governance and culture to adopt of model attributes as repeatable processes; starting to qualitatively track metrics and apply lessons learned
 
-3. Expert  (37 - 45 total points)
+3. Expert (37 - 45 total points)
 
     Embodies the model attributes, continually refining and optimizing team efforts; proactively building & investing in continuous delivery with end users
 
@@ -235,7 +235,7 @@ So, a given score range looks like:
 
 1. Novice (9 - 18 total points)
 
-    Lack of structure or practice of the attributes; relies on tried and true methods such as waterfall;  management and practitioners are interested in change but not yet executing on adopting the cultural and technical changes necessary
+    Lack of structure or practice of the attributes; relies on tried and true methods such as waterfall; management and practitioners are interested in change but not yet executing on adopting the cultural and technical changes necessary
 ```
 
 You can then have whatever text you want under the scores, and you can have as many ranges as you want. It's up to you to ensure they don't overlap --- if they do overlap, the behavior may not be what you want.
