@@ -65,18 +65,10 @@ export const Hyperlink = (props: React.HTMLProps<HTMLAnchorElement>): JSX.Elemen
     if (href.isAbsolute) {
       return <a {...props}>{children}</a>;
     } else {
-      if (href.isDownload) {
-        if (process.env.DEPLOY_PREFIX && !href.authoritative.includes(process.env.DEPLOY_PREFIX)) {
-          props = { ...props, href: withPrefix(href.authoritative) };
-        }
-        return <a {...props}>{children}</a>;
-      } else {
-        return (
-          <Link to={href.authoritative} className={props.className}>
-            {children}
-          </Link>
-        );
+      if (process.env.DEPLOY_PREFIX && !href.authoritative.includes(process.env.DEPLOY_PREFIX)) {
+        props = { ...props, href: withPrefix(href.authoritative) };
       }
+      return <a {...props}>{children}</a>;
     }
   }
   // Looks like it was an old-school anchor
