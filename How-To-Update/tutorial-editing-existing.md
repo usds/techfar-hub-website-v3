@@ -8,7 +8,7 @@ To make a branch, head to [the main repository](https://github.com/usds/techfar-
 
 ![The main branch selected on github](images/main-branch.png)
 
-Click that, and you'll get a dialogue that lets you select and existing branch or create a new one.
+Click that, and you'll get a dialogue that lets you select an existing branch or create a new one.
 
 ![The list of branches](images/branches-dropdown-expanded.png)
 
@@ -23,10 +23,10 @@ This will not only create the branch for you, but it will also select it so that
 1. Navigate to the file you want. You can either click through the web interface (clicking `tech-far-hub` -> `content` -> _the directory you want_ -> _the file you want_) or, if you want to feel like a hacker, hit the `t` key on your keyboard to bring up a file search.
 
     ![File search UI](images/file-search.png)
-3. You'll see a cool preview of the file, along with some data about who last edited it when. The key thing to notice is the little pencil icon above the file content. Click it.
+2. You'll see a cool preview of the file, along with some data about who last edited it and when. The key thing to notice is the little pencil icon above the file content. Click it.
 
     ![The github edit icon](images/pencil-icon.png)
-4. Congrats! You're in a very simple text editor! You can now edit the text content with your wisdom and use [markdown](basic-markdown.md) and our [components](advanced-components.md) to make it engaging.
+3. Congrats! You're in a very simple text editor! You can now edit the text content with your wisdom and use [markdown](basic-markdown.md) and our [components](advanced-components.md) to make it engaging.
 
     ![The text editor interface](images/editor-interface.png)
 
