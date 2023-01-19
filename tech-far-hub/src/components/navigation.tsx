@@ -92,7 +92,7 @@ const Navigation = ({ isNavExpanded, onNavExpanded, pagePath }: INavigation) => 
         <Search
           onSubmit={(event) => {
             event.preventDefault();
-            const baseUrl = `https://search.usa.gov/search?affiliate=techfar-hub&commit=Search&query=`;
+            const baseUrl = `https://search.usa.gov/search?affiliate=techfar-hub_usds&commit=Search&query=`;
             const query = encodeURIComponent(window.document.getElementById("search-field")?.value);
             window.location.href = `${baseUrl}${query}`;
           }}
