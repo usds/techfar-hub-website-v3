@@ -80,29 +80,3 @@ i. Preparing the contracts – contract clauses (FAR 19.811-3)
 
 4. Send the memo, dated December 20, 2016 to your agency’s Office of Small and Disadvantaged Business Utilization (OSDBU) office. The OSDBU should also receive the RFP, or other associated solicitation or contract documents, with at least one of the three SOO’s incorporated. This ensures that the OSDBU is aware of your award’s connection to the memo.
 5. At the completion of the contract, agencies can keep any follow-on work within the 8(a) program or switch to another contracting method or vehicle without getting SBA approval for removal from the program.
-
----
-
-## Glossary
-
-The following is a glossary of terms included in this initiative:
-
-### Agile Software Development
-
-Agile software development is a method of software development that utilizes an iterative development process, designs services based on real user needs, and constantly improves software from user feedback.
-
-### Demonstration
-
-A demonstration is an early sample, model, or release of a product built to test a concept or process or to act as a thing to be replicated or learned from. It is a term used in a variety of contexts, including semantics, design, electronics, and software programming.
-
-### Digital Minimum Viable Product (MVP)
-
-In product development, the digital minimum viable product (MVP) contains just enough core functions of the system to be able to get validated learning from users about the system as to whether or not it is a successful first start to a solution to the problems they face. Features that may be useful, but not essential, are not considered until the MVP is delivered.
-
-### Statement of Objectives (SOO)
-
-As opposed to a Statement of Work, which is highly descriptive about how work should be conducted, a Statement of Objectives identifies the broad, basic, top-level objectives of an acquisition/procurement and is used as a focusing tool for both the Government and offeror. As agile and UX is an objective based process, the use of performance-based contracting methods aligns well.
-
-### User Experience (UX)
-
-User Experience helps understand the different ways people will interact with services, including the actions they take online, through a mobile application, on a phone, or in person. Every encounter — whether it’s online or offline — should move the user closer towards their goal.
