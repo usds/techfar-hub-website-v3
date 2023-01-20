@@ -56,7 +56,11 @@ const DefaultPageTemplate: React.FC<DefaultPageProps> = ({ data, children, pageC
                         </Link>
                       )}
                       {frontmatter.link && (
-                        <Hyperlink href={frontmatter.link} className="usa-button">
+                        <Hyperlink
+                          href={frontmatter.link}
+                          className="usa-button"
+                          aria-label={`Read more about ${frontmatter.heading}`}
+                        >
                           Read More
                         </Hyperlink>
                       )}

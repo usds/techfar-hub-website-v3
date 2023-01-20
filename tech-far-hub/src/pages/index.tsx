@@ -25,6 +25,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePagePromosQuery>> = ({
           destination={node.frontmatter.link}
           media={node.frontmatter.media_image}
           media_alt={node.frontmatter.media_alt_text || "An image"}
+          key={node.frontmatter.link}
         >
           <div dangerouslySetInnerHTML={{ __html: node.html }} />
         </Initiative>
@@ -67,7 +68,7 @@ const IndexPage: React.FC<PageProps<Queries.HomePagePromosQuery>> = ({
       <Grid row>
         <Grid col="fill" className="tfh-hp-initiatives">
           <h2>Initiatives</h2>
-          {initiatives}
+          <ul>{initiatives}</ul>
         </Grid>
       </Grid>
     </SiteLayout>
@@ -82,7 +83,7 @@ export const Head: HeadFC = () => (
     <meta name="title" content="The USDS TechFAR Hub | Public Sector Agile Software Development" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charSet="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
   </>
 );
 

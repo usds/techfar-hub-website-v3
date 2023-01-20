@@ -21,11 +21,9 @@ export const Initiative = ({ children, heading, media, media_alt, destination }:
       </CardHeader>
       <CardMedia exdent>{image && <GatsbyImage image={image} alt="A stock image" />}</CardMedia>
       <div className="tfh-initiativeCard-internal">
-        <CardBody>
-          <p>{children}</p>
-        </CardBody>
+        <CardBody>{children}</CardBody>
         <CardFooter>
-          <Link to={destination} className="usa-button">
+          <Link to={destination} className="usa-button" aria-label={`View ${heading}`}>
             View
           </Link>
         </CardFooter>

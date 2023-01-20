@@ -25,7 +25,7 @@ const ResourceCard = ({ node, width = 3 }: { node: IResourceNode; width?: Column
         </CardHeader>
         <CardBody dangerouslySetInnerHTML={{ __html: node.html }}></CardBody>
         <CardFooter>
-          <Link to={node.frontmatter.link} className="usa-button">
+          <Link to={node.frontmatter.link} className="usa-button" aria-label={`View ${node.frontmatter.heading}`}>
             View
           </Link>
         </CardFooter>
