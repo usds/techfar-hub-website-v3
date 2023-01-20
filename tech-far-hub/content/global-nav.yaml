@@ -99,12 +99,12 @@ footerNavigation:
     - link: /resources/contract-solutions-vehicles/
       heading: Contract Solutions and Vehicles
   column3: 
+    - link: https://www.usds.gov/apply
+      heading: Apply to USDS
     - link: https://www.acquisition.gov/
       heading: Acquisition.gov
     - link: https://www.fai.gov/periodic-table
       heading: FAR Periodic Table
-    - link: https://www.usds.gov/apply
-      heading: Apply to USDS
     - link: /resources/learning-center/history-of-tfh
       heading: History of TFH
     - link: https://github.com/usds/techfar-hub-website-v3
