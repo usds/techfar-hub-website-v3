@@ -1,6 +1,6 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { CardGroup, Card, CardHeader, CardBody, CardFooter } from "@trussworks/react-uswds";
+import { useStaticQuery, graphql } from "gatsby";
+import { CardGroup } from "@trussworks/react-uswds";
 import ResourceCard from "./resouces-card";
 const Resources = () => {
   const data: Queries.ResourcePromosQuery = useStaticQuery(graphql`
