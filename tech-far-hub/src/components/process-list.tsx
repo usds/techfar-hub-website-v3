@@ -21,18 +21,18 @@ const processList = (children: React.ReactElement) => {
   }
   return (
     <TWProcessList>
-      {items.map((li: React.ReactElement) => {
+      {items.map((li: React.ReactElement, idx: number) => {
         if (typeof li.props.children === "string") {
           return (
-            <ProcessListItem>
-              <ProcessListHeading type="h4">{li.props.children}</ProcessListHeading>
+            <ProcessListItem key={`process-list-item-${idx}`}>
+              <ProcessListHeading type="h4" key={`process-list-heading-${idx}`}>{li.props.children}</ProcessListHeading>
             </ProcessListItem>
           );
         } else {
           const filteredChildren = li.props.children.filter(elementFilter);
           return (
-            <ProcessListItem>
-              <ProcessListHeading type="h4">{filteredChildren[0].props.children}</ProcessListHeading>
+            <ProcessListItem key={`process-list-item-${idx}`}>
+              <ProcessListHeading type="h4" key={`process-list-heading-${idx}`}>{filteredChildren[0].props.children}</ProcessListHeading>
               {filteredChildren.length > 1 && filteredChildren.slice(1)}
             </ProcessListItem>
           );

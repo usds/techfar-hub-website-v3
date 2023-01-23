@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Alert, Card, CardBody } from "@trussworks/react-uswds";
+import { Alert, Card, CardBody, CardGroup } from "@trussworks/react-uswds";
 
 export const MultiStep = ({ children }: { children: React.ReactElement }) => {
   const errorMessage = (
@@ -41,27 +41,38 @@ export const MultiStep = ({ children }: { children: React.ReactElement }) => {
           className={`usa-step-indicator__segment ${
             isVisible[index] ? "usa-step-indicator__segment--current" : "usa-step-indicator__segment--complete"
           }`}
+          key={`multistep-heading-${index}`}
           onClick={() => handleClick(index)}
         >
-          <div className="usa-step-indicator__segment-label">{filteredChildren[0]}</div>
+          <div className="usa-step-indicator__segment-label" key={`multistep-indicator-${index}`}>
+            {filteredChildren[0]}
+          </div>
         </li>
       );
       bodies.push(
-        <>{isVisible[index] && <div className="tfh-multistep__content-item">{filteredChildren.slice(1)}</div>}</>
+        <>
+          {isVisible[index] && (
+            <div key={`multistep-body-${index}`} className="tfh-multistep__content-item">
+              {filteredChildren.slice(1)}
+            </div>
+          )}
+        </>
       );
     }
   });
 
   return (
-    <Card>
-      <CardBody>
-        <div className="tfh-multistep">
-          <div className="usa-step-indicator" aria-label="progress">
-            <ol className="usa-step-indicator__segments">{headings}</ol>
+    <CardGroup>
+      <Card key="tfh-multistep-wrapper">
+        <CardBody>
+          <div className="tfh-multistep">
+            <div className="usa-step-indicator" aria-label="progress">
+              <ol className="usa-step-indicator__segments">{headings}</ol>
+            </div>
+            <div className="tfh-multipstep__content-block">{bodies}</div>
           </div>
-          <div className="tfh-multipstep__content-block">{bodies}</div>
-        </div>
-      </CardBody>
-    </Card>
+        </CardBody>
+      </Card>
+    </CardGroup>
   );
 };
