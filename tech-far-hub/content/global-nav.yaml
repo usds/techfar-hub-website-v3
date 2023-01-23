@@ -71,7 +71,9 @@ mainGlobalNavigation:
         link: /resources/policy-guidance/
       - heading: Contract Solutions and Vehicles
         link: /resources/contract-solutions-vehicles/
-secondaryGlobalNavigation: []
+secondaryGlobalNavigation: 
+  - heading: Contribute
+    link: /how-to-contribute/
 footerNavigation:
   facebookLink: "https://www.facebook.com/unitedstatesdigitalservice" 
   twitterLink: "https://twitter.com/USDS" 
