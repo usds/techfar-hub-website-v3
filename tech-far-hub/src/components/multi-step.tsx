@@ -46,19 +46,38 @@ export const MultiStep = ({ children }: { children: React.ReactElement }) => {
           key={`multistep-${multiStepId}-heading-${index}`}
         >
           <div className="usa-step-indicator__segment-label" key={`multistep-${multiStepId}--indicator-${index}`}>
-            {!isVisible[index]  && <a
-              key={`multistep-${multiStepId}-heading-control-${index}`} 
-              href="#" 
-              onClick={(event) => {
-              handleClick(index);
-              event.preventDefault();
-            }}> {filteredChildren[0]}</a>}
-            {isVisible[index] && filteredChildren[0]} 
+            {!isVisible[index] && (
+              <a
+                key={`multistep-${multiStepId}-heading-control-${index}`}
+                href="#"
+                aria-selected={!!isVisible[index]}
+                role="tab"
+                tabIndex={isVisible[index] ? -1 : 0}
+                id={`multistep-${multiStepId}-heading-${index}`}
+                onClick={(event) => {
+                  handleClick(index);
+                  event.preventDefault();
+                }}
+              >
+                {filteredChildren[0]}
+              </a>
+            )}
+          
+            {isVisible[index] && (<div
+                aria-selected={!!isVisible[index]}
+                role="tab"
+                tabIndex={isVisible[index] ? -1 : 0}
+                id={`multistep-${multiStepId}-heading-${index}`}>{filteredChildren[0]}</div>)}
           </div>
         </li>
       );
       bodies.push(
-        <div key={`multistep-${multiStepId}-body-wrapper-${index}`}>
+        <div
+          key={`multistep-${multiStepId}-body-wrapper-${index}`}
+          role="tabpanel"
+          aria-labelledby={`multistep-${multiStepId}-heading-${index}`}
+          tabIndex={0}
+        >
           {isVisible[index] && (
             <div key={`multistep-${multiStepId}-body-${index}`} className="tfh-multistep__content-item">
               {filteredChildren.slice(1)}
@@ -70,8 +89,8 @@ export const MultiStep = ({ children }: { children: React.ReactElement }) => {
   });
 
   return (
-    <CardGroup>
-      <Card key={`tfh-multistep-${multiStepId}-wrapper`}>
+    <CardGroup className="tfh-multistep-container">
+      <Card key={`tfh-multistep-${multiStepId}-wrapper`} role="tablist">
         <CardBody>
           <div className="tfh-multistep" key={`tfh-multistep-${multiStepId}`}>
             <div
