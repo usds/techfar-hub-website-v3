@@ -209,6 +209,11 @@ em.tfh-tagline {
   cursor: pointer;
 }
 
+.tfh-multistep .usa-step-indicator__segment a {
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+}
 .tfh-next-link {
   text-align: left;
   display: block;
