@@ -76,7 +76,6 @@ export const MultiStep = ({ children }: { children: React.ReactElement }) => {
           key={`multistep-${multiStepId}-body-wrapper-${index}`}
           role="tabpanel"
           aria-labelledby={`multistep-${multiStepId}-heading-${index}`}
-          tabIndex={0}
         >
           {isVisible[index] && (
             <div key={`multistep-${multiStepId}-body-${index}`} className="tfh-multistep__content-item">
