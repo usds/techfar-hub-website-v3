@@ -205,8 +205,12 @@ em.tfh-tagline {
   }
 }
 
+#touchpoints-contact #answer_01 {
+  min-height: 5rem;
+}
+
 .tfh-multistep-container {
-  margin: 1rem .25rem;
+  margin: 1rem 0.25rem;
 }
 .tfh-multistep .usa-step-indicator__segment--complete {
   cursor: pointer;
