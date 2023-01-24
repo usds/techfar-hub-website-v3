@@ -7,7 +7,7 @@ const ContactPage: React.FC = () => {
     <SiteLayout pagePath="/contact">
       <h1>Contact the TechFAR Hub Team at USDS</h1>
       <div id="touchpoints-contact"></div>
-      <script src="https://touchpoints.app.cloud.gov/touchpoints/fbdc7110.js" async></script>
+      <script src="https://touchpoints.app.cloud.gov/touchpoints/fbdc7110.js"></script>
     </SiteLayout>
   );
 };
