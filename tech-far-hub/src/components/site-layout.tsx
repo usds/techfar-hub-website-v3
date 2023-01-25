@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ReactNode } from "react";
-import { Link, withPrefix } from "gatsby";
+import { Link, withPrefix, Script } from "gatsby";
 import "./tfh.scss";
 
 import { GovBanner, GridContainer, Grid, Header, Title, NavMenuButton } from "@trussworks/react-uswds";
@@ -66,7 +66,7 @@ const SiteLayout = ({ children, pagePath, breadCrumbs, className }: ILayoutProps
         src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=Executive%20Office%20of%20the%20President&subagency=USDS"
         id="_fed_an_ua_tag"
       ></script>
-      <script src="https://touchpoints.app.cloud.gov/touchpoints/e93bb39d.js"></script>
+      <Script src="https://touchpoints.app.cloud.gov/touchpoints/e93bb39d.js"></Script>
     </>
   );
 };

@@ -71,12 +71,14 @@ mainGlobalNavigation:
         link: /resources/policy-guidance/
       - heading: Contract Solutions and Vehicles
         link: /resources/contract-solutions-vehicles/
-secondaryGlobalNavigation: []
+secondaryGlobalNavigation:
+  - heading: contact us
+    link: /contact
 footerNavigation:
-  facebookLink: "https://www.facebook.com/unitedstatesdigitalservice" 
-  twitterLink: "https://twitter.com/USDS" 
-  instagramLink: "https://www.instagram.com/usdigitalservice" 
-  column1: 
+  facebookLink: "https://www.facebook.com/unitedstatesdigitalservice"
+  twitterLink: "https://twitter.com/USDS"
+  instagramLink: "https://www.instagram.com/usdigitalservice"
+  column1:
     - heading: Get Started
       link: /get-started/
     - heading: Pre-Solicitation
@@ -87,7 +89,7 @@ footerNavigation:
       link: /evaluation/
     - heading: Contract Administration
       link: /contract-administration/
-  column2: 
+  column2:
     - link: /resources/learning-center/
       heading: Learning Center
     - link: /resources/case-studies/
@@ -98,7 +100,7 @@ footerNavigation:
       heading: Policy and Guidance
     - link: /resources/contract-solutions-vehicles/
       heading: Contract Solutions and Vehicles
-  column3: 
+  column3:
     - link: https://www.usds.gov/apply
       heading: Apply to USDS
     - link: https://www.acquisition.gov/
