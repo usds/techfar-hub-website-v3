@@ -54,8 +54,8 @@ const TagPageTemplate: React.FC<PageProps<Queries.TagPageQueryQuery, ITagPageCon
 
 export default TagPageTemplate;
 export const query = graphql`
-  query TagPageQuery {
-    pages: allMdx(filter: { frontmatter: { tags: { eq: "risk" } } }) {
+  query TagPageQuery($tag: String) {
+    pages: allMdx(filter: { frontmatter: { tags: { eq: $tag } } }) {
       nodes {
         frontmatter {
           slug
