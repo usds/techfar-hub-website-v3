@@ -74,7 +74,7 @@ mainGlobalNavigation:
 secondaryGlobalNavigation:
   - heading: contact us
     link: /contact
-  - heading: Contribute
+  - heading: contribute
     link: /how-to-contribute/
 footerNavigation:
   facebookLink: "https://www.facebook.com/unitedstatesdigitalservice"
