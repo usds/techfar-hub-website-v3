@@ -74,7 +74,6 @@ mainGlobalNavigation:
 secondaryGlobalNavigation:
   - heading: contact us
     link: /contact
-secondaryGlobalNavigation: 
   - heading: Contribute
     link: /how-to-contribute/
 footerNavigation:
