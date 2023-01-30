@@ -61,16 +61,16 @@ mainGlobalNavigation:
   - heading: Resources
     link: /resources/
     children:
-      - heading: Learning Center
-        link: /resources/learning-center/
       - heading: Case Studies
         link: /resources/case-studies/
-      - heading: Templates and Samples
-        link: /resources/templates-samples/
-      - heading: Policy and Guidance
-        link: /resources/policy-guidance/
       - heading: Contract Solutions and Vehicles
         link: /resources/contract-solutions-vehicles/
+      - heading: Learning Center
+        link: /resources/learning-center/
+      - heading: Policy and Guidance
+        link: /resources/policy-guidance/
+      - heading: Templates and Samples
+        link: /resources/templates-samples/
 secondaryGlobalNavigation:
   - heading: contact us
     link: /contact
