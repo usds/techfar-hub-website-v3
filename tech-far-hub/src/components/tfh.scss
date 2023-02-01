@@ -272,6 +272,20 @@ li.usa-card {
     margin-top: 0.5rem;
   }
 }
+@include at-media-max("tablet-lg") {
+  .usa-navbar {
+    padding-top: 20px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    border-bottom: none;
+  }
+  .usa-footer {
+    .tablet\:grid-col-2,
+    .tablet\:grid-col-3 {
+      width: 100%;
+    }
+  }
+}
 
 @include at-media("tablet") {
   table {
