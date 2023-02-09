@@ -271,8 +271,11 @@ li.usa-card {
     height: 100%;
     margin-top: 0.5rem;
   }
+  .footer-logo {
+    display: inherit;
+  }
 }
-@include at-media-max("tablet-lg") {
+@include at-media-max("desktop") {
   .usa-navbar {
     padding-top: 20px;
     margin-top: 2px;
@@ -283,6 +286,9 @@ li.usa-card {
     .tablet\:grid-col-2,
     .tablet\:grid-col-3 {
       width: 100%;
+    }
+    .footer-logo {
+      display: none;
     }
   }
 }
@@ -297,6 +303,7 @@ li.usa-card {
   .tfh-hp-initiatives .usa-card__container {
     min-height: 210px;
   }
+
   .tfh-initiativeCard-internal {
     display: flex;
     flex-direction: row;
