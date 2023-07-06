@@ -71,6 +71,8 @@ mainGlobalNavigation:
         link: /resources/policy-guidance/
       - heading: Templates and Samples
         link: /resources/templates-samples/
+      - heading: Tools
+        link: /resources/tools/
 secondaryGlobalNavigation:
   - heading: contact us
     link: /contact
