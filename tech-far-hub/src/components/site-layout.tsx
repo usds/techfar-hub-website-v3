@@ -30,7 +30,7 @@ const SiteLayout = ({ children, pagePath, breadCrumbs, className }: ILayoutProps
             <em className="tfh-tagline">
               <img
                 className="tfh-tagline-logo"
-                src={withPrefix("/images/usds-logo-footer.svg")}
+                src={withPrefix("/images/usds-logo-footer_no-text.svg")}
                 alt="United States DOGE Service"
               />
               <span>U.S. DOGE SERVICE</span>
