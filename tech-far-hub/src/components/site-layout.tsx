@@ -31,9 +31,9 @@ const SiteLayout = ({ children, pagePath, breadCrumbs, className }: ILayoutProps
               <img
                 className="tfh-tagline-logo"
                 src={withPrefix("/images/usds-logo-footer.svg")}
-                alt="United States Digital Service"
+                alt="United States DOGE Service"
               />
-              <span>U.S. DIGITAL SERVICE</span>
+              <span>U.S. DOGE SERVICE</span>
             </em>
           </Title>
           <NavMenuButton onClick={onNavExpand} label="Menu" />
