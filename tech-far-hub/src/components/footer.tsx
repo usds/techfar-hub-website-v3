@@ -29,9 +29,9 @@ const Footer = () => {
             <Grid row gap={6}>
               <Grid tablet={{ col: 3 }} className="footer-logo">
                 <Grid row>
-                  <img src={withPrefix("/images/usds-logo-footer.svg")} alt="United States Digital Service" />
+                  <img src={withPrefix("/images/usds-logo-footer_no-text.svg")} alt="United States DOGE Service" />
                 </Grid>
-                <Grid row>U.S. Digital Service</Grid>
+                <Grid row>U.S. DOGE Service</Grid>
               </Grid>
               <Grid tablet={{ col: 2 }}>
                 <FooterNav aria-label="Footer navigation" size="big" links={colLinks[0]} />
